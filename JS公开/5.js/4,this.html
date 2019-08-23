@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+</body>
+</html>
+<script>
+/* this 是函数中的另一个关键字；指的是函数的执行主体
+具体函数中的this指的是谁  我们现在记住时间绑定函数中的this是指的当前元素 */
+//给6哥按钮 循环绑定事件；
+//使用for循环怎么实现？？
+var btns=document.getElementsByTagName('button')
+for(var i=0; i<btns.length; i++){
+    btns[i].myindex=i;//把i 赋给当前元素的myindex属性
+    btns[i].onclick =function(){
+        //通过this.myindex //我们可以知道当前点击的这个元素的索引
+        //因为在for循环时，我们把对应的索引存储到了myindex这个属性上
+        console.log(this)
+        alert(this.myindex+1)
+    }
+}
+
+
+//第二种方式，利用元素自身去存储之前的背景色；
+ 
+
+</script>

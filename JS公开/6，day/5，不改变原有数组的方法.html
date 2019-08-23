@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     /* 
+     tostring() 返回值是 把数组中的项勇逗号拼接成字符串，不会改变原有的数组
+      */
+ var ary=[1,2];
+ console.log(ary.toString(),ary)
+ console.log(Number([ary]))
+
+/* 
+ 返回值是把数组中的项已指定字符（实参）拼接成字符串
+ary.join()  不传参数的失火，就是跟tostring功能一样
+ ary .join('+') */
+var ary=[1,2,3];
+var res=ary.join("")
+console.log(res)
+
+//eval是把字符串转成对应的表达式
+var t=eval(ary.join("+"));//数组求和
+console.log(t)
+
+/* 
+   数组的合并
+   concat
+   ary.concat(66)把66跟ary合并形成的新数组
+   ary.concat([66])//返回值是把参数组中的项跟ary中的项合并成一个新数组
+
+*/
+var ary=[1,2,3]
+var res=ary.concat(666)
+var res2=ary.concat([10,20,30])
+var res3=ary.concat([10,20],666,999,[100,300])
+console.log(ary,res,res2,res3)
+
+/* 
+ 数组的获取
+  slice(n,m)获取数组中从索引n开始(包含索引n这一项)到索引m结束(不包含索引为m的这一项)这些项，返回值是由获取到的这些项组成的新数组；原有数组不发生任何改变
+ */
+ var ary=[1,2,3,4,5,6]
+ var arr=ary.slice(1,4)
+  console.log(arr)//2,3,4
+  //获取数组中第n项到第m项  包含第n项和第m项；  ary.slice(n-1,m)   ary.slice(n-1,m)
+
+  /* 
+    indexof()一般用来查看数组中是否存在某项  返回值若是 -1 则证明不存在；否则就存在
+    lastindexof() 从后边开始查看
+  
+  */
+ var ary=[10,20,30,40]
+ console.log(ary.indexOf(30))//在数组ary中30对应的这个索引
+ console.log(ary.lastIndexOf(30))
+
+ /* 循环数组，或者是迭代数组 
+     for循环
+     map
+     foreach
+     map和foreach的用法一摸一样；值是map有返回值，foreach没有返回值
+     map的返回值首先是个数组，数组中的项是由回调函数的return值，
+ */
+ var ary=[10,20,30,40]
+ var res=ary.map(function(val,ind){
+     console.log(val,ind)//val是数组中的项；ind是对应的索引
+     return 123
+ })
+
+ var res2=ary.forEach(function(val,ind){
+     console.log(val,ind)
+ })
+ console.log(res,res2)
+</script>

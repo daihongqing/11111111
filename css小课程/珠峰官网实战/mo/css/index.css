@@ -1,0 +1,10 @@
+.col{width: 1080px;margin: 0 auto}
+.header{height: 80px;padding: 20px 0;box-sizing: border-box;line-height: 40px}
+.logo{float: left}
+.nav{float: right;}
+.nav li{float: left;}
+
+.nav li a{color: white;padding: 8px 20px;display: block;position: relative}
+.layer{opacity: 0; width: 240px;height: 204px;box-shadow: 0 6px 10px 0 rgba(0, 0, 0,.1);position: absolute ;border-radius: 4px;}
+.layer arrow{border-width: 5px;width: 0;display: block;height: 0;border-style: solid;top: -10px;left: 25px;background: transparent transparent #fff transparent}
+.nav li:hover .layer{opacity: 1}

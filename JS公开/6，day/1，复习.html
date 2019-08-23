@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+      JS  引入和输出（debugger  断点）DOM  getelementsbyclassname   getelementbyid    getelementstagname
+      变量 var  let  const  function   /  class  import
+      变量名  字母——  $开头   驼峰式命名  语义化，不能用关键字保留字
+      数据类型   基本数据类型  值类型   引用数据类型
+               根本区别   值类型是操作值得；引用数据类型是操作地址的，
+               基本数据类型储存在栈内存中，还提供代码的运行环境（栈溢出）
+               引用数据类型储存在堆内存中
+           值类型：string  number  boolean  null  undefined
+           number  整数  小数  nan；
+              number（）把其他数据类型转成数字；从左往右查看，遇到非数字结果就是nan  空数组是0
+              parseint()从左向右碰到非数字即停止转化；第一个就是非数字的话 结果就是nan
+              parsefloat碰到小数点停止转化，
+              四则运算   加   减   乘   除  余
+              先把两边的转成number  转成number之前  先转成了string  再去进行运算
+                  nan和数字运算的结果都是nan；
+                 nan===nan  false
+                  isnan（‘12a')
+                 boolean  true  false ;0 nan   ''  null  undefined
+                 boolean()把其他类型转成布尔
+                 ！取反用的
+           引用数据类型   普通对象  {}  obi={属性名；属性值}
+           获取对象中的，某个属性值的：打点【】   属性值是没有要求的；
+           对象的存储过程   再吨内存中开辟一个空间，把对象中的键值对，一堆一堆的存储到这个空间；然后把地址给对应的变量；
+           判断数据类型
+             typeof
+             object.prototype.tostring.call(xxx)
+             constructor
+             instanceof
+           判断语句  if  else  ；   ？：  ；     switch case
+           ||  或 前边成立给前边，前边不成立给后边
+           &&   且  前边成立给后边，前边不成立给前边
+          循环语句   for  in   ；  for   while
+           for in一般用来循环对象；for (var k in obj ){
+               循环体
+               k 代表每次循环时对应的属性名
+               obj[k]每一个属性名对应的属性值
+               obj[k]=66   重新给对应的属性名赋予属性值，也就是把之前的老属性  给修改了
+           }
+
+           continue  结束当次循环
+           break   打断整个循环
+
+           while(条件){
+               循环体
+           }
+        函数  function 函数名（形参）{函数体}
+        函数名（实参）  arguments   this  return
+        arguments  实参集合   不定项求和
+        this  执行主体  杜宇事件绑定中的this   都是当前操作的dom元素
+        （function（形参）{
+            函数体
+        }）（实参）
+        var obj={
+            fn:function(){}
+        }
+        obj.fn()
+
+      隔行变色；
+      选项卡：思路
+      第一步   先获取要操作的tab(要点击的元素)  body(要对应显示的元素)
+      第二步  循环绑定事件  通过for循环
+      第三步  点击元素，要让当前元素有选中的类名，其他元素清除，还得让对应的body显示出来
+      
+
+    */
+
+</script>

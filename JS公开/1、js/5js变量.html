@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+      <h2 class="zfbox"></h2>
+    <script>
+    //变量
+    //var  变量名 = 变量值;是js中来声明变量的 关键字；这里的等号  代表负值
+    var a =666;//声明一个变量a  赋值为666；
+    console.log(a)
+    a =888;//重新给a这个变量赋了一个新值
+    console.log(a)
+    //变量名   不能以数字开头   可以以数字字母下划线 或$
+    var a1 = 6
+    var _b=7
+    var $box = 9//只要见到￥开头的变量  一般都是JQ的变量
+    
+    //驼峰式命名规范  两个单词之间首字母是大写的
+
+
+    //起变量名的时候尽量语义化
+    var zfbox =document.getElementsByClassName('zfbox')[0]
+    //获取zfbox这个元素  把获取到的元素 赋值给便来给你 zfbox；
+    //那么  zfbox 就代表了  获取到的该元素
+     console.log(zfbox);
+     zfbox.onclick =function(){
+
+        alert(666)
+    }
+    //不能使用关键字（在js中有特使含义的字符）和保留字
+
+    //es6新增的声明变量的关键字 let const（声明变量）
+   //let const 写法跟var一样；
+   //let 声明的变量是不可以重复声明的；使用let变量，先看看是否声明付这个变量名
+
+    let zf1='珠峰培训'
+    console.log(zf1);
+
+    const zf2 =123
+     //从var 到 let 到const 限制是一次增强的
+     //function  class  import
+     var b = 1+2;
+    /* 
+        var（let） 变量名  =  变量值；  赋值 是把 右边的计算结果 赋给左边的变量
+        变量名规则 字母 _ $ 开头即可
+        要求语义化
+        可以遵循驼峰命名规范
+    
+    */
+
+    </script>
+</body>
+</html>

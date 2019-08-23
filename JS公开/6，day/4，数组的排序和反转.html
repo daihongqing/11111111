@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ /* 数组的反转
+    reverse的返回值就是改变后的原数组；改变原有数组 */
+
+var ary=[1,2,3,4,5]
+var res=ary.reverse()
+console.log(ary)
+res[0]=500;
+console.log(ary)
+//封装一个reverse的方法
+function myreverse(arr){
+    var a=[];
+    for(i=0;i<ary.length;i++){
+        var temp=arr[i];
+        a.unshift(temp)
+    }
+   return a;
+}
+
+var ary=[1,2,3,4];
+var res2=myreverse(ary)
+
+//思考题  实现完全等价实现myreverse；返回值就是改变后的原有数组
+
+/* 
+排序
+sort 只能支持10以内的排序 
+ sort(function(a,b){
+    return a-b
+  })升序
+  sort(function(a,b){
+    return b-a;
+})降序
+ sort的返回值是改变后的原有数组*/
+var ary=[6,3,2,5,4,2,342,324235,543,535,,42,4];
+/* var res=ary.sort(function(a,b){
+    return b-a;
+}) */
+//箭头函数
+var res=ary.sort((a,b)=>{return a-b})//回调函数， 别的代码让函数执行了；不是我们自己让函数执行的
+console.log(ary,res);
+
+</script>

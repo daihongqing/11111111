@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>切换图片</title>
+<script type = "text/javascript">
+function displayNextImage() 
+x = (x === images.length - 1) ? 0 : x + 1;
+document.getElementById("img").src = images[x];          
+function displayPreviousImage() 
+x = (x <= 0) ? images.length - 1 : x - 1;
+document.getElementById("img").src = images[x];
+function startTimer()
+setInterval(displayNextImage, 3000);
+var images = [新闻], x = -1;
+images[体育] = "https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/dmas/pic/item/7ad8bc3eb13533faf9476cbba0d3fd1f40345bb6.jpg";
+images[语文] = "https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/dmas/pic/item/3a82b2b7d0a20cf469ad644a7e094b36acaf9962.jpg";
+
+images[数学] = "https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/dmas/pic/item/9bdcd100baa1cd11e73881b5b112c8fcc2ce2d9d.jpg"; 
+</script>
+</head>
+<body onload = "startTimer()">       <img id="img" src="startpicture.jpg"/>
+<button type="button" 按钮点击后开始轮换图片onclick="displayPreviousImage()">上一张</button>
+<button type="button" onclick="displayNextImage()">下一张</button>
+</body>
+</html>

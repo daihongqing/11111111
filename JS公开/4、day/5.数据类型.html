@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp">
+    <button id="btn">按钮</button>
+    <div class="box">
+        <h2>
+            我是<span id="name1">xxx</span>
+        </h2>
+    </div>
+    <script>
+        //基本数据类型   引用数据类型
+        //堆内存  栈内存
+        //基本数据类型存储在栈内存，栈内存还提供了代码的运行环境；
+        //引用数据类型都是存储在堆内存中的；
+        //基本数据类型；number  string  boolean null undefined
+
+        /* 字符串
+        引号抱起来的部分，引号都是成对出现的；
+        反斜杠在字符串中表示转义的意思
+        字符串拼接  +
+        反引号``   若想用字符串拼接可以使用${}
+          优点在反引号中可以直接书写换行 */
+        
+        //innerhtml：是给对应的元素设置内容，他是元素天生自带的一个属性
+        //要求//点击按钮把文本框的内容展示到span中
+        btn.onclick=function(){
+            //获取文本框的内容
+            var val=inp.value
+ //console.log(inp)
+            //把文本框的内容放到 span中
+            name1.innerhtml=val;
+            
+            //使用i标签把val抱起来；也就是给innerhtml  赋予的值应该是<i>val<i>
+                //name1.innerhtml='<i>'+val+'</i>'
+                name1.innerhtml=`<i>${val}</i>`
+        }
+     //*字符串   //length   字符串的个数若想获取字符串中某个字符，我们可一通过对应的索引 去获取
+       
+        
+        {
+            /* 
+            数字  number  整数 小数 NaN
+            number（）规则从左往右只要有非数字，结果就是nan
+                    （若是其他的数据类型  数组  对象  函数）都会先转成tostring
+            parseint  从左向右查看，只要碰到非数字即停止转化，若第一个就是非数字，结果就是NaN
+            PARSEFLOAT 规则同上，只要是碰到小数点不会停止 
+            number('') number([]]) number('null') number('false') =>0
+            
+            能出现nan   强制转化失败    四则运算失败
+            - * / %  的运算规则：把符号两百年先用number转换成数字，再去进行运算；凡是跟nan做运算的数字，结果都是nan*/
+          //  NaN和谁都不相等
+          //   需求 自己写一个类似于isnande 方法  方法
+        }
+        function myisnan(n){
+            var num=(mun)
+        }
+        
+        /* 
+        布尔类型：true false
+        boolean（）
+        0 nan null undefined ' '  至于这五个值转成布尔是false； 其他的都市true 
+         ！1==>false； 先转布尔 再去取反
+        1 == '1'  相对等
+        1！='1'  相对不等
+        1==='1'//绝对等
+        1！=='1' 绝对不等*/
+
+
+        /* null 空指针  通过id获取元素时见过；
+        undefined  未定义，一个对象中没有对应的属性，一个函数执行，不屑return（或者写了后边没有东西） 那么函数的执行结果就是              undefined；形参未赋值时的默认值时，是undefined */
+        </script>
+</body>
+</html>

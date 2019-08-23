@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ /* push   ary.xxx 往数组的末尾添加，
+ 
+ pop  没有参数，删除数组的末尾项
+
+ unshift 向数组的头部添加
+
+shift  删除数组的首相   返回值是删除的那一项
+
+spilce (n,m,x,y,z)  从索引n'开始删除m个  用x,y,z.代替位置；当m为0时，添加元素时在索引n的前边；返回值是有删除元素组成的新数组
+
+reverse()  返回值是改变后的元素组
+  */
+function myreverse(arr){
+    //循环进来的数组arr，把数组中的每一项 通过unshift添加到一个新数组中然后把新数组返回
+    var ary=[];
+    for(var i=0;i<arr.length;i++){
+        ary.unshift(arr[i])
+    }
+    return ary
+}
+var arr1 =[1,2,3,4,5];
+var res=myreverse(arr1);
+console.log(arr1)
+
+var res2=arr1.reverse();
+console.log(res2,arr1)
+
+function myreverse2(arr){
+    //第一项和最后一项换位置，第二项和倒数第二项换位置，以此类推
+    for(var i=0;i<arr.length/2;i++){
+     //arr[0]  arr[arr.lenth-1]
+     //arr[1]
+     var temp=arr[i]
+     arr[i]=arr[arr.length-1-i];
+     arr[arr.lenth-1-i]=temp
+    }
+    return arr;
+}
+ var res= myreverse2(arr1);
+   console.log(res,arr1)
+
+//sort()  arr.sort{function}
+
+//toString把数组中的项，用逗号拼成字符串 
+//join('+')把数组中的项 用指定字符拼接成字符串  eval（arr.join('+'))
+//slice(n,m)获取数组中，第n项到第m项，包含n不包含m；把这些项组成子新数组返回
+//     获取数组中的第n项到第m项，arr.slice(n-1,m-1+1) arr.slice(n-1,m)
+//concat(合并数组)
+//forEach  map:forEach没有返回值；map有返回值；返回值是由毁掉函数的return值 组成的新数组
+
+var  ary = [1,{a:100},[1,2,3],'qqq'];
+    var  arr = ary.slice(0);// 复制数组   浅拷贝
+    var  arr2 = ary.concat([]);// 复制数组
+    console.log(arr,arr2,ary)
+    console.log(arr == ary);// arr arr2  ary 三个不同的地址
+    arr[0] = 100;
+    arr[1].a = 1000;
+    console.log(ary,arr2)
+</script>

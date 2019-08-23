@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>/
+<script>
+  //reverse  改变后的原有数组
+  var ary=[1,2,3,4,5,6]
+  ary.reverse();
+  function myReverse(arr){
+      //第一跟倒数第一
+      //第二跟倒数第二
+      for (var i=0;i<arr.length/2;i++){
+          //前边的项是arr[i]  后边的项时  arr[arr.length-1-i]
+        var temp=arr[i]
+        arr[i]=arr[arr.length-1-i];
+        arr[arr.length-1-i]=temp;
+      }
+      return arr;
+  }
+  console.log(myReverse(ary))
+
+ //sort  返回值改变后的原有数组
+ var ary=[2,3,4,5,2,3,32,,4,54,23,434,2,42,4,32,423,4,32]
+ ary.sort((a,b)=>a-b)//升序
+ ary.sort((a,b)=>b-a)//降序
+</script>

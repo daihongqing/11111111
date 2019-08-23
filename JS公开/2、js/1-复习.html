@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     /* 浏览器渲染界面是从上往下渲染的，所以把script放到上边的时候不会有显示 */
+    //  window.onload = function(){btn.onlick=function(){alert(666)}}
+     //页面加载完成后再执行命令的方法
+
+
+     /* alert（）
+     confirm()是有返回值的 用户点击确定，返回的就是true；用户点击的取消返回的就是false
+     console()
+     console.dir()
+     debugger() 断点 只有打开f12时才能起作用*/
+
+    /* 声明变量st
+    function class import
+    var 变量名=变量值；右边的结果赋给左边；
+    let const 不能重复声明；let声明的变量 值 是可以修改的
+    const 声明的常量，值 是不能修改的 */
+
+    /* 数据类型
+    
+     基本数据类型（值类型）
+     string（字符串）  number（数字） boolean（布尔） null undefined
+      引用数据类型 
+      对象  数组 正则  Date function
+        string   引号包起来的部分
+        字符串拼接是用加号*/
+        var name = 'hello'
+        var age = 10
+        console.log(`${name}的年龄是${age}岁`)//反引号中的变量必须使用${}  反引号中是可以直接写换行的
+
+        /* number 整数  小数  NaN
+        number（)从左往右查看 只要碰到非数字 结果就是 Nan
+        number空字符串结果是0
+        number（[]） 0
+        number(false)  0
+        number({})  nan
+        
+        parseint()  从左向右查看  碰到非数字（包含小数点）就停；第一个字符就是非数字的话，结果就是Nan
+        parsefloat（）  从左向右查看  碰到非数字（不包含小数点）就停；第一个字符就是非数字的话，结果就是Nan
+        + 的特点两边只要有一个是字符串  结果就是字符串拼接
+        其他计算之前把符号两边的内容转成使用  number 转成数字之后再进行计算；
+        所有的数字跟nan进行运算记过都是nan
+
+
+        出现nan的场景 一个强制转换失败 number parseint  parsefloat；四则运算失败
+
+        怎么判断nan？
+          ==在程序中是比较的意思
+          NaN == NaN
+          在数字中 美哦与任何内容是和NaN相等的
+          JS中提供了一个NaN的方法 来判断某个值是不是NaN
+          isNaN（要判断的值）返回值 就是 true 过着 false； true 代表要判断的值是nan
+          运算过程 先把要判断的值用number处理，然后再去判断结果是否是nan
+        */
+        var a =1 + 'q'
+        var res =isNaN('12r')//先把括号里的用number处理完之后，看结果是不是nan
+        console.log(res)
+
+
+        /* boolean布尔类型  true  false
+         boolean（）把其他数据类型转化成布尔类型   
+    *    0 nan  ''  null undefined  只有这五个值转化成布尔结果是false 其他的全是true
+         number（false）-->0
+         boolean(0)--> false
+          */
+          //！是用来取反的，先用boolean转成布尔类型 然后再取反--> 隐式转化
+    console.log(!false) //true
+    console.log(!true) //false
+    // ！！相当于使用了一次 Boolean（）；  
+    /* 
+    
+    null  空指针对象
+    undefined 未定义 */
+</script>

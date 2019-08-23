@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//数字  整数 小数 NAN（not a number)
+var n=12
+var n2='12'
+Number()//把其他数据类型转成数据类型
+var n2 = Number('12');
+console.log('12',n2)
+console.log(Number(' '))//0
+console.log(Number('12w'))//nan
+//number转化类型的规律  从左向右查看，只要碰到非数字 结果就是NAN；
+
+//parseint()过滤出整数；规律：从左向右查看，只要碰到非数字就停止转化，若第一个字符就是非数字，结果就是nan
+console.log(parseInt('12w'))
+console.log(parseInt('w12'))//NaN
+console.log(parseInt('12.3'))//12
+//parsefloat()唯一的区别是小数点的区别规律类似 parseint
+console.log(parseFloat('12.3w'))//12.3
+//四则运算  + - * / %(取余)  5%2 5除以2余几
+//对于加号来说只要一边出现字符串；那么结果就是字符串拼接
+//- * / %  先把两边的内容转成数字 然后再去计算
+var str='24'
+var m =10
+console.log(str+m)
+console.log(1+2+3+'4'+5+6)
+console.log(str-m)//14
+console.log(str-'q')//NaN    凡是和Nan做运算的 结果都是Nan（除了字符串拼接）
+console.log(str+NaN)
+</script>

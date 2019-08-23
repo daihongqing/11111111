@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+  var ary = [
+        {
+            name:123,
+            age:12
+        },
+        {
+            name:1234,
+            age:10
+        },
+        {
+            name:12345,
+            age:122
+        },
+        {
+            name:123456,
+            age:102
+        },
+    ];
+ //把数组按照age排序
+ // sort((a,b)=>{return a.age-b.age}) ;
+  var up=document.getElementById('up'),
+     down=document.getElementById('down')
+    // up.onclick=function(){
+   //      sort((a,b)=>{return a.age-b.age}) ;
+  //   }
+  //   down.onclick=function(){
+  //      sort((a,b)=>{return b.age-a.age}) ;
+  //   }
+   // 
+   
+    //冒泡排序（两两比较，大的在前，小的在后边）
+    var ary=[234,452,123,56,234,454]
+    function mySort1(ary){//创建一个函数运行
+        for(var i=0;i<ary.length;i++){//因为每一轮都要进行两两比较，所以可以采用for循环，这是一个外部所需要的总圈数
+            for(var j=0;j<ary.length-1;j++){//每一个数字都要和后边的数字进行比较，所以需要再次常见一个循环，但是由于数组的最后一项之后就没有数字了，所以长度是length-1，只需要用倒数第二项跟最后一项比较即可
+             
+             if(ary[j]<ary[j+1]){////前一项的索引arr[j]  后一项索引arr[j+1],两两比较
+                 var temp=ary[j]
+                 ary[j]=ary[j+1]    
+                 ary[j+1]=temp;    //如果符合条件交换位置
+             }
+            }
+        }
+        return ary
+    }
+ console.log(mySort1(ary));//输出看结果
+
+
+ //快速排序
+  //递归的思想    函数内部自己调用自己   首要注意边界问题
+ function f(){
+     f()
+ }
+ //0-100之间多有数字之和
+ function sum(n){
+     //边界  
+     if(n<=0){
+         return 0
+     }
+     return n+sum(n-1)
+ }
+ console.log(sum(100))//5050
+//0-100 3的倍数之和或5的倍数之和
+ function sum2(){
+    //边界
+    if(n<=0){
+        return 0
+    }
+ if(n%3==0 || n%5==0){
+   return n+sum2(n-1)
+ }
+ return 0 +sum2(n-1)
+}
+sum2(100)
+ 
+     //快速排序
+  function mySort2(arr){
+      if(arr.length<=1){
+          //若数组是个空数组或者数组中只有一项的话，就不用进行拆分比较了
+          return arr
+      }
+      var n=parseInt(arr.length/2);//获取中间项
+      var temp=arr.splice(n,1)[0];
+      var left=[],right=[]
+      arr.forEach((v,i)=> {
+          if(v>temp){
+              right.push(v)
+          }else{
+            left.push(v)
+          }
+      });
+      return mysort2(left).concat(temp,mySort2(right))
+  }
+  var ary=[123,53,2,353,5235,21,2121]
+ console.log(mysort2(ary))
+
+ //arguments  this  形参实参   剩余运算符....
+ function fn(a,b){
+     return a+b
+ }
+ fn(2)
+ 
+ function fn(a,b){
+     //es6之前给形参赋予默认值样式
+     a=a||0;
+     b=b||0;
+     return a+b
+ }
+ function fn2(a=0,b=0){
+ return a+b
+ }
+ fn(2)
+ console.log(fn2(6,1))
+</script>

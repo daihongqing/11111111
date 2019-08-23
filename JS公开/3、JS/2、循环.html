@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">点我</button>
+    <script>
+    var user ={
+        name:'珠峰',
+        age:10,
+        hobby:'吃',
+        sex:'男'
+    }
+    var bol ='name' in user;//name属性在不在 user的属性中
+    console.log(bol)
+    /*       for in 循环
+      for（var key in user）{
+          //循环体,循环一次，循环体就会循环一次
+          key 是指user中的每一个属性名，是自定义的一个变量
+          consosle.log(key)
+      } */
+    
+    for(var k  in user){
+        console.log('=======================')
+        console.log(k)//输出的是每一个属性名
+        //需求 输出每一个属性名对应的属性值
+        console.log(user[k])
+    }
+    var btn=document.getElementsByClassName('btn')[0] 
+    
+    btn.onclick=function(){
+        var str=''
+        for(var key in user){
+            str=str +`我的${key}是${user[key]}`
+        }
+        // debugger
+   alert(str)
+    }
+    
+    /* for循环
+    for（var i =0  i<5;i++){
+        循环体
+    } 
+    第一次  i是0 用0 跟5作比较作为条件，条件成立走循环体，不成立跳出for循环
+    第二次  i是1  用1<5作为条件；条件成立走循环体，不成立跳出for循环
+    。。。。
+    第四次  i是3  用3<5作为条件；
+    第六次  i是5   用5<5作为条件；
+    循环体一共执行了多少次？？  五次
+    
+    for 循环中的两个关键字
+    continue；若循环体中 执行到了continue 则会跳出本次循环，接着进行下一次循环
+    break；若循环体中执行到了 break，则整个for循环就结束了；*/
+
+    for(var i=0; i<10;i++){
+        console.log('hahaha');
+        if(i==3){
+            //continue
+            break
+        }
+        console.log(i)
+    }
+    for(var i=0; i<8; i++){
+        if(i==3){
+            i+=3;
+            continue
+
+            console.log(i)
+        }
+    }
+    
+
+ /*     while(条件){
+        循环体
+    }
+    当   条件成立 执行循环体
+    只有当条件不成立时才能跳出外循环
+    一般情况下，当我们不知道要循环多少次的时候才会使用while循环*/
+
+  var n =0
+    while(n<6){
+        n+=2;
+        console.log(n)
+    }
+       </script>
+</body>
+</html>

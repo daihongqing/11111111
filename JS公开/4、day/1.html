@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<head>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+       
+        <style>
+        /*tr:hover{
+        color: yellow;
+        }*/
+        </style>
+        </head>
+        <body>
+        <script>
+        window.οnlοad=function(){
+        /*
+        最基本取表格数据
+        * */
+        /*var tbe1 = document.getElementById("tbe");
+        alert(tbe1.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[1].getElementsByTagName("td")[2].innerHTML)*/
+        /*
+        * 简便取数据
+        */
+        var tbe1 = document.getElementById("tbe");
+        var oldColor="";
+        /*alert(tbe1.tBodies[0].rows[1].cells[2].innerHTML)*/ 
+        for (i=0;i<tbe1.tBodies[0].rows.length;i++) {
+         
+        tbe1.tBodies[0].rows[i].οnmοuseοver=function(){
+        oldColor = this.style.background;
+        this.style.background="yellow"
+        }
+        tbe1.tBodies[0].rows[i].οnmοuseοut=function(){
+        this.style.background=oldColor;
+        
+        }
+        if (i%2==0) {
+        tbe1.tBodies[0].rows[i].style.background="#ccc";
+        }else{
+        tbe1.tBodies[0].rows[i].style.background="";
+        }
+        }
+        }
+        
+        </script>
+        <table id="tbe" width="300" border="1">
+        <thead>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        </thead>
+        <tbody>
+        <tr>
+        <td>1</td>
+        <td>张三</td>
+        <td>21</td>
+        </tr>
+        <tr>
+        <td>2</td>
+        <td>李四</td>
+        <td>23</td>
+        </tr>
+        <tr>
+        <td>3</td>
+        <td>王五</td>
+        <td>25</td>
+        </tr>
+        <tr>
+        <td>4</td>
+        <td>前六</td>
+        <td>33</td>
+        </tr>
+        </tbody>
+        </table>
+</body>
+</html>

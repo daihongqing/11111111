@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* 
+  数组排序
+ */
+var ary=[12,122,3,2,412,4,24,12,4,41];
+/* ary.sort((a,b)=>a-b)//(a,b)=>return a-b
+console.log(ary) */
+//冒泡排序  双for循环
+//两两比较，把大的放到后边；每一轮都这么比较
+//第一轮把倒数第二大放到到时第二额位置
+//以此类推
+   function mysort(arr){//创建函数
+     for(var i=0;i<arr.length;i++){//因为需要多轮对比，一次只能挪动一个值，所以创建多次的循环
+         //确定轮数
+         for(var j=0;j<arr.length-1-i;j++){//这个循环ary里面的变量，因为变量的最后一项是没有值的，所以在编辑对比的长度时减去1个
+             //arr[j]当前项      
+             //arr[j+1]后一项
+             //减i是减少一半不必要的循环
+             if(arr[j]>arr[j+1]){//编辑一个条件，把变量进行往前挪动位置
+                 var temp = arr[j]
+                 arr[j]=arr[j+1]     //创建一个载体让其进行位置调换。。
+                 arr[j+1]=temp
+             }
+         }
+     }  
+     return arr
+   }
+   var res=mysort(ary)
+   console.log(res,ary)
+</script>

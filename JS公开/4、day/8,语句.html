@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        width: 800px;
+        height: 200px;
+        margin: auto;
+        background: red
+    }
+    
+    
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+    <button id="btn">换肤</button>
+</body>
+</html>
+<script>
+/* 
+判断语句
+ if else
+ ? : 三元运算是有返回值的
+ switch case    绝对比较 === ；  break
+ switch（值）{
+     case  值1；
+ }
+ || 或
+ && 且
+ */
+var a = 1 ?'haha' : 'hehe'
+console.log(a);
+if(12121){
+}
+if(1 || 0){
+    //成立
+}
+if(1&&0){
+    //不成立
+}
+var n= 100 || 200
+console.log(n)
+//或 前边成立给前边；前边不成立给后边
+var n= 100 && 200
+console.log(n)
+//&&  前边成立给后边，前边不成立给前边
+</script>
+<script>
+    //创造一个变量 flag  自己定义 flag是true代表当前是红色；false 代表是蓝色
+    //每次点击 只要控制 flag的值即可；
+ //***** 
+   var flag = true
+ btn.onclick = function(){
+     flag = !flag//重新给flag赋值，赋予的是改变之前 flag 的反义词
+     box.style.background = flag ? 'red' : 'blue'
+ }
+ 
+</script>

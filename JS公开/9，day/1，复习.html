@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function fn(){
+}//若是把函数作为值的情况，函数名都是没有用
+//匿名函数  就是那些没有名的函数
+//回调函数   及时被其他函数调用的函数
+var f=function qqq(){
+    cosole(666)
+}
+f()
+qqq()
+var obj ={
+    f:function (){
+
+    }
+}
+var f2 =()=>{
+    //没有arguments（实参集合，不定向求和）  this   length     
+}
+var f3=(a,b)=>a+b//同等于f3=(a,b)=>{return a+b}
+var f4=(a)=>(b)=>(a+b)
+    f4=function(a){
+        return function (b){
+            return a+b
+        }
+    }
+</script>

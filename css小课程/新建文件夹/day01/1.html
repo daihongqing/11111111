@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>点击切换图片</title>
+    script language="javascript" type="text/javascript">
+    window.onload = function () {
+    var index = 1;
+    var switching = false;
+    
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    var list = document.getElementById('list');
+    var wrap = document.getElementById('wrap');
+    var dots = document.getElementsByTagName('span');
+    var buttons = document.getElementById('buttons');
+    wrap.onmouseover = function () {
+    prev.style.display = 'block';
+    next.style.display = 'block';
+    stop();
+    };
+    wrap.onmouseout = function () {
+    prev.style.display = 'none';
+    next.style.display = 'none';
+    play();
+    }
+    
+    function lastImg() {
+        if (switching) {
+            return;
+        }
+        switchPic(1420);
+        index--;
+        if (index < 1) {
+            index = 2;
+        }
+        else if(index  > 2) {
+            index = 1;
+        }
+        lightDot();
+    }
+    
+    function nextImg() {
+        if (switching) {
+            return;
+        }
+        switchPic(-1420);
+        index++;
+        if (index < 1) {
+            index = 2;
+        }
+        else if(index  > 2) {
+            index = 1;
+        }
+        lightDot();
+    }
+    
+    function btn(e) {
+        if (switching) {
+            return;
+        }
+        e = window.e || e;
+        var target = e.target ? e.target: e.srcElement;
+        if (target.nodeName.toLowerCase() == 'span') {
+            var index1 = target.getAttribute('index');
+            var offset = (index - index1) * 1420;
+            switchPic(offset);
+            index = index1;
+            lightDot();
+        }
+    };
+    
+    // 切换图片的函数
+    function switchPic(offset) {
+        switching = true;
+        var time = 400;
+        var inter = 10; 
+        var speed = Math.ceil(offset/(time/inter));
+    
+        var left = parseInt(list.style.left) + offset;
+    
+        var go = function () {
+            var curLeft = parseInt(list.style.left);
+            if ((speed > 0 && curLeft < left) || (speed < 0 && curLeft > left)) {
+                list.style.left = curLeft + speed + 'px';
+                setTimeout(go, inter);
+            }
+            else {
+                list.style.left = left + 'px';
+                if (left < -2840) {
+                    list.style.left = -1420 + 'px';
+                }
+                else if (left > -1420) {
+                    list.style.left = -2840 + 'px';
+                }
+                switching = false;
+            }
+        };
+        go();
+    }
+    
+    // 点亮小点
+    function lightDot() {
+        for (var i = 0, len = dots.length; i < len; i++) {
+            if (dots[i].className == 'light') {
+                dots[i].className = '';
+                break;
+            }
+        }
+        dots[index-1].className = 'light';
+    }
+    
+    // 自动轮播
+    var timer;
+    var order;
+    var interval;
+    var play = function () {
+        var interval1 = interval || 4000;
+        if (order == 'prev') {
+            timer = setInterval(lastImg, interval1);
+        }
+        else {
+            timer = setInterval(nextImg, interval1);
+        }
+    };
+    var stop = function () {
+        clearInterval(timer);
+    };
+    
+    // 事件绑定DOM2
+    function addEvent(element, event, listener) {
+        if (element.addEventListener) {
+            element.addEventListener(event, listener, false);
+        }
+        else {
+            element.attachEvent('on'+event, listener);
+        }
+    }
+    
+    
+    // 点击左右键切图
+    addEvent(prev, 'click', lastImg); 
+    addEvent(next, 'click', nextImg);
+    // 点击小点切图
+    addEvent(buttons, 'click', btn); 
+    
+    // 指定切换顺序和间隔时间
+    order = 'next';
+    interval = 4000;
+    
+    play();
+</body>
+</html>
+--------------------- 
+作者：Charelesa 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_21923867/article/details/60881672 
+版权声明：本文为博主原创文章，转载请附上博文链接！

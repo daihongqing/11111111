@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ /* 函数的参数；
+ function 函数名（形参）{形式上的参数
+     函数体
+     函数名（实参1，实参2）//函数执行的时候小括号中的数据 我们成为实参（实际上的参数）
+     形参和实参他是按照位置一一对应的
+     假如形参的个数大于了实参的个数，这时那些多余的形参 或有一个undefined默认值
+     若形参的个数小于了实参的个数，这时那些多余的实参 不会影响其他正常的形参
+ } */
+ function total(n1,n2,n3,n4){
+     console.log(n1,n2,n3,n4)
+     var n=n1*n2-n3*n4;
+     console.log(n)
+ }
+
+ total(1,2,3,4,)//这一行代码怎么算执行完毕？   对应的函数体执行完成才算是这行执行完毕
+
+//创造一个函数 byid 这个函数可以获取对应id的元素，并且输出到控制台？？？
+function byid(id){
+    console.log(id)
+    var ele=document.getElementById(id)
+    console.log(ele)
+    }
+byid('box')
+</script>

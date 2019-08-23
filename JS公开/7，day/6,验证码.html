@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证码</title>
+</head>
+<style>
+#box{
+    margin: auto;
+    font-size: 30px;
+    display: block;
+    color: darkblue
+}                          
+</style>
+<body>
+    <i id="box"></i>
+</body>
+</html>
+<script>
+     /*
+     封装一个函数，每次函数执行 都能得到一个由4个不同字符 组成的字符串
+      "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789"*/
+      function fn(){
+       var str="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789"
+       //获取一个0-61之间的随机整数
+       //math.round(math.random()*61)
+       var str2=''
+       for(var i=0;i<4;i++){
+           var n=Math.round(Math.random()*61)
+
+           str2+=str[n]
+       }
+       return str2
+      }
+     var str=fn();
+
+ //保证字符串不重复
+   
+  function fn(){
+       var str="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789"
+       //获取一个0-61之间的随机整数
+       //math.round(math.random()*61)
+       var str2=''
+       for(var i=0;i<4;i++){
+           var n=Math.round(Math.random()*61)
+           //拼接之前，先判断字符串中是否有对应的字符 有的话就不拼接
+           //indexof
+           if(str2.indexOf(str[n])===-1){
+            str2+=str[n]
+            //若得到的字符在str2中存在；那么我们需要让本次循环再次执行
+           }else{
+               i--
+           }
+       }
+       return str2
+      }
+     var str=fn();
+
+
+     function fn(){
+       var str="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789"
+       //获取一个0-61之间的随机整数
+       //math.round(math.random()*61)
+       var str2=''
+       var i=0;
+       while(i<4){
+        var n=Math.round(Math.random()*61)
+        if(str2.indexOf(str[n])===-1){
+            str2=str[n]+str2
+            i++
+           }
+       }
+       return str2;
+     }
+     var str=fn();
+
+
+
+
+
+     function fn4(){
+       var str="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789"
+       //获取一个0-61之间的随机整数
+       //math.round(math.random()*61)
+       var str2=''    
+       while(str2.length<4){
+        var n=Math.round(Math.random()*61)
+        if(str2.indexOf(str[n])===-1){
+            str2=str[n]+str2
+           }
+       }
+       
+       return str2;
+     }
+     var str=fn4();
+
+
+//把得到的字符重新展示到页面上，每次点击时都要更新验证码
+var box=document.getElementById('box')
+box.innerHTML=fn(4);//把得到的字符展示到页面上；
+box.onclick=function(){
+    box.innerHTML=fn4()
+}
+</script>

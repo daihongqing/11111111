@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ function total(a,b){
+     var t=a+b;
+     console.log(t)
+ }
+total(2,3)
+var res =isNaN('12q')
+console.log(res);
+
+var res2=total(3,4);
+console.log('res2',res2)
+
+function total2(a,b){
+    var t=a+b;
+    return t//返回   决定了函数的运行结果，也就是函数执行完成之后最终的返回值       arguments     this
+    //有打断函数执行的作用
+    //不写时，函数的运行结果   undefined
+    //写了之后，但是后边没有代码；返回值undefined
+    
+}
+var  res3=total2(10,20);
+//这个是个赋值表达式  试要给res3赋值的；赋予的其实是total2的执行结果，
+//total2的执行结果是由total函数的return后边的返回值决定的；也就是有函数的返回值决定的
+console.log('res3',res3)
+</script>

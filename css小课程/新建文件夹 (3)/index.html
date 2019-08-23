@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div.red, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{margin: 0;padding: 0}
+   body{background: #20202c;}
+   .container{
+       width: 400px;height: 400px;
+       position: absolute;
+       top: calc(50% - 200px);
+       left: calc(50% - 200px);
+       
+   }
+   .sun{
+       width: 115px;
+       height: 115px;
+       background: yellow;
+       
+       border-radius: 50%;
+       box-shadow: 0 0 30px #fff;
+       position: absolute;
+       top: calc(50% - 50px);
+       left: calc(50% - 50px);
+       line-height: 100px;
+       text-align: center;
+       font-size: 40px;
+       
+   }
+   .earth-orbit{
+       width: 300px;
+       height: 300px;
+       border-width: 1px 1px 0 0;
+       border-style: solid;
+       border-color: #fff transparent transparent transparent;
+       border-radius: 50%;
+       position: absolute;
+       top: 50px;
+       left: 50px;
+       box-sizing: border-box;
+       animation: move 7s linear infinite  ;
+      background: url()
+   }
+   .earth-globe{
+       width: 60px;
+       height: 60px;
+       background: aqua;
+       border-radius: 50%;  
+       position: absolute;
+       top: 15px;
+       right: 28px;
+       background: url(imges/2.jpg);
+       background-size: cover
+   }
+   .moon-orbit{
+       width: 110px;
+       height: 110px;
+       border-width: 1px 1px 0 0;
+       border-style: solid;
+       border-color: #fff transparent transparent transparent;
+       border-radius: 50%;
+       position: absolute;
+       top: -25px;
+       left: -25px;
+       animation: move 2s linear infinite 
+   }
+   .moon-globe{
+       width: 41px;
+       height: 41px;
+       background: yellow;  
+       border-radius: 50%;
+       position: absolute;
+       top: 13px;
+       right: -17px;
+       background: url(imges/1.jpg);
+       background-size: cover
+   }
+
+   @keyframes move{
+       0%{transform: rotate(0deg)}
+      100%{transform: rotate(360deg)}
+   }    
+    </style>
+</head>
+<body>  
+   <div class="container">
+        <embed src="mp3/1.mp3" autostart="true" loop="true" hidden="true"></embed>
+       <div class="sun">
+           <b>哥哥</b>
+       </div>
+       <div class="earth-orbit">
+           <div class="earth-globe">
+               <div class="moon-orbit">
+                   <div class="moon-globe"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+</body>
+</html>

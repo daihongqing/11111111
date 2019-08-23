@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //递归   函数自己调用自己;使用递归的时候要注意边界问题
+    //
+    function sum(a) {
+        if (a > 2) {
+            return a;
+        }
+        return a + sum(a + 1)
+    }
+    var res = sum(1)
+    console.log(res)
+    //0-100   he f(100)
+    function f(a) {
+        if (a > 99) {
+            return a;
+        }
+        return a + f(a + 1)
+    }
+    var res1 = f(1)
+    console.log(res1)
+
+    //递归的写法
+    function f2(n) {
+        if (n <= 0) {
+            return 0
+        }
+        return n + f2(n - 1)
+    }
+    console.log(f2(100))
+
+
+    //0-100之内，能被3或者5整除的数字之和
+    function f3(n) {
+        if (n <= 0) {
+            return 0
+        }
+        if (n % 3 == 0 || n % 5 == 0) {
+            return n + f3(n - 1)
+        } else {
+            return f3(n - 1)
+        }
+    }
+    var res3 = f3(100)
+    console.log(res3)
+
+
+    /* 快速排序
+       fn(arr)把数组从中间分开，去中间的那个项，比这项小的放一个数组，大的放到另外一个数组，对于刚产生的两个数组，再去执行fn
+     */
+     function quickSort(arr) {
+        // 边界
+        if (arr.length <= 1) {
+            return arr;
+        }
+        var n = parseInt(arr.length / 2);//去数组中的中间数
+        var temp = arr.splice(n, 1)[0];// arr.splice(n,1) 返回值是由 索引为n的这一项组成的新数组；我们用这一项， 所以加个索引0
+        var left = [],
+            right = [];// left 用来存储 比 temp小的那些项； right用来存储比temp大的那些项；
+        for (var i = 0; i < arr.length; i++) {
+            if (temp >= arr[i]) {
+                left.push(arr[i])
+            } else {
+                right.push(arr[i])
+            }
+        }
+        return quickSort(left).concat(temp, quickSort(right))//让数组一直排序到只剩一位数时停止
+    }
+    var ary = [23, 34, 12, 54, 23, 6, 7, 42];
+    var res = quickSort(ary);
+    console.log(res);
+</script>

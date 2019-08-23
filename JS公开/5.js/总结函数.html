@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* 
+函数声明：
+function  函数名（形参1，形参2）{
+    函数体
+    arguments  实参集合
+    return  决定返回结果，打断函数的执行
+    this  当前函数的执行主体，（事件绑定中的this  就是当前操作的元素本身）
+}
+  函数名（实参。。。） 函数的执行
+  
+  var 函数名=function(){}
+  
+  
+  var 函数名 =（）=（形参）=>{函数体，没有this 也没有arguments}
+  
+  
+  自执行函数、
+  （函数体）（实参）；
+  （function(形参）{}）（实参）*/
+
+ (function(a,b){
+     console.log(a+b)
+ })(1,2)
+
+
+ //函数名 就叫 byid
+ function byid(){
+     var ele=document.getElementById(id);
+     return ele
+ }
+ var btn=byid('btn123')
+</script>

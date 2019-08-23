@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <h1>
+        您点击按钮的时间是<span id="time"></span>
+    </h1>
+</body>
+</html>
+<script>
+  //Date  日期 (获取的是本机的时间)
+ var d1=new Date()
+ console.log(d)
+ var now=new Date()
+ var y=now.getFullYear()//获取当前的年数
+
+ var m=now.getMonth()//获取月份（0-11）跟正常月份差1
+
+ var d=now.getDate()//获取日
+ var d2=now.getDay()//获取的是星期几   0是周天，1是周一
+ var h=now.getHours()//获取当前的小时
+ var m=now.getMinutes()//获取当前的分钟数
+ var s=now.getSeconds()//获取当前的秒数
+ var ms = now.getMilliseconds()//获取毫秒数
+ var t=now.getTime()//距离1970年1月1号  0 点 0 分 0 秒 的毫秒差//等价于Date.now()
+ //在页面上展示出当前的点击时间
+ //点击这个按钮时在页面展示出   您在xxx时间  点击了这个按钮
+ var btn=document.getElementById('btn')
+ var time=document.getElementById('time')
+ btn.onclick=function(){
+     //alert(console.log(new Date()))
+     var now=new Date()
+     var y=now.getFullYear()
+         m=now.getMonth()
+         d=now.getDate()
+         h=now.getHours()
+         time.innerHTML=`${y}年${m+1}月${d}日`
+ }
+</script>

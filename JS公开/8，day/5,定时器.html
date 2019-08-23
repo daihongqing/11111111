@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ /* 
+   定时器
+    setTimeout  只执行一次
+    setInterval   一直不停的执行     clearInterval(timer)   清除定时器
+    //异步  同步
+     clearInterval(timer)   timer是setinterval执行的返回值//清除定时器
+     clearTimeout(timer)    
+ */
+ setTimeout(()=>{
+  console.log(666)
+ },2000)//2000  是毫秒 也就是2秒
+ //两秒之后执行回调函数
+
+ var timer=window.setInterval(function(){
+     consoel.log(999)
+ },2000)
+
+clearInterval(timer)
+
+console.log(555)
+
+//怎么结合settimeout和递归实现setInerval
+
+
+</script>

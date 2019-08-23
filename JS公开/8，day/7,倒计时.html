@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        距离下课还有<span id="time">00:00:00</span>
+    </h1>
+</body>
+
+</html>
+<script>
+
+    /* 当前时间和目标时间的时间差
+       先获取当前时间到1970年的毫秒差
+       在获取下午6点到1970年的毫秒差
+       两者一减就是我们要的时间差 */
+    function timeCount() {
+
+        var target = new Date('2019/8/14/ 20:29:00').getTime(),
+            now = new Date().getTime(),
+            time = target - now;//时间差  毫秒数
+        if (time <= 0) { clearInterval(timer)  
+        return  }
+        //把毫秒数转成时 分 秒
+        //先要获取这些毫秒数中有几个整数小时
+        //然后再取剩余毫秒数中 整数个秒数
+        //然后再取剩余的毫秒数中整数个秒数
+        var h = parseInt(time / (1000 * 60 * 60))   //一个小时对应的毫秒数
+        time = time - h * 1000 * 60 * 60 //剩余的毫秒数
+
+        var m = parseInt(time / (1000 * 60)) //一分钟对应的毫秒数
+        time = time - m * 1000 * 60
+
+        var s = parseInt(time / 1000)//1000   1秒对应的毫秒数\
+
+        if (h <= 9) { h = '0' + h } else { null }
+
+        if (m <= 9) { m = '0' + m }else{null}
+
+        if (s <= 9) { s = '0' + s }else{null}
+
+        var str = `${h}时${m}分${s}秒`
+        document.getElementById('time').innerHTML = str;
+
+        // if(timeCount=0){
+        //     clearInterval(timer) 
+        // }
+
+
+    }
+
+    var timer = setInterval(() => {
+        timeCount()
+    }, 1000)
+
+
+
+   //思考题
+   //补零
+   //时间到达后停止
+</script>

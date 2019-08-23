@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        你好
+        <i>hello</i>
+        <span>world</span>
+        <div>666</div>
+        <!-- 这是注释 -->
+    </div>
+</body>
+</html>
+<script>
+/*节点：元素节点   文本节点 注释节点  根节点 
+  nodeTYpe  1         3        8       9
+  利用nodetype  判断某个节点是不是元素节点
+  根元素就是document*/
+var box=document.getElementsByClassName('box')[0]
+console.dir(box);
+console.log(box.parentNode) //父节点
+console.log(box.childNodes)//box的所有子节点
+console.log(box.children)//bix的所有元素子节点，不兼容i8
+console.log(box.previousSibling)//box的哥哥节点   若不存在，结果时null
+console.log(box.previousElementSibling)//box的哥哥元素节点  诺不存在，结果时null 不兼容ie8
+console.log(box.nextSibling)//box的弟弟节点
+console.log(box.nextElementSibling)//box的弟弟元素节点
+//封装一个放法  自己封装一个发给发可以获取元素下的所有元素段
+
+/* function getchildren(ele){
+    //从childnodes中删除 元素字节点即可
+    var ary=[]
+    for(var i=0;1<ele.childNodes.length;i++){
+        if(ele,childNodes[i].nodetype==1){
+            ary.push(ele.childNodes[i])
+        }
+    }
+    return ary
+}
+var res = getchildren(box);
+console.log(res) */
+
+function getbroele(ele){
+//获取ele的哥哥节点  然后判断是否是元素节点  不是的话 接着往上查找
+ var bro =ele.previousElementSibling;
+ while(bro&&bro.nodetype!==1 ){
+     //哥哥节点存在，并且不是元素节点，nodetype是作为节点判断；一直往上找
+     bro=bro.previousSibling
+ }
+ return bro
+}
+var res2=getbroele
+console.log(res2)
+
+
+
+/* js怎么创造一个元素？？
+ */
+ var span=document.createElement('span');//创造一个span标签
+
+ span.innerHTML='<h1>hello world</h1>'//解构
+/*  span.innerText='<h1>你好，中国</h1>'//文本
+ */ console.log(span)
+ /* 展示到页面上
+ box.appendchild(span)添加到尾部 */
+ box.appendChild(span)
+ span.style.background='blue';
+ span.style.color='blue'
+
+ 
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li {
+            width: 800px;
+            height: 50px;
+            border: 1px solid saddlebrown;
+            margin: 5px;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>
+<script>
+    var olis = document.getElementsByTagName('li')
+    var col = ''
+    for (var i = 0; i < olis.length; i++) {
+        var list = olis[i]
+        list.myindex = i
+        list.style.background = i % 2 === 0 ? 'red' : 'blue'
+        list.onmouseenter = function () {
+            col=this.style.background;
+            this.style.background = 'black'
+        }
+        list.onmouseleave = function () {
+            this.style.background = col;
+        }
+        list.onclick = function () {
+            alert(`这是第${this.myindex + 1}行，这一行的颜色是${col}`)
+        }
+    }
+
+
+
+
+</script>

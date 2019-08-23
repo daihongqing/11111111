@@ -1,0 +1,12 @@
+加粗ctrl+b
+斜体ctrl+i
+分割线***
+引用>
+列表是+或者-，tab键生成子列表，shift+tab回退上一级
+链接：ctrl+l
+图片ctrl+g，或者直接粘贴
+表格ctrl+alt+tab回退上一级
+代码块：ctrl+k，多行按3次
+帮助文档快捷键ctrl+/
+最大化编辑区ctrl+enter
+最大化预览区ctrl+alt+enter

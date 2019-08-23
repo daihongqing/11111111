@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+var obj={
+    f:function(){
+        console.log(666)
+    } 
+}
+obj.f()
+var obj2=obj;
+obj2.f()
+//var obj2=;
+function mypush(){
+    var arr=arguments[0]
+    for (var i=1;i < arguments.length;i++){
+        arr[arr.length]=arguments[i];
+    }
+    return arr.length;
+}
+var ary=[1,2];
+mypush(4,5,[6,7,8],9)
+console.log(ary)
+//pop()删除数组的最后一项  返回值是删除的那一项
+//ary.length
+function mypop(arr){
+    var a=[arr.length-1]
+   arr.length--;
+    return a
+}
+var ary=[1,2,3]
+var res=mypop(ary);
+console.log(ary,res)
+mypop(ary)
+//unshift()用法与返回值等同于push；只是向数组的头部添加
+//shift(0)用法与返回值等同pop 只是删除数组的头部
+//splice(n,m,x,y,z)从索引n开始删除m个，用x，y，z替换删除的哪些项
+//使用splice  实现push pop unshift shift
+function mypush2(arr,...abc){
+    //...在函数中叫剩余运算符；abc是个数组，储存的是  除了第一个项之后的所有项
+   var arr=arguments[0];
+   arr.splice(arr.length,0,...abc);
+   return arr.length
+}
+var ary=[1,2]
+mypush2(ary,4,5,[6,7,8],9)
+function mypop2(){
+return arr.splice(arr.length-1,1)[0]
+}
+mypop2(ary)
+</script>

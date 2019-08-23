@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var ary=[1,'qq',true,null,undefined,function(){}]//通过索引查数组中的每一项ary[1]
+//给数组的末尾增加一项
+ary[5]()
+//增加push
+ary.push(11)//给ary数组末尾添加一项，对应的值是11
+console.log(ary);
+
+var ary2=[1,2,3,4,5]
+var res =ary2.push(6,7,8,9)//g给数组添加项目
+console.log()
+//push的方法  是向数组末尾添加项的；可以添加多项；返回值是改变后的数组的长度；改变原有的数组
+var a=ary2;
+a.push(9);
+console.log(ary2)
+
+//向数组的头部增加项目,unshift
+var ary=[1,2,3];
+ary.unshift(6,6,6)
+console.log(ary)
+//unshift的方法：是向数组头部添加项的；可以添加多项；返回值是改变后的数组的长度；改变原有的数组；
+
+//通过length的方式向 数组末尾添加项
+ary[ary.length]=666;
+//封装一个mypush
+function mypush(ary,n){
+    ary[ary.length]=n;
+}
+var arr=[1,2]
+mypush(arr,222)
+console.log(arr)
+
+
+//删除
+//pop  删除末尾  不用传参数  pop的返回值是删除额那一项；改变了原有的数组；
+var ary=[1,2,3];
+var res = ary.pop();
+console.log(res,ary);
+//shift  删除头部 ，不用穿参数，返回值是删除的那一项，改变了原有的数组
+var ary=[1,2,3]
+var res=ary.shift()
+console.log(res,ary)
+
+//通过length 删除最后一项  ary.length//ary.length=ary.length-1
+
+
+//改
+//splice（n,m,,x,y,z)从索引n 开始，删除m个；然后用x，y，z去代替删除位置的元素
+//若m是0，则代表在索引为n的前边添加x、y，z，
+//splice的返回值，是由删除的向组成的新数组，改变原有数组
+var ary=[1,2,3];
+ ary.splice(1,1,6,6,6,6)
+console.log(ary)//166663
+//使用splice实现项数组末尾添加新的项
+ary.splice(ary.length,0,666);
+//使用splice实现向数组的头部添加
+ary.splice(0,0,666)
+console.log(ary)
+//使用splice实现删除数组末尾
+ary.splice(ary.length-1,1)
+//使用solice实现删除数组头部
+ary.splice(0,1)
+//删除数组最后一位：ary.pop()  ary.length--  ary.splice(ary.length-1,1)
+//向数组末尾添加  ary.push()  ary[ary.length]=666   ary.splice(ary.length,0,666)
+
+
+</script>

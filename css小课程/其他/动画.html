@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+</head>
+<style type="text/css">
+ .run{
+     width: 800px;
+     height:800px;
+     background:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564054164947&di=dd336147934c52c268e757cd91521565&imgtype=0&src=http://img.zcool.cn/community/017fd857df5c620000012e7e6aeed1.jpg) no-repeat;
+     animation: run 1.5s ease infinite  alternate
+ }
+ @keyframes run{
+     0%{transform: translate(0,0)}
+     100%{transform: translate(0,0) rotate(8000deg)}
+     }
+
+
+</style>
+
+<body>
+    <div class="run"></div>
+</body>
+</html>

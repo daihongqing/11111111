@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var ary=[1,2,3,4,5,1,2,3,1]
+//双for去重
+//对象去重
+function unique1(arr){
+    for(var i=0;i<arr.length;i++){
+        var temp=arr[i];//创建一个新变量，和arr里面的变量做对比
+        for(var j=i+1;j<arr.length;j++){//创建一个循环使循环变量轮流做对比
+            if(temp===arr[j]){//创建一个条件进行筛选，如果值相同的话
+                arr.splice(j,1)//从第j项开始删除一个
+                j--
+            }
+        }
+    }
+    return arr
+}  //这个可以改变原有的数组
+
+//对象去重
+function unique2(arr){
+    //利用对象的属性名不能重复
+    //把数组中的每一项当做对象的属性名出巡到对象中
+    var obj={};
+    arr.forEach((v)=>{
+        obj[v]=v
+    }) //假如v现在代表的是1，给obj增加一个属性名是1属性值也是1的一个键值对
+    console.log(obj);
+   // 把对象中的键值对 拿出了，放在新数组中，然后把新数组返回;
+   var a=[];
+   for(var k in obj){
+       a.push(obj[k])
+   }
+   return a
+}
+var res=unique2(ary)
+console.log(res,ary)
+//利用indexof  和 lastindexof去重
+function unique3(arr){
+    //若indexof和lastindexof得到的值不一样，说明后边有重复的项
+    for(var i=0;i<arr.length;i++){//创建一个循环进行筛选里面的值
+        var n=arr.indexof(arr[i])  //创建一个变量把 
+        m=arr.lastindexof(arr[i]);//再次创建一个变量，把最后一个值的序号赋给她，
+        if(n !==m){//创建条件进行对比
+            arr.splice(m,1);//n和m不同，说明索引为m的项为重复项，需要我们删除掉，删除之后 我们仍然需要用当前的arr[i]接着去查看  是否还有重复
+            i--;
+        }
+    }
+    return arr
+}
+var res4=unique3;
+console.log(res4,ary)
+</script>

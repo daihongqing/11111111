@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+#box{
+    width: 200px;
+    height: 300px;
+    background: aqua
+}
+    
+    
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+</body>
+<script>
+/* 基本数据类型  操作值  储存在栈内存中；栈内存是提供代码运行环境的 
+引用数据类型  操作地址，储存在堆内存中
+
+基本数据类型  number  string  boolean  null  ubdefined；
+引用数据类型 {}  []math date  正则  function
+普通对象  var obj={}
+获取对象中某个属性的属性值   obj.age  === obj['age']
+obj.age = xxx
+
+
+假删：obj.age = null
+
+对象的存储过程：  先去一个堆内存开辟新地址，然后把键值对都储存在这个地址中，然后把地址赋给变量*/
+
+
+/* 
+if  else
+?  :
+swith  case */
+var mybtn = document.getElementById('btn'),
+    mybox=document.getElementById('box'),
+    flay=true
+
+ btn.onclick=function(){
+     //要控制box的显示或者隐藏
+     flay=!flay
+     mybox.style.display = flay ? 'block': 'none';
+ }
+
+
+ /* for in   一般用来循环对象  for(var k in obj){}
+    for  for(var i= 0;i<xxx;i++)
+
+    while while(条件）{循环体}*/
+    for (var i = 0; i < 10; i++) {
+        switch (i % 4 || '0') {
+            case 1:
+            case 3:
+                i += 1;
+                break;
+            case 0:
+            case 2:
+                i += 2;
+                break;
+            default:
+                i += 4;
+        }
+    }
+    console.log(i);
+    // || 前边成立给前边。前边不成立给后边
+    // i = 0；0 || '0' ===>  '0'; switch('0')  i-->4 i++ --> 5;
+    // i = 5; 1 || '0' ===>  1;  switch(1)     i-->6 i++ --> 7;
+    // i = 7; 3 || '0' ===>  3;  switch(3)     i-->8 i++ --> 9;
+    // i = 9; 1 || '0' ===>  1;  switch(1)     i-->10 i++ --> 11;
+
+
+
+    var obj2 = {
+        name: '小明',
+        age: '12',
+        sex: 1,
+        height: '120cm',
+        weight: '30kg',
+        weight2: 'qw30kg'
+    };
+    var obj2_2 = {};
+    //要求 把obj2中的属性值中//(含)// 只有数字的键值对 复制一份到obj2_2中
+    // 循环对象 ，一个一个的查看键值对是否满组要求
+    for(var k in obj2){
+        // k  是变量， 每次都代表了相应的属性名
+        var val = obj2[k]; // 要用的属性值
+        // 判断val 只有数字 isNaN
+        /* if(isNaN(val)){
+
+        }else{
+            // 满足条件的情况
+        } */
+        // debugger
+        if(!isNaN(val)){
+            // 满足条件的情况
+            // age:'12' 这一项 复制一份存储到 obj2_2中
+            obj2_2[k] = val;
+        }
+    }
+    console.log(obj2_2)
+
+</script>

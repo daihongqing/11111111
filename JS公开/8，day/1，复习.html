@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* 
+冒泡 
+一轮一轮的比较；每轮都是前后两项比较，把较大的放到后边，小的放到前边 
+ 快速 每次函数执行 都是把数组分成左右两部份，左边的比选中项小，有变比选中项大
+0-100之间能被3或者5整除数之和
+ */
+function sum(n){
+    //边界
+    if(n<=0){
+        return 
+    }
+    if(n%3==0||n%5==0){
+        return n+sum(n-1)
+    }else{
+        return sum(n-1)
+    }
+}
+
+/* function quicksort
+    //边界
+    var n=parseint(arr.length/2)
+    var temp=arr.splice(n,1)[0]
+} */
+
+var ary=[{age:1},{age:10},{age:30},{age:6}]
+
+ary.sort((a,b)=>{
+    return a.age-b.age
+    })
+console.log(ary)
+//获取{n,m}之间的随机小数
+//math.round(math.random()*(m-n)+n)
+
+
+//验证码思路
+//从大写字符串中跳出几个字符拼接到一块，//怎么挑出来的 时随机获取一个数字，然乎把数字当作字符串的索引，获取对应的字符；
+//然后把得到的字符转世到页面上
+function f(){
+    var str=""
+    var S=""
+    while(str.length<4){
+        var n=math.round(math.random()*61);
+        str.indexOf(S[n])==-1? str+=S[n] :null  }
+   return str
+}
+</script>

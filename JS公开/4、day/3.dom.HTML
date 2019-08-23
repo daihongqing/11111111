@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='box' class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+
+    <input type="text" id="inp">
+    <button id="btn">按钮</button>
+</body>
+</html>
+<script>
+//获取第一个box
+console.log(box);//自己测试的时候书写 其他地方不建议书写
+document.getElementById('box')
+document.getElementsByClassName('box')[0]
+document.getElementsByTagName('box')[0]
+document.querySelector('#box')
+document.querySelectorAll('.box')[0]
+//点击按钮弹出文本框的内容
+console.log()
+
+btn.onclick=function(){
+    alert(inp.value)
+}
+
+
+
+
+</script>

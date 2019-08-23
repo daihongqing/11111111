@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        当前时间是<span id="time"></span>
+    </h1>
+</body>
+
+</html>
+<script>
+    function fn() {
+        // 点击获取当前时间 然后把时间放到对应的盒子中
+        var now = new Date();
+        var ary = ['日', '一', '二', '三', '四', '五', '六'];
+        var y = now.getFullYear(),
+            m = now.getMonth(),
+            d = now.getDate(),
+            w = now.getDay(),
+            h = now.getHours(),
+            mi = now.getMinutes(),
+            s = now.getSeconds();
+        time.innerHTML = `${y}年${m + 1}月${d}日 星期${ary[w]} ${h}时${mi}分${s}秒 `
+    }
+    setInterval(()=>{
+        fn()
+    },1000)
+
+</script>

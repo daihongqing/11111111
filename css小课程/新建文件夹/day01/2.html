@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+
+    <script>
+    var arr=new Array()
+    arr[0]="https://t12.baidu.com/it/u=2807891921,4179221149&fm=76"
+    arr[1]="https://t11.baidu.com/it/u=3027071830,4154520337&fm=76"
+    arr[3]="https://d.ifengimg.com/w75_h42_q70/e0.ifengimg.com/07/2019/0719/77E8B85E3303E09F99E070DDF59FC0FA9CE40175_size854_w2000_h1125.jpeg"
+    var i=0
+    function image()
+    {
+     var ima=document.getElementById(image)
+     img.src=arr[i]
+     i++;
+     if(i==5)
+        i=0
+     setTimeout("image(),2000") //2秒调用一次
+    }
+    </script>
+    
+  
+ <body onLoad="image()">
+   <img id="image" src="https://t12.baidu.com/it/u=2807891921,4179221149&fm=76" width="140" height="105"
+ </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* window是个全局对象；
+window. locction.href  获取网址 
+通过var声明的变量  会对应的项window中
+*/
+var obj={
+    age:123
+}
+'age'in obj//obj中有没有age的属性
+
+console.log('ojb'in window)//let const 
+
+
+let a=12
+console.log(a)
+console.log('a'in window)
+//let const  声明的变量不存在变量提升；声明的变量不会再window中增加对应的属性
+//不能再let之前使用该变量；已使用就报错
+
+
+
+
+</script>

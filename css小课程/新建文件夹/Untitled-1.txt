@@ -1,0 +1,125 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">珠峰</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>！
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+</body>
+</html>
+<script>
+    // nihao 
+    /*
+        JS中项操作哪个元素 首先就得获取哪个元素
+    
+    */
+    // 高版本的浏览器指的是 iE9以上 和 谷歌浏览器 
+    // 高版本的浏览器 支持直接使用的 ID 代表对应的元素
+    console.log(app)
+
+    // document.getElementById('id名')  通过ID获取 没有任何兼容性
+    // get 获取
+    // Element 元素字符串拼接
+    // By 通过
+    // Id   id
+    console.log(document.getElementById('app'))
+
+    // 打点  在JS中 代表 从属关系
+    //document.getElementById  翻译成汉语 就是  document 的 getEle...
+    // document  包含  getEle...
+    
+
+    // 通过类名 获取元素
+    // document.getElementsByClassName('类名')
+    // 获取到的 是一个集合； 若没有对应的元素  那么获取到的是一个空集合
+    console.log(document.getElementsByClassName('box'))
+
+    console.log(document.getElementById('hello'))
+    console.log(document.getElementsByClassName('hello'))
+
+    // 通过标签名 获取元素
+    // document.getElementsByTagName('标签名')
+    console.log(document.getElementsByTagName('li'))
+
+    // 通过css 选择器 获取元素 #app{} .box{}  li{}
+    // document.querySelector('css选择器') 只能获取一个元素
+    console.log(document.querySelector('.box'))
+    // document.querySelectorAll('css选择器') 获取一组元素
+    console.log(document.querySelectorAll('.box'))
+
+    // getElementById  没有就是 null
+    // getElementsByClassName  获取到一组集合
+    // getElementsByTagName  获取到一组集合
+    // querySelector()  获取一个
+    // querySelectorAll  获取一组
+
+    // 获取某一个元素   我们通过 下标获取
+    // 通过下标获取   使用  [下标值]
+    // 下标  我们也称为  索引 ；值是从0开始的
+    // 0 代表第一个 ； 1代表 第二个  以此类推
+    console.log(document.getElementsByClassName('box')[1])
+
+    // 自己实现  通过 querySeletorAll获取第三个 box盒子
+    console.log(document.querySelectorAll('.box')[2])
+</script>
+
+晤悠 2019/6/24 13:03:12
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">珠峰</div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+    /*
+        变量  可以变的量
+    */
+    //    var 变量名 = 赋予的值; var后边有个空格 
+    //  变量名的规则 ： 能以（字母 _ $）开头 后边无所谓；但是不能以数字开头
+    //  变量名的定义 一般遵循 驼峰式命名：两个单词之间首字母大写  listbox  listBox
+    // myname  myName  contentlistbox  contentListBox
+    // JS 严格区分大小写
+    var olis = document.getElementsByTagName('li');
+    var oLis = document.querySelectorAll('li');
+    // 翻译成汉语 ： 定义一个 变量 叫 olis ；对应的值 是 获取到的所有的li的集合
+    // 再往下 我们就可以使用 olis 这个词 代表 所有的li的集合
+    console.log(olis[0]);
+    var o12 = olis[0];
+    var _ = olis[2];
+    console.log(olis)
+    console.log(oLis)
+    // var var = 12; // 关键字不能作为 变量名
+</script>
+<h1>标题1</h1>
+<h2>标题二</h2>
+h$*6{标题$}
+img

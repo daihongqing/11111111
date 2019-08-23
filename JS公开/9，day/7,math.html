@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   //Math 
+ //sqrt pow  
+ //floor 向下取整  ceil 向上取整
+ //max min
+ //random[0-1)之间的随机数
+ //round  四舍五入
+ //求数组中的最大值
+  //1，先排序在取值
+  //2 假设法 
+  var ary=[123,42123,21,213,43,324,231321]
+  var max=ary[0];
+  max.forEach((v,i) => {
+      if(v>max){
+          max=v
+      }
+  });
+//Math.max（...ary)
+Math.max(...ary)
+//[n-m]之间的随机整数
+//0-10之间
+ Math.random()*10
+ //[n-m)随机数
+ Math.random()*(m-n)+n
+ //n-m之间随机整数
+ Math.round(Math.random()*(m-n)+n)
+ var n=123.456
+ //保留小数
+ console.log(n.toFixed(2))
+</script>

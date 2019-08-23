@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style='color: aquamarine' id='box'>
+        hello world
+    </div>
+    <!-- 
+        js引入方是   
+        行内；
+         内嵌(在文档中写一个  script标签即可；把对应的代码写到script标签内部即可) 
+          外链:通过script的scr行内属性引入外界的一个js文件
+        css引入方式
+     -->
+     <!-- <script>
+     box.onclick=function(){
+     //翻译成汉语就是点击box要做什么事
+     alert(666)
+     //alert:是弹出
+     
+     }
+     
+     </script> -->
+     <!-- ./代表同一级   ../代表上一级 -->
+     <script src="./3.js">
+     //从上往下 一步一步执行的
+     //若一个script标签写了 src属性 则标签内部包含的js代码就不再执行了
+     alert(111)
+     
+     </script>
+</body>
+</html>

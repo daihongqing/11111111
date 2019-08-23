@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            ul li{
+                width: 800px;
+                height: 50px;
+                border: 1px solid saddlebrown;
+                margin: 5px;
+            }
+        </style>
+    
+</head>
+<body>
+    <ul>
+       <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li> 
+    </ul>
+</body>
+</html>
+<script>
+ /*  for in 循环对象
+    for(var key in obj){
+        key:代表对象中的每一个属性名
+        obj[key]属性名对应的属性值
+    } */
+  var obj = {
+      a:12,
+      b:{a:20},
+      c:'hello',
+      d:true
+  }
+ for(var k in obj){
+     console.log(k,typeof k)
+     console.log(obj[k])
+     console.log(obj.k) //就是获取obj中的属性名是K字符对应的这个属性值
+ }
+ /* 
+  for 循环
+  for(var i = 0; i<10; i++) {
+      //先拿到i的值，然后用i的值去做比较；查看条件是否成立，
+      //成立 就走循环体， 循环体走完之后，把i累加1；加完之后，再去进行条件判断。。。知道条件不成立跳出循环
+      //continue   跳出本次循环；
+      //break  跳出整个循环，整个循环直接结束
+  }*/
+  //***//onmouseenter 鼠标进入状态    onmouseleave   鼠标离开状态
+  //有错误
+  var olis = document.getElementsByTagName('li');
+  var oldColor = "";
+      for(var i=0; i<olis.length; i++){
+     /*  olis[i].style.background= i%2 ? 'blue' : 'red';
+      //给每一个li 绑定一个 鼠标进入事件
+      olis[i].onmouseenter=function(){
+          //this 在这里代表的是当前错做的这个元素
+          oldColor = this.style.backgroundColor;
+          this.style.background='gold'
+      }
+      olis[i].onmouseleave=function(){
+         
+          this.style.backgroundColor = oldColor;
+
+     }
+    }  */
+     if(i%2==0){
+        olis[i].style.background='red'
+     }else{
+        olis[i].style.background='blue'
+     }
+     olis[i].onmouseenter=function(){
+        oldColor = this.style.background;
+        this.style.background='gold'
+     }
+     
+     olis[i].onmouseleave=function(){
+       
+        this.style.background = oldColor;  
+     } 
+       } 
+</script>

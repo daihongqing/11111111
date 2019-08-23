@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 数组去重
+    双for循环  对象去重  indexof和lastindexof */
+  //双for去重
+  //一轮一轮的比较每一轮都拿出当前项  跟后边的所有项进行比较；后边项重复的删除即可
+  function unique(arr){
+     for(var i=0;i<arr.length;i++){
+         var temp=arr[i]
+         for(var j=i+1;j<arr.length/2;j++){
+             if(temp==arr[j]){
+                 arr.splice(j,1)
+                 j-- 
+                 var tamp=arr[i]
+                 arr[i]=arr[arr.length-1];
+                 arr[arr.length-1-i]=tamp;
+                 arr.length--
+        
+         }
+     }
+     return arr
+
+  }
+  function unique2(arr){
+      var obj={};
+      arr.forEach((v,i) => {
+          obj[v]=v
+      });
+      var temp=[]
+      for(var k in obj){
+          temp.push(obj[k])
+      }
+      return temp
+  }
+  function unique3(arr){
+      //indexof  lastindexof
+   for(var i=0;i<arr.length;i++){
+       var temp=arr[i]
+       var n=arr.indexof(temp);
+       var m=arr.lastIndexof(temp)
+       if(n !==m){
+           arr.splice(m,1);
+           i--;
+
+       }
+     }
+    return arr
+  }
+  }
+
+
+</script>

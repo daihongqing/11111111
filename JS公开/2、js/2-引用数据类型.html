@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+var name='小红'
+var age =10
+
+//var name1='小明'
+var age =12
+//对象{属性名：属性值，属性名2：属性值2}
+/* 
+ 堆内存
+ JS读取这段代码的时候 发现是一个普通对象，就会去堆内存中开辟一个新的空间，然后把对象中的键值对（属性名：属性值），挨个存储到这个空间中，然后把空间地址赋给 对应的变量per1
+ 当我们使用这个变量时；浏览器发现他是一个地址，会自动把这个地址的内容自动返回给档期那使用的地方
+ */
+var per1={
+name:'小红',
+age:10,
+sex:'女'
+}
+var per2={
+name:'小明',
+age:12,
+
+sex:'男',
+2:12345,
+name1:'小小'
+}
+console.log(per1)
+/* 
+属性名可以是单独的数字，但是不能是数字+字母的格式开头
+属性名的引号是可以省略的，一般都不写引号 
+属性名都是字符串
+属性名是否可以重复？
+自己写的时候可以写重，但是存储的时候会自动用下边重复的属性名 把上边的覆盖掉
+调用时 一个对象中的属性名 只会出现一次*/
+
+var per4 = {} //空对象
+//怎么使用per中的属性？？
+console.log(per2[name1])//当我们调用一个对象的某个属性时，这个属性不存在，那么我们得到的就是underfined
+console.log(per2['name1'])//等价于  pr3.name
+console.log(per2[name])//name1是一个变量  但是这个变量我们没有定义过，这是就会报is not defined的错误
+console.log(per2['name'])//等价于per3.name1
+//打点跟中括号里的字符串是等价的；若中括号中放置的不是字符串也不是数字那么就是变量，这时需要我们把变量对应的值放到这个位置，再去取对应的值
+
+//中括号中放置的都是字符串，诺不是字符串也不是数字，那么js会把中括号内部的值 当作变量使用
+//对于数字属性来说,我们使用中括号方式来调用
+//console.log(per2[2])
+</script>

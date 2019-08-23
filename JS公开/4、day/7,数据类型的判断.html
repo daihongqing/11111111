@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp" placeholder="验证是否是有效数据">
+    <button id="btn">按钮</button>
+</body>
+</html>
+<script>  var n=10,
+    m='20';
+  var res =typeof n;//n的类型，返回值是一个字符串
+  //数字类型的，返回的是字符换“number”
+  //字符串类型的  返回的是字符串‘string’
+  //布尔类型的返回的是字符串‘boolean’
+  //typeof undefined  返回的是字符串‘undefined’
+  //typeof null  返回的是字符串‘object’
+ console.log(res)
+ var obj={}
+ console.log(typeof obj)//‘object’
+ 
+ /* *****typeof  可以区分基本数据，（null除外）但是没有办法区分 引用数据类型 
+ xxx.constructor  去判断数据类型
+ ******object.prototype.tostying.call(xxx)==>({}).tostring.call(xxx)，   对象的原型上的tostring方法使用call执行
+ xxx  instanceof array  你猜的类型：只能哦按段引用数据类型；返回值 是true或者false*/
+ var res2 = typeof typeof 1//‘string’
+
+ //需求  点击按钮  判断输入框的内容是否为NaN   是nan就弹出 不是有效数字
+ btn.onclick = function(){//点击按钮干什么事
+     var val = inp.value;//获取输入框的内容
+     var str = isNaN(val) ? '不是有效数字' :  '是有效数字'//根据输入框的内容来决定 显示的文案
+         alert(str)
+ }
+ </script>

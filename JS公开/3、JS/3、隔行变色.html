@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul li{
+        height: 50px;
+        border: 1px solid #ccc;
+        margin: 5px 0
+        
+    }
+    
+    
+    
+    </style>
+  
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+//使用js实现隔行变色
+var olis=document.getElementsByTagName('li')
+//box.style.color='red'
+  for(var i=0;i<7;i++){
+//     console.log(i%2)
+//     if(i%2==0){
+//      olis[i].style.background='red'
+//     }else{
+//      olis[i].style.background='blue'
+//     }
+//  
+
+i%2==0 ? olis[i].style.backgrouond='red' : olis[i].style.backgrouond='blue'
+
+//olis[i].style.background=i%2==0 ? 'blue':'red';
+olis[i].style.background=i%2 ? 'blue':'red'
+}
+//若i%2为0时，那就是false 这是 三元表达式的返回值，就是冒号后边的结果
+//若i%2为0时，那就是false 这是 三元表达式的返回值，就是问号后边的结果
+//把三元的返回值 赋给前边的背景颜色
+
+</script>

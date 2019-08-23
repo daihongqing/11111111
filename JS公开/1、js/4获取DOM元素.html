@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" id="app">
+        hello  world
+
+    </div>
+    <div class="box" id="app">
+            hello  world
+            
+        </div>
+        <div class="box" id="app">
+                hello  world
+                
+            </div>
+    <ul class="list_box">
+        <li>珠峰</li>
+        <li>培训</li>
+        <li>珠峰</li>
+        <li>培训</li>
+    </ul>
+    <div>
+        <ul class="txt">
+        <li>代</li>
+        <li>红</li>
+        <li>庆</li>
+    </ul></div>
+</body>
+</html>
+<script>
+//点击box盒子  弹出666
+//想操作那个元素 就先获取那个元素
+app.onclick= function(){alert(666)}
+console.log(app)
+
+//上边的这种获取方式 是直接使用元素的ID去代表对应的元素；只有高版本的浏览器支持
+//js中的点代表丛书关系；翻译成 de 
+//1、通过id名获取元素
+console.log(document.getElementById('app'));
+console.log(document.getElementById('box'))
+
+//2、通过类名获取元素  获取到的是一个集合
+//集合中 我们通过对应的 索引(1,2,3,4,5，）去获取对应的元素
+//第一个  box的索引是 0
+console.log(document.getElementsByClassName('box')[0])
+
+//3、通过标签名获取元素（tagname）；同类名;获取到的也是一组元素
+console.log(document.getElementsByTagName('li'))
+
+//4、queryselector(css选择器)   css选择器   只能获取一个元素（第一个）
+console.log(document.querySelector('#app'))
+console.log(document.querySelector('.box'))
+
+//5、querselectorall(css选择器).
+console.log(document.querySelectorAll('li'))
+
+//6、获取第三个li  并且档电价第三个li时  弹出666
+document.getElementsByTagName('li')[2].onclick=function(){alert(666)}
+</script>

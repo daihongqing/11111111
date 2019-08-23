@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>var obj = {
+            name:"zfpx",
+            class:{
+                JS:'zf',
+                css:"px"
+            }
+        };
+        var obj2 = obj;
+        var obj3 = obj2;
+        obj2.html = {
+            html4:'html4',
+            html5:'html5'
+        };
+        obj3.class = {
+            JS:'zfpx'
+        };
+        var html = 'html4';
+        var JS = obj3.class.JS; 
+        console.log(obj2.class,
+            obj3['html'][html],
+            obj.html['html']
+        );</script>
+</body>
+</html>

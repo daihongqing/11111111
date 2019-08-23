@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* arguments 实参集合  函数内部的一个关键字 */
+function sum(a,b){
+    console.log(a+b);
+    console.log(arguments)
+}
+sum(1,2,3,4,5,6);
+//不定项求和
+//sum2(1,2)  sum2(2,3,4,5,6)
+var num=0
+function sum2() {
+    for(var i=0; i<arguments.length;i++){
+        //arguments[i]集合中的每一项
+        //累加
+     num = num+arguments[i]
+    }
+    console.log(num);
+    return num
+//所有的实参都在arguments中存储；我们要做的就是把 arguments中的每一项累加起来
+//然后把结果返出去即可
+}
+var res1=sum2(1,2)//3
+var res2=sum2(2,3,4,5,6)//25
+
+//******************假如参数传递的是 sum2('1''w'2,5,'q')//在上述函数的基础上  修改；然函数的执行结果是7
+ function sum3() {
+    var num=0
+    for(var i=0; i<arguments.length;i++){
+         if(typeof arguments[i]==='number' && !isNaN(arguments[i])){
+          num = num + arguments[i]
+         }
+    }
+    
+    return num;
+}
+console.log(sum3('1','w',2,5,'q',NaN))
+</script>
