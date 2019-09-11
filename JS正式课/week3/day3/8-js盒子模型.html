@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+          list-style: none
+      }
+      div{
+          width: 200px;
+          height: 200px;
+          border: 10px solid saddlebrown;
+          padding: 20px;
+          margin: 30px auto 
+      }
+      section{
+          position: relative;
+          margin: 100px;
+          background: sienna
+      }
+    </style>
+</head>
+<body>
+    <section>
+    <div>
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+        珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训
+    </div>
+  </section>
+</body>
+</html>
+<script>
+  /* css盒子模型  width  padding  boder  margin */
+  /* js盒子模型   client  offet   scroll  */
+  var odiv=document.getElementsByTagName('div')[0]
+     console.log(odiv.clientWidth)//width+左右padding
+     console.log(odiv.clientHeight)//height+上下padding
+     console.log(odiv.clientLeft)//左边框的宽度
+     console.log(odiv.clientTop)//上边框
+     console.log('=======================================')
+     console.log(odiv.offsetWidth)//width+左右padding+左右border
+     console.log(odiv.offsetHeight)
+     console.log(odiv.offsetTop)//当前元素的外边框到上级参照物内边框的距离
+     console.log(odiv.offsetLeft)//上级参照物 就是指的有定位的上级元素
+     console.log(odiv.offsetParent)//上级参照物
+     
+//给一个元素  怎么算出 当前元素到body的偏移量
+function offset(ele){
+    let obj={
+        l:0,
+        t:0
+    }
+    obj.l=ele.offsetLeft;
+    obj.t = ele.offsetTop
+    ele=ele.offsetParent;
+    while(ele){
+        obj.l+=ele.offsetLeft+ele.clientLeft
+        obj.t+=ele.offsetTop+ele.clientTop;
+        ele=ele.offsetParent;
+    }
+    return obj
+}
+console.log(offset(odiv))
+
+console.log('=============================================')
+
+console.log(odiv.scrollWidth)//内容不超出等同于 client 若溢出 左padding+内容宽度
+console.log(odiv.scrollHeight)//内容不超出等同于 client 若溢出 上padding+内容宽度
+console.log(odiv.scrollLeft)//左边卷去内容的宽度
+console.log(odiv.scrollTop)//上边卷去内容的高度
+
+//以上13个属性中，只有scrollleft和scrolltop是可以修改的，这两个属性是有最大值和最小值的
+//其他属性都是只读属性
+
+//获取一个屏幕的宽高
+document.documentElement.clientWidth || document.body.clientWidth
+document.documentElement.clientHeight || document.body.clientHeight
+
+</script>

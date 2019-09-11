@@ -1,0 +1,29 @@
+div,img{
+    margin:0;
+    padding:0;
+}
+img{
+    float:left;
+    height:100px;
+    width:100px;
+   
+}
+#div1{
+    width:400px;
+    height:100px;
+    overflow: hidden;
+    border:solid red 2px;
+}
+#div2,#div3{
+    float:left;
+}
+#div4{
+    width:800%;/*这个属性很重要 让容器有足够的宽度实现滚动*/
+    float:left;
+}
+.suripe{
+    margin:auto
+}
+.div5{
+    margin:auto
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var str=/\d+/;
+var str='珠峰2019珠峰2020'
+//reg.exec(str)//返回值是个数组  第一项是大正则捕获的内容，第二开始都是小分组捕获的内容
+//捕获的贪婪行  一次性或把正则的内容捕获到
+//捕获的懒惰性  只捕获一次
+
+console.log(res)
+//捕获
+var reg=/\d+/g
+var str='珠峰2019珠峰2020'
+var res =reg.exec(str);
+
+//封装一个 可以一次性捕获所有符合条件的内容 的方法  execall
+RegExp.prototype.exeall=function(){
+    //L利用exec可以一直匹配 直到匹配到null；
+  //this就是reg
+  var that=this;
+  if(!this.global){
+      //没有全局修饰符
+  
+     that= eval(that.toString()+'g')
+  }
+
+  var res =this.exec(str);
+  var ary=[]
+  while(res){
+      ary.push(res)
+      res=that.exec(str)
+  }
+return ary
+
+}
+   //var res=reg.exec(ary)
+
+  //封装一个getcookie的方法  使用execall  getcookie位于字符串的原型上
+  String.prototype.getcookie=function(key){
+      var reg=/([^; =]+)+=([^; ?]+)/g
+      var ary=reg.execall(this);
+      console.log(ary)
+      //把数组中的每一项 转成对象的格式
+      var obj={}
+      ary.forEach(item => {
+          //item数组中的每一项
+         obj[item[1]]=item[2]
+      });
+      return obj ? ibj(key) :obj
+  }
+  var cookie='BAIDUID=52D27EC9C909C4DC1B0E963D9EC0C1B8:FG=1; BIDUPSID=52D27EC9C909C4DC1B0E963D9EC0C1B8; PSTM=1562755394; BD_UPN=12314753; H_WISE_SIDS=134355_125704_127758_114552_133851_134418_128069_133677_120157_133016_132910_133045_131247_132440_130763_132378_131518_118883_118861_118843_118826_118801_107316_133159_132780_134394_122035_133351_132553_129656_134433_132250_124628_128968_132539_133472_133838_133847_132551_134460_134320_133578_134213_129646_131424_133779_110085_134253_134153_127969_131755_131298_127316_128195_134150_134349; MSA_WH=1280_619; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; cflag=13%3A3; BD_HOME=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; delPer=0; BD_CK_SAM=1; PSINO=1; COOKIE_SESSION=62245_2_8_3_6_14_0_0_6_6_1_2_0_0_175_0_1567679637_1567518331_1567741707%7C9%23202331_31_1567518330%7C6; H_PS_PSSID=1448_21085_20883_29522_29518_29720_29568_29220; H_PS_645EC=f2a4DZohQhtO%2BJRPVu1%2BgB3Anyf1uHEvIuKQrCxW6%2B1kB7vu8Il3S5x4wan6tA82cDg9'
+  cookie.getcookie()
+  cook.getcookie()
+
+
+</script>

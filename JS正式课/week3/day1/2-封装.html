@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    //类数组转数组的方法
+    var olis = document.getElementsByTagName('li');
+    var lis = olis.trans();
+    Object.prototype.trans = function () {
+        //this 就是我们要去转化的类数组
+        return [...this];
+        return Array.from(this)
+        return [].slice.call(this)
+    }
+    var lis = olis.trans()
+    //从数组或者类数组中随机删除几项返回有删除项组成的新数组
+    Object.prototype.rm = function (n) {
+        //this.length  和n的情况
+        if (n > this.length) {
+            throw new Error('删除个数不合法')
+        }
+        //splice 删除  （Math.round(Math.random()*(this.length-1)))项  
+        //splice  的操作需要执行n次
+        let ary = []
+        for (var i = 0; i < n; i++) {
+            let m = Math.round(Math.random() * (temp.length - 1));
+            ary = ary.concat([...this].splice(m, 1))
+        }
+        return ary
+    }
+    olis.rm(2)//随机删除了两项  返回值是删除的项组组成的新数组
+
+
+    Array.prototype.unique = function () {
+        //双for去重 每一轮都用当前项跟后边每一项对比，相等  就把后边的项删除；注意数组塌陷
+        //对象去重  利用对象属性名不能重复的特点。
+        //indexof lastindexof 合起来使用的去重
+        var temp = new Set(this);
+        return [...temp]
+    }
+
+
+
+    String.prototype.getparame = function () {
+        var str = this.splite('?')[1];
+        var ary = str.splite('&')
+        var obj = {}
+        ary.forEach((item) => {
+            //item 是一些'a=12' b=13  之类的字符串
+            var arr = item.splite('=');
+            obj[arr[0]] = arr[1]
+        })
+        if(key){
+            return obj[key]
+        }
+        return obj
+
+    }
+    var str = 'https://www.souyidai.com/p2p?id=3964660765015&a=12*b=23'
+    console.log(str.getparame('id'))
+    console.log(str.getparame('a'))
+    console.log(str.getparame('b'))
+    console.log(str.getparame())
+
+   
+</script>

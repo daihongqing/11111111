@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <input type="text" id="inp">
+    <h3>手机号不合法</h3>
+</body>
+</html>
+
+<script>
+var reg = /^[34566789]\d{9}$/
+var inp=document.querySelector('#inp')
+var h3=document.querySelector('h3')
+inp.oninput=function(){
+    //只要里边的内容发生改变就会触发该函数
+    var str=this.value
+    if(str.length==11){
+        if(!reg.test(str)){
+            h3.style.display='block'
+        }else{
+            h3.style.display='none'
+        }
+    }else if(str.length>11){
+        h3.style.display='none'
+    }
+}
+
+
+//qq好匹配
+var reg=/^[1-9]\d{4-11}$/
+
+var str='小明1234 的邮箱是1224121@qq.com';
+var reg=/(\d+)@qq/
+
+
+//身份证号
+var reg
+var str='这个人的身份证号是1241421313131324'
+var str2=str.replace(/.+\d{6}(\d{4})(\d{2})(\d{2})\d{2}\d(\d|x)/)
+
+//有效数
+//前边可能会出现-+
+//整数部分  多位数时 首尾不能是0
+//小数部分可有可无
+var reg=/^[-+]?[1-9]\d+|\d(\.\d+)?$/
+</script>

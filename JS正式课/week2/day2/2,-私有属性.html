@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function person(name,age){
+    this.name=name,
+    this.age=age
+}
+person.prototype.eat=function(){
+    console.log(`${this.name}吃饭`)
+}
+var per1=new person('李四',       22)
+//name age 属性是不是属于per2私有的
+//eat属于公有的
+console.log(per1)
+console.log(per1.hasOwnProperty('eat'))
+//per1.hasOwnProperty('eat')  查看eat是否是per1的私有属性
+console.log('eat'in per1)//in只看per1是否能调用到qqq 能调用到就是ture 否则就是false
+console.log('qqq'in per1)
+
+Object.prototype.hasPubProperty=function (key){
+    //获取per1
+    //判断key是否是this的公有属性???
+    //得是this的属性
+    //2，不能是私有属性
+    if((key in this) && !this.hasOwnProperty(key)){
+        return true
+    }
+   return false
+}
+//hasPubProperty
+console.log(per1.hasPubProperty('eat'))//ture
+
+</script>

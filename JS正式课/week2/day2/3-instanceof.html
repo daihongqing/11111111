@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var ary=[]
+console.log(ary instanceof Array)//true
+console.log(ary instanceof Number)//false
+console.log(ary instanceof Object)//true
+//A instanceof B 就是看从A能不能通过原型链 链到B的原型  能找到就是true  不能就是false
+//A必须是个引用数据类型，值类型都是false
+var n=12;
+console.log(n instanceof Number)//false
+
+var m=new Number(12);
+console.log(m instanceof Number);
+/* ''.myType();//string
+[].myType()//array
+(2).myType()//number */
+//f.myType()//function
+//该方法 要放在基类的原型上
+
+Object.prototype.myType=function(){
+    //this 就是我们要去判断的数据类型
+    var str=({}).toString.call(this)
+    var str2=str.slice(8,str.length-1);
+    var str3=str2.toLowerCase()
+    return str3
+}
+
+function sum(...arg){
+    arg.forEach((v,i) => {
+       console.log(v,i) 
+    });
+}
+sum(1,2,3)
+</script>

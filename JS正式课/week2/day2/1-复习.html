@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>1
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /* 面向对象
+       类和实例的区别
+       JS常见的内置类  Array  Object（基类）  Function  string  number  regexp  date
+       单例模式
+       高级单利模式  函数执行返回一个对象
+       工厂模式   批量产生单例模式
+       构造函数模式  new 执行函数的时候，会在变量提升之后多了一步开辟堆内存，把this指向改堆内存，代码执行完成之后，默认返回this
+       原型模式    比构造函数模式多了一个  prototype 
+       
+       
+       类的原型就是一个堆内存，也就是一个对象
+       每一个函数（类）都有prototype的属性，指向自己的原型
+       每一个对象（实例）都有一个__peoto__的属性，指向所属类的属性
+       每一个原型都有一个constructor属性，指向构造函数本身
+    
+       原型链 ：
+       原型链就是对象中属性的查找机制，先在自己身上查找，没有的话，就通过__proto__去所属类的原型上接着查找，原型上没有的话，就在通过__proto__向上级原型查找，直到找到基类的原型。有的话就返回相关的值。没有的话就是undefined
+       */
+
+
+    function Person() {
+        this.name = 'zhufeng'
+    };
+    Person.prototype.getName = function () {
+        console.log(this.name)
+    };
+    Person.prototype.age = 5000;
+
+    var per1 = new Person;
+    per1.getName();
+    per1.age = 9;
+    console.log(per1.age);
+    var per2 = new Person;
+    console.log(per2.age);
+</script>

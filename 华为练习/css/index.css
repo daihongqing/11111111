@@ -1,0 +1,54 @@
+*{margin: 0;padding: 0}
+.box{
+    width: 1200px;
+    margin: auto;
+}
+.box header{
+    height: 50px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+.box header div{
+    float: left;
+    line-height: 50px;
+    margin-left: 30px;
+}
+.Bigbox{
+    width: 1200px;
+}
+main{
+    margin-right: 18px;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 20px;
+    width: 222px;
+    height: 362px;
+    border: 1px solid #ccc;
+   text-align: center
+}
+main:hover{
+    border-color: red
+}
+main .pic img{
+    width: 100%;
+    margin: 38px 0 24px 0; 
+}
+main .name{
+    font-size: 12px;
+}
+main .price{
+    color: red;
+}
+main .comment .left{
+    float: left;
+    width:50%;
+    height: 36px;
+    border: 1px solid #ccc;
+    line-height: 36px;
+    
+}
+main .comment .right{
+   line-height: 36px;
+    height: 36px;
+    border: 1px solid #ccc
+}

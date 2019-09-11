@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型重构</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function person(name,age){
+  this.name=name;
+  this.age=age;
+}
+person.prototype.say=function(){
+    console.log(`${this.name}说话`)
+
+}
+var per1=new person('李四' ,22)
+
+person.prototype={
+    //原型重构
+    say(){
+        console.log(`${this.name}说话啊`)
+    }
+}
+var per2 =new person('张三',20)
+per1.say();//说话
+per2.say();//聊天
+
+</script>

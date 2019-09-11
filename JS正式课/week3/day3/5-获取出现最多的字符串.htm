@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //如何获取一个字符串中出现次数最多的字符及其次数？？
+    var str = 'dadadqwqwfwefsfaada'
+    var obj = {}
+  /*   for (var i = 0; i < str.length; i++) {
+        if (obj.hasOwnProperty(str[i])){obj[str[i]] += 1}
+       
+         else {
+            obj[str[i]] = 1
+        }
+    }} */
+    
+    //正则  
+    var reg= /(\w)(\w)\1/   //    \几就代表几个小分组的内容
+  reg.test('abb')//false
+  reg.test('aaa')//true
+  reg.test('aba')//true
+  var reg= /(\w)(\w)\1\2/
+  reg.test('abbb')
+  reg.test('aaaa')
+  reg.test('abab')
+
+  var str = 'dadadqwqwfwefsfaada'
+    var obj = {}
+ str=str.split('').sort((a,b)=>a.localeCompare(b).join(''))
+ console.log(str)
+ var reg=/(\w)\1*/g
+ var ary=str.match(reg)
+ ary.sort((a,b)=>b.length-a.length)
+ console.log(ary[0],ary[0].length)
+
+
+</script>

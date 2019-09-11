@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //bind的用法  跟call一模一样；只是不让函数立即执行；而是返回了一个新函数，
+    //新函数执行的时候this的指向换掉了;新函数执行传递的参数会补在通过bind绑定的参数后边
+    //我们可以把bind绑定的参数理解成新函数的默认参数
+
+    var obj = { a: 123 }
+    var f = function (a, b, c) {
+        console.log(this)
+        console.log(a, b, c)
+    }
+    var fn = f.bind(obj, 6, 5, 6)
+    //bind返回值是个新函数，新函数执行的时候让老函数执行了，
+    //并且把老函数中的this指向改变了
+    Function.prototype.myBind = function (context, ...arg) {
+        //this  是f2
+        var _this = this//this这个变量储存的就是f2函数
+        return function () {
+            // _this()
+            _this.call(context, ...arg)
+        }
+    }
+
+   Function.prototype.myBind=function(context,...arg){
+      return (...ary)=>{
+          this.call(context,...ary,...ary)
+      }
+
+
+   }
+
+
+    //f2.myBind(obj);//window
+    //fn2执行的时候 f2执行。并且f2中的this 改成了obj
+    fn2()
+    var fun = function () {
+        console.log(arguments);
+        console.log(this)
+    }
+    var fun2 = fun.bind(obj,666,777);
+    fun2(333,555)
+
+</script>

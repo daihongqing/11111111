@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//元字符   特殊含义源字符  +   ？  *  {}
+//i   m    g   
+//匹配   test  
+//匹配一个有效年龄18-65岁  使用正则编写
+//18-19
+//20-59
+//60-65
+var reg = /^(1[89]|[2-5]\d|6[0-5])$/
+
+//捕获 exec  加上全局修饰符之后 都会修改 正则的last index、
+var str='珠峰2019培训2020',
+     reg2=/\d+/g
+//reg2.test(str)
+console.log(reg2.exec(str))
+var str="[object undefined]"//编写一个正则  从这个正则把object这个单词后边的单词获取到
+var reg=/(\w+)/
+//捕获   exec
+
+
+
+
+
+</script>

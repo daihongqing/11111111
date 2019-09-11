@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //就是查看ary在不在对应的原型链上；
+    //ary链基类的原型；看array在不在这条链上
+    var ary = [];
+    ary instanceof Array//ture
+    //任何引用数据类型  instanceof  Object都是ture
+    //值类型 instanceof   xxxx都是false
+
+    //查看时都有私有属性
+    //hasownproperty
+    var ary = [];
+    ary.qqq = 123;
+    ary.hasOwnproperty('qqq')
+
+    //查看是不是某个对象的属性
+    var ary = []
+    'push' in ary//ture 
+    'hasOwnPropery' in ary
+
+    //判断是否是共有方法？？ 一  首先需要时他的属性（in） 二不能有私有属性（hasOwnPropery）
+
+    Object.prototype.hasOwnProperty = function (key) {
+        //怎么拿到push  sry？？
+        //key===》push
+        //this===》ary
+        if ((key in this) && !this.hasOwnProperty(key)) {
+            return true
+        }
+        return false
+    }
+    ary.hasOwnProperty('push');
+
+    //判断数据类型的方法
+    Object.prototype.myType = function () {
+        var str = ({}).toString.call(this)//'[object array]'
+        var str2 = str.slice(8, str.length - 1);//提取  后边的字母
+        var str3 = str2.toLowerCase()//转成小写
+        return str3
+    }
+
+ //plus  minus
+
+ var a=10;
+ a.plus(1).minus(2).plus(20)//10+1-2+20   为什么可以使用链式调用
+ //原因是前边函数执行的结果  可以 调用到后边的函数
+ 
+ var ary=[]
+ ary.concat(1,2,3).push(4).plus(10)
+</script>

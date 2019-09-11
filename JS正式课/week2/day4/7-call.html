@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //call  改变函数执行时 内部的this 指向  
+    //call 第一个参数用函数执行时this的指向；后边的参数都是传给前边参数的实参
+    function fn() {
+        console.log(arguments);
+        console.log(this);
+    }
+    var obj = {
+        f: fn
+    }
+    obj.f(1, 1, 1)//[...arguments]   [].slice.call(argumrnts)   array.from(arguments)
+    fn(2, 2, 2)
+    obj.f.call(Array, 3, 3, 3)
+    fn.call(obj, 4, 4, 4)
+
+    //apply 用法类似于call；但是第二个参数是一个集合（数组或者类数组）
+    //函数执行时，还是散乱的接受的
+    fn.apply(obj, [6, 6, 6])
+    Math.max.apply(Math, [2, 3, 4, 1, 4, 41, 3, 1])//最大值
+
+
+    //mycall  使用方法
+    Function.prototype.mycall = function (context,...ary) {
+      //让fn执行
+      //fn中的this得改成obj
+      //mycall执行时得把，6，6，6传给fn
+     // this===>fn
+     this(...ary)
+
+     //怎末保证一个函数执行时 上下文是context；
+       var key=Symbol()
+       context[key]=this;
+       context[key](ary);
+       delete context.qqq;
+    }
+  fn.mycall(obj,6,6,6);
+
+  //bind的用法跟call一摸一样只是不是让函数立即执行的，而是返回额一个新函数，
+  //新韩淑执行时，里边的this会改变成指定的对象
+  var fn2=fn.bind(obj,6,6,6)
+  console.log(fn2)
+  fn2()//让fn执行了，并且把fn中的this改成了obj，还把6，6，6传给了fn；
+
+  //封装mybind
+  Function.prototype.mybind=function(context,...ary){
+     var _this=this
+     return function (){
+         
+         /* //箭头函数中的this时上级作用域的this，也就是所需要的fn
+         //为了保证这个函数中的this时fn 才选择使用了箭头函数
+         //箭头函数中的this 时找的上级作用域中的this
+         
+         rerurn (...arr)=>{
+             return this.call(context,...ary,...ary)
+         } */
+        return _this.call(context,...ary,...ary)
+     }
+  }
+var fn3=fn.mybind(obj,6,6,6)
+fn3()
+
+//使用bind 更改过之后函数，this指向不会再去做任何更改
+var fn5 = fn.bind(obj,3,3)//fn5 是通过修改fn中this之后得到的函数
+var fn6 = fn5.bind(Array,6,6);//fn6是通过修改fn5中的this之后得到的函数
+fn5()//obj
+fn6()//obj
+</script>

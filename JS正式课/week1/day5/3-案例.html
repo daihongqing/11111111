@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btnBox">
+        <input type="button" value="button_1" />
+        <input type="button" value="button_2" />
+        <input type="button" value="button_3" />
+        <input type="button" value="button_4" />
+        <input type="button" value="button_5" />
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var btnBox = document.getElementById('btnBox'),
+        inputs = btnBox.getElementsByTagName('input');
+    var l = inputs.length;
+   /*  for (var i = 0; i < l; i++) {
+        function f() {
+            var j = [i]
+            inputs[j].onclick = function () {
+                alert(j);
+            }
+        }
+        f()
+    } */
+    //自定义属性的方式    还有let的方式
+    for(var i=0;i<l;i++){
+        //使用自定义的属性，思想在于把索引储存到对应元素的自身上
+        inputs[i].myindex=i;//当i=0时，给第一个input增加一个自定义属性，对应的值是当前索引
+        inputs[i].onclick=function(){
+            alert(this.myindex);
+        }
+    }
+    //闭包方式
+    for(var i=0;i<l;i++){
+        (function(n){
+            inputs[n].onclick=function(){
+            alert(n);}
+        })(i)
+        }
+    //闭包方式2
+    for(var i=0;i<l;i++){
+        inputs[i].onclick=function(n){
+         return function(){
+             console.log(n)
+         }
+        }
+    }
+    //闭包方式3
+    for(var i=0;i<l;i++){
+       inputs[i].onclick=fn[i]
+        }
+        function fn(n){
+            return function(){
+          console.log[n]
+            }
+        }
+    
+    
+
+
+</script>

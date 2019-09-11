@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* //获取对应元素
+  //循环绑定
+  //清除类名 */
+ function Tab(id){
+ this.box=document.querySelector(id)
+ //获取需要点击的元素
+ this.tabs=this.box.getelementsbyclass('tab')
+ this.bodys=this.box.getelementsbyclass('body')
+ }
+Tab.prototype.mapBind=function(){
+    var _this =this//用一个变量存储当前操作的元素
+  //循环this.tab；给每一个tab绑定事件
+  for(let i=0;i<this.tabs.length;i++){
+      this.tabs[i].onclick=function (){
+          //写出普通函数时，里边的this是当前操作的元素
+          this_.clearclass()
+          _this.tabs[i].classname='tab current';
+          _this.bodys[i].classname='body current'
+      }
+  }
+}
+Tab.prototype.clearclass =function (){
+    //清除curr类名，使用forEach必须得是数组才行
+  [...this.tabs].forEach((v,i)=>{
+      v.classname='tab'
+      this.bodys[i].classname='body'
+  })
+}
+
+
+</script>

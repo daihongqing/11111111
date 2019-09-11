@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+        width: 400px;
+        height: 400px;
+        background: #ccc;
+        padding: 10px;
+        border: 20px dashed darkgoldenrod;
+        }
+    </style> 
+</head>
+<body>
+    <div id="box">
+        js模型的三个系列    client  offset scroll
+        js模型的三个系列    client  offset scroll
+
+        js模型的三个系列    client  offset scroll
+        js模型的三个系列    client  offset scroll
+        js模型的三个系列    client  offset scroll
+    </div>
+</body>
+</html>
+<script>
+  //JS 盒子模型；
+  //js模型的三个系列    client  offset scroll
+
+  //client  系列  
+  var box=document.getElementById('box')
+ 
+
+ //offset系列
+ console.log(box.offsetParent)//上级参照物（有参照物的上级参照物）
+ //上级参照物最多到body；body的上级参照物时null
+ function offset(){
+     var temp=ele.offsetParent;
+     var obj={
+         left:ele.offsetleft,
+         top:ele.offsetTop
+     }
+     while(temp){
+         obj.left+=temp.offsetleft+temp.clientLeft
+         obj.top+=temp.offsetTop+temp.clientTop
+         temp=temp.offsetParent;
+     }
+     return obj
+ }
+
+ //scroll系列   内容不溢出，等同于 clientwidth
+ //内容溢出  但是没有overflower属性  盒子的上padding+内容的高度；
+ //内容溢出但是有overflower属性  盒子的上下padding+内容的高度；
+ console.log(box.scrollLeft)//卷去内容的宽度
+ console.log(box.scrollTop)//卷去内容的高度
+ 
+
+
+
+</script>

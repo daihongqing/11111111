@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* 
+   类   实例         原型对象   
+   人类   特朗普      公用属性   
+  JS天生自带的类：funvtion  array object  string
+  自定义类  function  Tab(){}
+
+  自带类的 原型上的属性可以更改  但是 原型不能被覆盖  
+
+  prototype   __proto__  constructor
+  //原型  就是一个堆内存
+  每一个函数（类） 都天生自带一个prototype 的属性，指向自己的原型
+  每一个对象（实例） 都天生自带一个__proto__  的属性  指向所属类的原型
+  每一个默认的原型上都有一个constructor属性，指向构造函数本身
+
+  原型链  属性的查找机制，现在自己的身上查找，没有就通过__proto__接着向上级原型查找，再没有接着通过 __proto__向上级原型查找，直到找到基类的原型，在没有的话，拿到的就是undefined
+
+   查看一个属性是否是私有的，per1.hasownproperty('eat')
+   //封装一个判断共有属性的方法  这个方法需要需要放在基类的原型上，需要注意首先是他的属性，然后还不能是私有属性
+   //在原型上封装额方法，里边的this需要保证的是该类的实例
+
+  //'eat' in per1 这个对象能否调用到eat属性
+  */
+
+  Number .prototype.plus=function(a){
+  return this+a
+  }
+  Number.prototype.minus=function(b){
+  return this -a
+ }
+  var n=20;
+  var m=n.plus(10).minus(5)
+  console.log(m)//20+10-5
+  //封装方法
+  var ary=[]
+  console.log(ary)
+</script>

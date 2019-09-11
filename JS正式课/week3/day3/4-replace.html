@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var str = '2019-02-03'
+    var res = str.replace(/-/g, '/')
+    var str = 'cakjhah1eh224hb24h5h24h42'
+    var res = str.replace(/\d+/g, '')
+    var res = str.replace(/\d+/g, function (...arg) {
+        //该回调函数的参数  第一项是大正则捕获的内容  后边若有小正则  则就是小正则捕获的内容
+        //倒数第一项是整个字符串
+        //倒数第二项时匹配到的起始字符的索引
+        console.log(arg)
+    })
+    console.log(res)
+
+    var str = new Date().toLocaleString();
+    //今天是2019年9月4日 
+    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/(\d+)) /, function (...arg) {
+        console.log(arg)
+        return `今天是${arg[1]}年${arg[3]}月${arg[5]}日`
+    })
+    console.log(str2)
+
+    //使用replace识别身份证识别
+    var str = '1234142445234216'
+    var str2 = str.replace(/ /, function (...arg) {
+
+    })
+
+    /* replace的两种用法 在于第二个参数可以是字符串 也可以是回调函数
+       若是字符串  则表达的含义就是 用该回调函数的返回值  去替换当前正则匹配到的内容
+       若是函数  则表达的含义说就是用改回调函数大的返回值，去替换当前正则匹配到的内容 */
+
+  //************  //使用 replace方法 去实现 getparam 方法
+    var str = 'http://www/baidu.com?ha=666&he=777&hei=999'
+    function getparam() {
+       var o={};
+       str.replace(/[^?=&]+=[^?=&]+/g,function(a,b,c){
+           console.log(a,b,c)
+      o[a]=c
+       })
+       return o
+    }
+    var obj = getparam(str)
+
+</script>

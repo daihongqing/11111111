@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time2"></div>
+</body>
+
+</html>
+<script>
+function timeout(){
+    var targe=new Date('2019/09/16 22:00:00').getTime(),
+        now=new Date().getTime(),
+        time=targe-now
+     if(time<=0){
+         time=0;
+         clearInterval(timer9)
+     }
+     var day=parseInt(time/(1000*60*60*24))
+     time=time-day*(1000*60*60*24)
+     var hours=parseInt(time/(1000*60*60))
+     time=time-hours*(1000*60*60)
+     var minture=parseInt(time/(1000*60))
+     time=time-minture*(1000*60)
+     var second=parseInt(time/(1000))
+     if (day<10) {
+       day='0'+day
+     }
+     if (hours<10) {
+        hours = '0' + hours;
+     }
+     if (minture<10) {
+         '0'+minture
+     }
+     if (second<10) {
+         '0'+second
+     }
+ document.getElementById('time2').innerHTML=`${day}天${hours}时${minture}分${second}秒`
+}
+var timer9=setInterval(()=>{
+    timeout()
+},1000)
+
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var str='珠峰2019培训2020'
+var reg=/\d+/g;
+str.match(reg);
+
+//当正则有修饰符g的时候
+//match 的优点 一次性可以把所有符合大正则的内容全部捕获到
+    //缺点是  不能捕获小分组
+
+//使用match或者url上的参数
+
+var url='http://www/baidu.com?ha=666&he=777&hei=999'
+var reg=/[^?=&]+=[^?=&]+/g
+var ary=url.match(reg)//[]
+console.log(ary)//下边要么用split进行分割，要不接着用正则进行分割
+</script>

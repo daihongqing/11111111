@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+   <div id="box">
+       验证码
+   </div>
+</body>
+
+</html>
+<script>
+    /* 
+       typeof      用于检测基本数据类型
+        */
+    //封装检测数据类型
+    function gettype() {
+        var str = Object.prototype.toString.call(a)//获取数据类型
+        var str2 = str.slice(8, str.length - 1)
+        return str2.toLowerCase()
+    }
+    gettype()
+
+    //parseFloat  从左向右查看，只要碰到非数字急停，若首个数字是非数字，结果就是NaN
+
+    //封装判断是不是NaN
+    function myisNaN(n) {
+        var m = Number(m)
+        if (m + '' === "NaN") {
+            return true
+        }
+        return false
+    }
+
+
+
+    /* document.body 获取元素*/
+    var odiv = document.createelement('div')
+    odiv.innerHTML = '好好学习，天天向上'
+    document.body.appendChild(odiv)
+
+
+    /* 结合settimeout和递归实现  setinterval */
+    function f() {
+        setTimeout(() => {
+            f()
+        }, 1000)
+    }
+    f()
+    /* 不定项求和 */
+    function sum() {
+        for (var i = 0; i < arguments.length; i++) {
+            var temp = arguments[i]
+            if (!isNaN(temp)) {
+                //不是NaN的才能累加
+                total += temp * 1
+            }
+        }
+        return total
+    }
+
+
+
+    /* 获取url上的参数 */
+    function f(url) {
+        var str = url.split('?')[1];
+        var ary = str.split('#');
+        var hash = ary[1]
+        var str2 = ary[0]
+        var ary2 = str2.split('&')
+        var obj = {}
+        ary2.forEach(item => {
+            var a = item.split('=')
+            obj[a[0]] = a[1]
+        });
+        obj.HASH = hash
+        return obj
+    }
+
+    /* 验证码 */
+    function getstr() {
+        var str = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789'
+        //math.round(math.randon()*61)
+        var s = ''
+        while (s.length < 4) {
+            var n = Math.round(Math.random() * 61)
+            if (s.indexOf(str[n]) == -1) {
+                s += str[n]
+            }
+        }
+        return s
+    }
+    var box=document.getElementById('box')
+    box.onclick=function(){
+        this.innerHTML=getstr()
+    }
+</script>

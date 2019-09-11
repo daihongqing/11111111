@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//获取字符串中出现次数最多的字符
+ var str='sakjahakjhdakjbdajkbcasbjxaxja'
+ //第一种思路  使用循环
+ //  把字符串的每一项  当作一个对象的属性名，没出现一次就累加1
+  var obj={}
+  for(var i=0; i<str.length;i++){
+      if(obj.hasOwnProperty(str[i])){
+          obj[str[i]]++//若是出现过的  我们就在原来的基础上假1
+      }else{
+          obj[str[i]]=1//若是第一次出现，我们就给他一个初始值1
+      }
+  }
+   
+   //第二种思路 排序加正则     /（\w+)\1/
+var str2=str.split('').sort((a,b)=>a.localeCompare(b)).join('')
+ var letter='',max=0
+ str2.replace(/(\w)\1+/g,function(a,b){
+     console.log(a,b)
+     if(a.length>max){
+         max=a.length;
+         letter=b;
+     }
+ })
+ console.log(letter,max)
+
+      //千分符
+     var str='13213132413131'
+     str=str.replace(/\d{1,3}(?=(\d{3})+$)/g,function(a){
+      return a+','
+     })
+     console.log(str)
+
+     //使用replace实现getParam
+     var obj={}
+     function getParm(){
+         str.replace(/[^?=&]+=[^?=&]+/g),function(a,b,c){
+         obj[b]=c
+         }
+         return obj
+     }
+     console.log(obj)
+     var str='www' 
+
+
+     //元字符  修饰符 
+     //test 手机  邮箱  身份证
+     //exet 贪  懒  全局修饰符g  lastindex
+     //execAll
+     //match  正则加不加g的区别
+     //replace  正则加字符串  正则+回调函数
+     
+
+     //字符串字符出现的次数
+     //千分符
+     //getParam
+</script>

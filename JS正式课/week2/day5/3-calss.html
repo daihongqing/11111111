@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script>
+    function Person() {
+        this.age = age;
+    }
+    Person.prototype.eat = function () { }
+    Person.getName = function () { };
+
+    //class声明的类不能当做普通函数执行，只能通过new执行
+    class Animal {
+        constructor(age) {
+            //实例的私有属性
+            this.age = age
+        }
+        eat() {
+            //实例的共有属性
+            console.log('animal eat')
+        }
+        static getName() {
+            //把类当做对象去增加的属性
+            console.log('class的静态方法')
+        }
+    }
+    var per = new Person(100)
+    var ani = new Animal(1000)
+    console.log()
+
+</script>

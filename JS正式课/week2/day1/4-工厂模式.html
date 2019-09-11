@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* 工厂模式  就是一个普通的函数，适用于那些批量生产单例的情况 */
+ var per1={
+        name:'小明',
+        age:12,
+        eat:function(){
+
+        },
+       play:function(){
+            
+        },
+        smile:function(){
+            
+        }
+    }
+   var per2={
+        name:'小心',
+        age:13,
+        eat:function(){
+
+        },
+       play:function(){
+            
+        },
+        smile:function(){
+            
+        }
+    }
+var person =function (name,age){
+    return{
+        name,
+        age,
+        eat:function(){
+
+        },
+       play:function(){
+            
+        },
+        smile:function(){
+            
+        }
+    }
+}
+var per3=person('张三',20)
+var per4=person('李四',29)
+//per1和per2是通过普通单例创造的；per3和per4是通过工厂模式创造的
+per1.smile()//手工创造的
+per3.smile()//工厂创造的
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//匹配 就是查看正则字符串是否满足正则的规则
+
+//捕获就是把字符串中满足正则规则的部分获取到
+
+//exec    正则.exec(字符串)
+
+//正则的lastindex属性是定义了下一次捕获开始的位置
+
+var reg=/\d+/g
+var res = reg.exec('珠峰2019奥佳华2020')
+console.log(res);
+var res2 = reg.exec('珠峰2019奥佳华2020')
+console.log(res2)
+var res3 = reg.exec('珠峰2019奥佳华2020')
+console.log(res3);
+var res4 = reg.exec('珠峰2019奥佳华2020')
+console.log(res4)
+
+var str='你好2019哈哈2018珠峰2020哈哈2021'//只捕获哈哈后边的数字
+//exec的返回值  第一项是大正则捕获到的内容；第二项开始都是小分组的内容
+/* var reg2=/哈哈(\d+)([a-z]+)/g
+var res=reg2.exec(str) */
+
+//自己封装一个execALL方法，可以一次性把所有符合条件的内容捕获到
+ RegExp.prototype.execALL=function (){
+     var reg=this//因为this不能赋值，所以我们用了一个变量去代替
+     if(!this.global){
+         //代表正则没有修饰符  需要我们补一个g
+         reg=eval(reg.toString()+'g')
+     }
+ //怎么保证str是字符串
+ str=str.toString()
+ //this-->reg2
+ var res=this.exec(str)
+ var ary=[];
+
+ while(res){
+     ary.push(res)
+    console.log('666')
+     res=this.exec(str)
+ }
+ return ary
+ }
+ var str='你好2019哈哈2018珠峰2020哈哈2021'
+ var reg2=/哈哈(\d+)([a-z]+)/g
+ console.log(reg2.execALL(str))
+</script>

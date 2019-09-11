@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var num=10//30//51
+obj={num:20}
+obj.fn=(function(num){//21
+     num=this.num+10;
+     this.num=num+10;
+     return function(){
+         this.num+= ++num
+     }
+})(num)
+var fn=obj.fn;
+fn()//51
+obj.fn()//41
+console.log(num,obj.num)
+
+
+
+var x = 2;//
+var y = {
+    x: 10,//50
+    z: function (x) {
+        this.x *= x;
+    }
+};
+var z = y.z;
+y.z(5);
+z(10);
+console.log(x, y.x);//20   50
+
+
+
+var x = 5;//6//7//8
+function fn() {
+    return function(y) {
+        console.log(y + (++x));//13
+    }
+}
+var f = fn(6);
+f(7);//13
+fn(8)(9);//16
+f(10);//18
+console.log(x);//8
+
+//第五题
+var x=0, //2
+    y=1;
+function fn(){
+    x+=2; 
+    fn=function(y){
+        console.log(y + (--x));//5
+    };
+    console.log(x, y);
+}
+fn(3);
+fn(4);
+console.log(x, y);//1//1
+
+//第六题
+var x=2;//4//16
+var y={
+    x:3,
+    z:(function(x){//4//7
+        this.x*=x;
+        x+=2;
+        return function(n){
+            this.x*=n;
+            x+=3;
+            console.log(x);//7
+        }
+    })(x)
+};
+var m=y.z;
+m(4);
+y.z(5);
+console.log(x, y.x);
+
+
+var x = 10,//9//8//7
+    y = 20,//21//22
+    z = 30;
+function fn() {
+    y++;
+    return function (z) {
+        x--;
+        console.log(z + x + y);
+    }
+}
+var f = fn();
+f(40);//70
+fn()(50);//80
+f(60);//89
+console.log(x,y,z);//7   22   30
+
+
+var a=0,
+    b=0;
+function A(a){
+    
+    alert(a++);
+    return A=function(b){
+        alert(a+b++);
+    };
+}
+A(1);
+A(2);
+
+</script>

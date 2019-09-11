@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="手机号" id="inp">
+    <input type="passord" placeholder="密码" id="psw">
+    <button id="btn">提交</button>
+</body>
+</html>
+<script>
+ let inp=document.querySelector('#inp'),
+     psw=document.querySelector('#psw')
+     btn=document.querySelector('#btn')
+     btn.onclick=function(){
+     var str=inp.value;
+     var str2=psw.value
+     var reg=/^1(3|5|6|7|8|9)\d{9}$/;
+     if(reg.test(str)){
+         alert('合法')
+     }else{
+         alert('不合法')
+     }
+     var bol=/[A-Z]/.test(str2)&&/[a-z]
+ }
+
+
+
+
+</script>
+<script>
+//编写一个可以验证有效数字的正则
+//有效数字符合那些规则？   可以是整数  小数部分  没有小数部分就是整数
+//正负号有可能出现 
+//整数部分  多位时  零不能开图
+
+//.123
+//12..23
+//12.12.12
+//12
+//12.3
+//12.00
+var reg=/^(-|+)?(([1-9]\d*)|0)(\.\d+)?$/
+console.log(res.test('.123'))
+console.log(res.test('12..23'))
+console.log(res.test('.12.12.12'))
+console.log(res.test('.12'))
+console.log(res.test('12.3'))
+
+//2、验证手机号码
+//  11位
+//1开头  第二位是3 5 6 7 8 9
+var reg=/^1(3|5|6|7|8|9)\d{9}$/
+
+//3、验证qq邮箱正则
+// 前边是qq号码 
+// 中间是@qq.com
+var reg=/^[1-9]\d{4,10}@qq\.com$/
+
+//4、验证身份证号码的
+//18位  最后一位可能是x
+var reg =/^[1-9]\d{5}\d{5}\d{5}\d{5}\d(\d|x)/
+
+//验证密码的正则
+//6-16位
+//得是数字字母或者下划线
+
+var reg =/^w{6,16}$/
+//8-20位  必须有 大写和小写  还得有数字
+
+</script>

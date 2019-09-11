@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var str=''
+var ary=str.split(/[-=,;_]/)
+console.log(ary)
+
+//match
+//使用match时  正则加不加g  区别
+//加g  可以获取全部，不能捕获小分组
+//不加
+var str='珠峰2019珠峰2020'
+var reg =/\d+/g;
+console.log(str.match(reg))
+
+//思考  把这个方法放置到字符串的原型上
+
+//replace  比match的优势时即使有g  也能实现小分组的捕获
+//str.replace(/a/g,'b')
+
+var str ='珠峰zf培训px'
+str = str.replace(/\w+/g,c=>c.toUpperCase())
+</script>

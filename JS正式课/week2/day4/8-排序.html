@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="nameBtn">姓名排序</button>
+    <button id="ageBtn">年龄排序</button>
+    <ul id="box">
+        <li>
+            姓名是：小红；年龄是 10
+        </li>
+    </ul>
+</body>
+
+</html>
+<script>
+    let ary = [{
+        name: "小明",
+        age: 10
+    },
+    {
+        name: "小李",
+        age: 100
+    },
+    {
+        name: "小红",
+        age: 102
+    },
+    {
+        name: "小黄",
+        age: 18
+    }
+    ]
+    let box = document.querySelector('#box');
+    let nameBtn = document.querySelector('#nameBtn');
+    let ageBtn = document.querySelector('#ageBtn');
+
+    function renderhtml() {
+        let str = ''
+        ary.forEach((item, index) => {
+            str += `<li>姓名是：${item.name}；年龄是${item.age}</li>`
+        })
+        box.innerHTML = str;
+    }
+    renderhtml()
+
+    let olis = document.getElementsByTagName('li');
+    let temp = olis[0]
+    //temp是页面上已经存在的节点；再去使用appendchild时，页面不会新增一个节点
+    //只会改变一下
+    box.appendChild(temp)
+    let flag = 1
+    ageBtn.onclick = function () {
+        flag *= -1;
+        let ary2 = [...olis]
+        ary2.sort((a, b) => {
+            //a，b就是对应li标签的innerhtml 进行排序
+            //我们要用li内部的span标签的inner进行排序
+            var age1 = a.getElementsByClassName('age')[0].innerHTML;
+            var age2 = a.getElementsByClassName('age')[0].innerHTML;
+            return age1 - age2
+        })
+        console.log(ary2)
+        ary2.forEach((item) => {
+            box.appendChild(item)
+        })
+
+    }
+
+
+
+</script>

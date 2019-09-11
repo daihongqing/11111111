@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /* call  apply  bind 三个都是为了改变函数中this的指向； */
+    function f() {
+        console.log(this)
+    }
+    var obj = {
+        f
+    }
+    var fn = obj.f
+    /* obj,f()
+    fn() */
+
+    //fn.call(context,1,2,3,4,5)，call是直接让函数执行了
+    //第一个参数是用来改变函数执行时内部this的指向的
+    //第二个参数集之后的参数 都是传给fn函数的实参
+    fn.call(obj, 213, 21, 43, 12, 1)//
+    fn.call([], 21, 3, 12)
+    fn.call(1)
+    Object.prototype.toString.call('')//'[object string]'
+    var a = new f;
+    console.log(a.toString());
+    ({}).toString();
+    Object.prototype.toString.call('');
+    //上述 call 执行时，把tostring方法中的this改成了字符串。所以返回的就是 字符串的数据类型  
+    //call这个方法 在是什么地方存放？Function.prototype
+    //自己封装一个call
+
+
+
+
+    Function.prototype.myCall = function (context, ...arg) {
+        //context 就是我们让指向的那个值  arg是要传给对应函数的实参
+        //this就是咱们f2
+        this(...arg)//能实现 让f2执行，并且把arg中的参数传给f2
+        //怎么把f2中的this改成context？
+        //context.eee()  eee这个函数中的this就是context
+       // context.eee = this;//context.eee跟我们f2是同一个函数
+      //  context.eee(...arg);
+     //   delete context.eee
+
+     //var n=Math.random();
+     var n=Symbol()
+     context[n]=this;
+     context[n](...arg)
+     delete context[n]
+    }
+    function f2(a, b) {
+        console.log(this)
+        console.log(a + b)
+    }
+    var obj = {
+        q: 123,
+        w: 234,
+        e: 345
+    }
+    f2.myCall(obj)//让f2执行  并且把f2中的this指向改成obj；把，3,3当做实参传给f2
+</script>

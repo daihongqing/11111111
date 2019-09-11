@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function person(name,age){
+      this.name=name;
+      this.age=age;
+      this.eat=function(){}
+      this.play=function(){}
+        }
+        var per4=new person('张三',22)
+        console.log(per4)//per4 就是person类的一个实例
+
+
+        //普通函数执行的过程先开辟一个作用域，形参赋值，变量提升
+        //new 函数的执行
+        //把函数中的this指向该堆内存  代码执行  默认返回this
+</script>

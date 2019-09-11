@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    /* 面向对象的几种常见的设计模式，单例模式，高级单例模式   工厂模式  构造函数模式  原型模式
+    单例模式就是一个普通对象  命名空间
+    高级单例模式就是闭包  我们可以实现模块化开发
+    使用高级单例模式可以实现模块化开发
+   
+    工厂模式本质上就是一个函数，是批量生产单例模式的
+   
+    构造函数模式
+   
+    普通函数执行，开辟作用域，形参赋值，变量提升，return什么 函数运行结果就是啥
+   
+    new函数执行   开辟作用域，形参赋值，变量提升， 开辟一个新的堆内存，然后把this指向改成这个堆内存。代码执行  代码执行后，默认返回
+   
+    //创造一个数组  我们有两种方式 一个字面量 另一个是构造函数构造
+    */
+    var ary = []//字面量
+    var arr = new Array(10, 20)//构造函数构造
+
+    //原型模式  就是在构造函数的基础上 添加一个prototype的属性；
+
+    //原型链   属性的查找机制，根据__proto__一级一级往上边查找；
+
+    hasOwnProrerty
+
+    //所有引用数据类型  instanceof  object===>都是true
+    //值类型  instanceof  任意  ===>false
+    //手写一个mycall跟call的用法一样
+    //call让函数执行，还改变了this的指向   把第二个及之后的参数传给函数
+    Function.prototype.myCall=function(context,...arg){
+     //  this(...arg)    第一个第三条都满足多了，但是this没改;
+     //f-->this
+     //context.qqq()qqq中的this 就是context
+     /* context.qqq()=this;
+     context.qqq(...arg);
+     delete  context.qqq */
+     var key=Symbol()
+     context[key]=this;
+     var res=context[key](...arg)
+     delete context[key]
+     return res
+    }
+    var obj={a:12,b:13}
+    var f =function(){
+        console.log(arguments)
+        console.log(this)
+    }
+    f.call(obj,2,3,4)
+    f.call(obj,2,3,4)
+    Function.prototype.myBind=function(context,...arg){
+        var _this=this
+        return function(...arr){
+         _this.call(context,...arg,...arr)
+        }
+    }
+</script>

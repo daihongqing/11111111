@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//子类继承父类的属性
+function Fn(){}
+Fn.prototype=new Array()
+var f=new Fn();
+console.log(f.pop)
+
+//call继承
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+Person.prototype.eat=function(){}
+
+function Child(name,age,toy){
+    Person.call(this,name,toy)//让Person函数执行，并且把Person执行中的this改成了当前child中的this；那么Person中额this。name  this.age 就变成了child中的this.name 和thisage了
+    this.toy=toy
+}
+var xm=new Child('小明',20,'挖掘机')
+Child.prototype=new Person()//孩类的原型之恶极改成了人类的一个实例
+console.log(xm)
+//Child.prototype=Person.prototype//小孩类的原型直接改成了人类的原型 这样人类的公有属性 小孩类也有了
+Child.prototype=Object.create(Person.prototype)
+//寄生组合式
+
+
+class Parent{
+    constructor(name){
+        this.name=name
+    }
+    eat(){}
+    play(){}
+    static getName(){}
+}
+class Children extends Parent{
+    constructor(toy){
+        //class继承的时候，写了contructor就波续写super
+        super()//这个super就是parent的constructor；相当于我们的call继承             
+        this.toy=toy
+    }
+    study(){}
+}
+//class继承可以把私有的，公有 静态  属性  全都继承过来
+var c1=new Children('挖掘机')
+console.log(c1)
+</script>
