@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+//js  异步单线程
+//settimeout setinterval
+//setintrval  一直执行；stetimeout  只执行一次
+//cleartimeout clearinterval
+var timer=setTimeout(()=>{
+    console.log(666)
+},3000);
+var timer2=setTimeout(()=>{
+    console.log(111)
+    clearTimeout(timer)
+},1000)
+
+
+
+
+var btn=document.getElementById('btn')
+var num=document.getElementById('num')
+var n=0;
+var flag=false;
+var timer4=''
+btn.onclick=function (){
+     time()
+}
+function time(){
+    if(flag){
+        clearInterval(timer4)
+        flag=false
+    }else{
+        timer4=setInterval(()=>{
+            n++;
+        num.innerHTML=n;
+        },1000)
+        flag=true
+    }
+    
+    //定时器毛病：离开当前页面之后  定时器的时间就不准了
+}
+
+
+
+//怎么用递归+settimeout  实现setinterval
+function f(){
+    console.log("我是f")
+    setTimeout(()=>{
+        f()
+    },1000)
+}
+f()
+
+
+
+
+</script>

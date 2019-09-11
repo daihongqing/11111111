@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+  /*   1  元素节点的nodetype
+        3  文本节点
+        8  注释节点
+        9  根节点 */
+        var oli=document.getElementById('li')
+        console.dir(oli);
+     //父节点  parentnode
+     //哥哥节点  previoussibling
+     //哥哥元素节点  previouselementsibling   不兼容IE6-8
+     //自封的  找哥哥元素节点  先查哥哥节点  看哥哥节点是不是元素节点 不是的话接着向上查找
+     function getbro2(ele){
+         var prev=ele.previoussibling//获取元素的哥哥节点
+         //判断节点是否存在，
+         while(prev&&prev.nodetype!==1){
+             prev=prev.previoussibling;
+         }
+         return prev;
+              }
+              console.log(getbro(oli))
+
+    //last  first
+    //js  创造元素
+    var div=document.createElement('div')
+    //div 内容是  hello world
+    div.innerHTML='hello world'
+    //把创造的div放到oli中
+    oli.appendChild(div)
+
+</script>

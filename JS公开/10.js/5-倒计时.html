@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+/* 倒计时：
+ 用目标时间-当前时间=剩余时间 */
+ //目标时间
+/*  var target=new Date('2019-9-11 15:00:00').getTime()
+
+ //当前时间
+ var now=new Date().getTime()
+
+ //剩余时间
+ time=target-now;
+
+ //整数个小时
+ var h=parseInt(time/(60*60*1000))
+
+ time=time-h*60*60*1000;
+
+ //整数个分钟
+ var m=parseInt(time/(60*1000))
+
+  time=time-m*60*1000
+ //整数个秒
+ var s=parseInt(time/1000)
+
+var box=document.get
+
+function $(id){
+      return document.getElementById(id);
+    }
+   function GetRTime(){
+       //结束时间
+       var EndTime= new Date('2016/07/10 00:00:00');
+       //当前时间
+       var NowTime = new Date();
+       //结束时间减去当前时间剩余的毫秒数
+       var t =EndTime.getTime() - NowTime.getTime();
+       var h=Math.floor(t/1000/60/60);//时
+       var m=Math.floor(t/1000/60%60);//分
+       var s=Math.floor(t/1000%60);//秒
+       h <10 ? h = '0' +h :h =h;//判断是否小于10，是则在时间前面加0
+       m <10 ? m = '0' +m :m =m;
+       s <10 ? s = '0' +s :s =s;
+       $("t_h").innerHTML = h + "时";
+       $("t_m").innerHTML = m + "分";
+       $("t_s").innerHTML = s + "秒";
+   }
+   setInterval(GetRTime,0);
+ */
+
+
+
+ function timeCount() {
+        var target = new Date('2019/10/18 13:00:00').getTime(),
+            now = new Date().getTime(),
+            time = target - now; //时间差 是毫秒数，然后在转成时分秒
+        if (time <= 0) {
+            time=0;
+            clearInterval(timer9); 
+        }
+        //    先去获得，这些毫秒数中有几个整数小时，然后在用剩余的毫秒数中整数个分钟，然后在取剩余的毫秒数中去整数个秒数
+
+        var hours = parseInt(time / (1000 * 60 * 60)); //整个小时数
+        time = time - hours * 1000 * 60 * 60;  //一小时对应的毫秒数
+        var minutes = parseInt(time / (1000 * 60)); //整个分钟数
+        time = time - minutes * 1000 * 60;//一分钟对应的毫秒数
+        var seconds = parseInt(time / 1000); //整个毫秒数
+        time = time - seconds * 1000;//一秒钟对应的毫秒数
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+        var str = `${hours}时${minutes}分${seconds}秒`;
+        document.getElementById('time1').innerHTML = str;
+    }
+    var timer9 = setInterval(() => {
+        timeCount(); //距离下课还有几分几秒
+    }, 1000)
+
+
+
+</script>
