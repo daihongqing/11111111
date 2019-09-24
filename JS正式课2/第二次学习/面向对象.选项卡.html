@@ -73,55 +73,54 @@
 
 </html>
 <script>
-    // function Tab2(id) {
-    //     var box = document.querySelector(id),
-    //         tabs = box.getElementsbyClassName('tab')//获取tab
-    //     bodys = box.getElementsbyClassName('body')//获取body
-    //     for (let i = 0; i < tabs.length; i++) {
-    //         tabs[i].onclick = function () {
-    //             for (let j = 0; j < tabs.length; j++) {
-    //                 tabs[j].className = 'tab';
-    //                 bodys[j].className = 'body';
-    //             }
-    //             this.className = 'tab current';
-    //             bodys[i].className = 'body current';
-    //         }
-    //     }
-    // }
-
-
-
     function Tab(id) {
         this.box = document.querySelector(id);
-        this.tabs = this.box.getElementsByClassName('tab');//获取tab
-        this.bodys = this.box.getElementsByClassName('body');//获取body
-        //元素的获取  每个实例跟每个实例之间可能不一样，但是
-        //每个选项卡都需要 循环绑定  和清楚类名
-        this.MapBind();
+        this.tabs = this.box.getElementsByClassName('tab');
+        this.bodys = this.box.getElementsByClassName('body')
+        this.circulation()
     }
-    Tab.prototype.MapBind = function () {
+    Tab.prototype.circulation = function () {
         for (let i = 0; i < this.tabs.length; i++) {
-            //因为普通函数中的this是当前操作的元素，不是我们当前产生的实例
-            //所以沃恩用箭头函数，箭头函数中的this 是指上级作用域的this
-            //也就是我们当前操作的元素
             this.tabs[i].onclick = () => {
-                this.clearclass()
-                this.tabs[i].className = 'tab current';
+                this.cleanname()
+                this.tabs[i].className = 'tab current'
                 this.bodys[i].className = 'body current'
             }
         }
     }
-    Tab.prototype.clearclass = function () {
-        //清除tabs和bodys上的current类名
+    Tab.prototype.cleanname = function () {
         [...this.tabs].forEach((v, i) => {
             v.className = 'tab'
             this.bodys[i].className = 'body'
         })
     }
- 
+
+    class Tabb {
+        constructor(id) {
+            this.box = document.querySelector(id);
+            this.tabs = this.box.getElementsByClassName('tab');
+            this.bodys = this.box.getElementsByClassName('body')
+            this.circulation()
+        }
+        circulation() {
+            for (let i = 0; i < this.tabs.length; i++) {
+                this.tabs[i].onclick = () => {
+                    this.cleanname()
+                    this.tabs[i].className = 'tab current'
+                    this.bodys[i].className = 'body current'
+                }
+            }
+        }
+        cleanname() {
+            [...this.tabs].forEach((v, i) => {
+                v.className = 'tab'
+                this.bodys[i].className = 'body'
+            })
+        }
+    }
 </script>
 <script>
-   new Tab('#tab_box')
+    new Tab('#tab_box')
 
 
 

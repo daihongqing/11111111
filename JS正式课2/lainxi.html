@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   var str = new Date().toLocaleString();
+   console.log(str)//  2019/9/22 下午4:25:54
+    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/)(\d+)/g, function (a,b,c) {
+        console.log(a,b,c)
+       // return `今天是${arg[1]}年${arg[3]}月${arg[5]}日`
+    })
+   /*  console.log(str2) */
+    
+    Array.prototype.del=function (n){
+      if(n>this.lenght){
+          throw new Error('参数错误')
+      }
+       var ary=[]
+       for(var i=0;i<n;i++)   {
+
+       }  
+        
+    }
+    String.prototype.getparam=function (){
+        
+      let ary2=this.split('#')[0].split('?')[1].split('&'),
+      hash=this.split('#')[1];
+      var obj={}
+        ary2.forEach(item => {
+            var a = item.split('=')
+            obj[a[0]] = a[1]
+        });
+        obj.HASH = hash
+        return obj
+    }
+    var str='https://baidu.com?a=12&bb=13&_c=14V#hello'
+    console.log(str.getparam())
+    </script>

@@ -38,4 +38,30 @@ git commit -m '备注'  把缓存区的所有内容都提交到 历史区
 // 提交代码的流程  git add .  --->  git commit -m '注释' --->  git push 
 
 // 若多人合作 那么 提交 git push 之前 一般都会要求先 git  pull  下拉一下
-// git pull 是把远程的代码 下拉到本机</script>
+// git pull 是把远程的代码 下拉到本机
+
+
+
+var a = 1;
+function fn() {
+    console.log(a);//undefined
+    var a = 5;
+    console.log(a);//5
+    a++;
+    var a ;
+    fn3();
+    fn2();
+    console.log(a);//20
+    function fn2() {
+        console.log(a);//6
+        a = 20;
+    }
+}
+function fn3() {
+    console.log(a);//1
+    a = 200;
+};
+fn();
+console.log(a);//200
+
+</script>

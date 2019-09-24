@@ -9,7 +9,7 @@ xhr.onreadystatechange=function(){
 }
 xhr.send()
 
-let box=document.querySelector('.Bigbox')
+let box=document.querySelector('.Bigbox')//循环绑定
 function rem(ary){
     let str=''
    

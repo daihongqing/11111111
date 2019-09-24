@@ -25,12 +25,14 @@
         console.log(arg)
     })
     console.log(res)
-
-    var str = new Date().toLocaleString();
+    console.log('------------------------------------------------')
+    var str = '2019/9/22'
+    console.log(str);
+    
     //今天是2019年9月4日 
-    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/(\d+)) /, function (...arg) {
+    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/)(\d+)/g, function (...arg) {
         console.log(arg)
-        return `今天是${arg[1]}年${arg[3]}月${arg[5]}日`
+        return `今天是${arg[1]}年${arg[3]}月${arg[5]}日${arg[6]}时`
     })
     console.log(str2)
 
@@ -45,15 +47,19 @@
        若是函数  则表达的含义说就是用改回调函数大的返回值，去替换当前正则匹配到的内容 */
 
   //************  //使用 replace方法 去实现 getparam 方法
-    var str = 'http://www/baidu.com?ha=666&he=777&hei=999'
-    function getparam() {
-       var o={};
-       str.replace(/[^?=&]+=[^?=&]+/g,function(a,b,c){
-           console.log(a,b,c)
-      o[a]=c
-       })
-       return o
-    }
-    var obj = getparam(str)
 
+    function getparam(key) {
+       var obj={};
+       str.replace(/([^?=&]+)=([^?=&])+/g,function(a,b,c){
+           console.log(a,b,c)
+        obj[b]=c;
+       })
+       return key? obj[key]:obj
+    }
+    var str = 'http://www/baidu.com?ha=666&he=777&hei=999'
+    var  aaa = getparam() 
+    var bbb  = getparam('he')
+     console.log(aaa);
+     console.log(bbb);
+     
 </script>

@@ -11,18 +11,18 @@
 </body>
 </html>
 <script>
-var num=10//30//51
-obj={num:20}
-obj.fn=(function(num){//21
+var num=10//30
+obj={num:20}//
+obj.fn=(function(num){//
      num=this.num+10;
-     this.num=num+10;
+     this.num=num+10;//
      return function(){
          this.num+= ++num
      }
 })(num)
 var fn=obj.fn;
 fn()//51
-obj.fn()//41
+obj.fn()//42
 console.log(num,obj.num)
 
 
@@ -71,7 +71,7 @@ console.log(x, y);//1//1
 var x=2;//4//16
 var y={
     x:3,
-    z:(function(x){//4//7
+    z:function(){//4//7
         this.x*=x;
         x+=2;
         return function(n){
@@ -79,9 +79,9 @@ var y={
             x+=3;
             console.log(x);//7
         }
-    })(x)
+    }
 };
-var m=y.z;
+var m=y.z();
 m(4);
 y.z(5);
 console.log(x, y.x);
@@ -105,10 +105,10 @@ console.log(x,y,z);//7   22   30
 
 
 var a=0,
-    b=0;
+    b=0;//1
 function A(a){
     
-    alert(a++);
+    alert(a++);//1
     return A=function(b){
         alert(a+b++);
     };

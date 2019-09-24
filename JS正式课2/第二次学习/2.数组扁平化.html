@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body> 
+
+</html>
+<script>
+    var ary = [1, [2, [3, [4, [5]]]]]
+    //==>[1,2,3,4,5,6,7]
+    var resulet = []
+    var fn = function (ary) {
+        if (ary.length === 0) { return }
+        for (let i = 0; i < ary.length; i++) {
+            let item = ary[i];
+            if (typeof item === 'object') {
+                fn(item)
+            } else {
+                resulet.push(item)
+            }
+
+        }
+        return resulet
+    }
+    fn(ary)
+    console.log(resulet)
+5

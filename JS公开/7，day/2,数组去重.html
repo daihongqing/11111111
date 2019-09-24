@@ -60,4 +60,30 @@ function unique3(arr){
 }
 var res4=unique3;
 console.log(res4,ary)
+
+//利用ES6的set方法
+//Set数据结构，它类似于数组，其成员的值都是唯一的
+
+
+
+
+var arr=[12,21,2,3,4,2,2,3,2,2,2]
+function unique10(arr){
+ // 利用Array.from将Set结构转换成数组
+  var ary=[]
+ /*  for(var i=0;i<arr.length;i++){
+      if(ary.indexOf(arr[i])==-1){
+          ary.push(arr[i])
+      }
+  } */
+  arr.forEach(item=>{
+     if(ary.indexOf(item)==-1){
+         ary.push(item)
+     }
+  })
+  return ary
+}
+
+var res5= unique10(arr)
+console.log(arr,res5)
 </script>

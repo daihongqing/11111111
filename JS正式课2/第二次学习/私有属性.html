@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/* in 是用来查看某个属性是否属于某个对象；换句话说就是该对象能否调用到该属性；
+   in只能判断出摸个属性是不是属于某个对象；但是不能区别出是否是他的私有属性
+
+    hasownproperty
+   console.log(tostring in obj)*/
+
+   //封装方法查看某个属性是不是元素的共有属性
+   Object.prototype.hasPubProperty=function (key){
+       if(key in this && !this.hasOwnProperty(key)){
+          return true
+       }
+       return false
+   }
+</script>

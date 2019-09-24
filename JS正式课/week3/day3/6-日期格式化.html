@@ -20,7 +20,7 @@ function formate(template){
      let n=0
      return template.replace(/\{\}/g,function(){
          return ary[n++]
-         let temp=''
+        /*  let temp=''
          switch (n) {
              case 0:
                temp=y;  
@@ -29,7 +29,7 @@ function formate(template){
             temp=m
              default:
                 temp=d
-         }
+         } */
      })
 }
 formate('今天是{}年{}月{}日')

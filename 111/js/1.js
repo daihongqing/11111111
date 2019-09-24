@@ -16,8 +16,9 @@ window.onload=function(){
   }
 
   var fun1=setInterval(fun,20); 
+  
 
-   btn1.onclick = function() {//鼠标经过时  清除定时器  停止图片的滚动
+   btn1.onclick = function() {//点击事件
           clearInterval(fun1)
       };
   bt.onclick = function() {

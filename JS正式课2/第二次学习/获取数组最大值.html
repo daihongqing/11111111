@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var ary=[2,1,4,14,2,41,1,21]
+Math.max(...ary)
+Math.max.apply(Math,ary)//利用apply 可以把集合三酸的传给前边的函数
+
+ary.sort((a,b)=>a-b)[0]
+
+/*************/
+var str='safaffaaacsacasca'
+var arr=str.split('')
+arr.sort((a,b)=>{
+    return a.localeCompare(b)
+})
+console.log(arr.join(''))
+
+</script>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    //封装去重方法
+    Array.prototype.unique = function () {
+        //利用ES6的set方法
+        //Set数据结构，它类似于数组，其成员的值都是唯一的
+       
+            // 利用Array.from将Set结构转换成数组
+            return Array.from(new Set(this));
+        }
+        var ary = [21, 4, 25, 23, 23, 5, 23, 5, 321, 3, 1]
+        var aaa=ary.unique;
+        console.log(aaa)
+        console.log('----------------------------------------------')
+        Array.prototype.mypop = function () {
+            let temp = this[this.length - 1]
+            this.length--;
+            returntemp
+        }
+
+        //加减的方法
+        Number.prototype.plus = function (key) {
+            _this = this
+            return _this + key
+        }
+        Number.prototype.minus = function (key) {
+            _this = this
+            return _this - key
+        }
+        let n = 10;
+        let m = n.plus(10).minus(5)
+        console.log(m)
+
+
+
+        //封装call
+        Function.prototype.mycall = function (context, ...arg) {
+            // this(...arg)
+            //让fn执行  并且让函数中的this是context
+            context = context || window
+            let a = Symbol()
+            context.a = this;
+            let res = context.a(...arg)//要拿到fn函数的返回值
+            delete context.a;
+            return res
+        }
+        fn.mycall(obj, 6, 6, 6)//让fn执行  fn中的this指向obj；把6,6,6传给fn
+
+
+        //封装apply
+        Function.prototype.myapply = function (context, arg) {
+            arg = arg || []
+            context = context || window
+            let a = Symbol()
+            context.a = this;
+            let res = context.a(...arg)//要拿到fn函数的返回值
+            delete context.a;
+            return res
+        }
+ 
+        //封装new
+        function mynew(classN, ...arg) {
+            var obj = {};//开辟一个新的堆内存
+            var constustor = arg.shift()//提取出来第一项、第一项就是那个函数类
+            obj.__proto__ = constustor.prototype;//让新创建的堆内存的__proto__指向函数类的原型
+            var res = constustor.call(obj, ...arg)//改变这个函数类的this指向，让他们指向新创建的堆内存
+            return typeof res == 'Object' ? res : obj//判断执行返回的结果res是什么数据类型，如果是引用数据类型的话，就返会引用数据类型，如果不是的话就返回一个对象
+        }
+
+        //封装mybind
+        Function.prototype.mybind = function (context, ...ary) {
+            var _this = this
+            return function (...ary) {
+                return _this.apply(context, arg.concat(ary))
+            }
+        }
+
+        //封装instanceof
+        // L  instanceof   R
+        function instance_of(temp, classN) {
+            //判断temp的某一次的__proto__和classN的prototype相等，那就要返回true
+            if (typeof temp !== 'object' && typeof temp !== 'function') {
+                return false
+            }
+            let str = typeof temp
+            var right = classN.prototype; // 取 R 的显示原型
+            left = temp.__proto__; // 取 L 的隐式原型
+            while (left) {
+                if (left === right)
+                    // 这里重点：当 O 严格等于 L 时，返回 true
+                    return true;
+                left = left.__proto__;
+            }
+            return false
+        }
+        console.log(instance_of({}, Object))
+        function instance_of(L, R) {
+            //L 表示左表达式，R 表示右表达式
+            var O = R.prototype; // 取 R 的显示原型
+            L = L.__proto__; // 取 L 的隐式原型
+            while (true) {
+                if (L === null) return false;
+                if (O === L)
+                    // 这里重点：当 O 严格等于 L 时，返回 true
+                    return true;
+                L = L.__proto__;
+            }
+        }
+        Array.prototype.mypop = function () {
+            return this.length--;
+        }
+        Array.prototype.mypush = function (...ary) {
+            return this.length--;
+        }
+
+        //封装reverse
+        Array.prototype.myreverse = function () {
+            for (i = 0; i < this.length / 2; i++) {
+                var temp = this[i];
+                this[i] = this[this.length - 1 - i];
+                this[this.length - 1 - i] = temp
+            }
+        }
+
+        //封装pop
+        Array.prototype.pop = function (n = 1) { // n = n || 1;    cb && cb()
+            // n 代表了要删除的末尾的项数  把删除的项组成一个新数组返回
+            // n和数组的长度做判断
+            // this ---> ary
+            var temp = [];
+            n = n > this.length ? this.length : n;
+            temp = this.slice(this.length - n);
+            this.length -= n;
+            // if(n > this.length){
+            //     // throw new Error('长度过分')
+            //     // temp = this.slice(0);
+            //     temp.push(...this)
+            //     this.length = 0;
+            // }else{
+            //     // n = 2; 则需要我们 把 length-2 和 length-1 这两项删除
+            //     temp = this.slice(this.length-n);
+            //     this.length -= n ;
+            // }
+            return temp;
+        }
+        Array.prototype.max = function () {
+            var temp = this.sort((a, b) => a - b)
+            return temp[0]
+        }
+        Array.prototype.average = function () {
+            return eval(this.join('+')) / this.length
+        }
+
+        var reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+</script>
