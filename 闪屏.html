@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: burlywood;
+            font-size: 16px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .desc{
+            width: 50px;
+            height: 50px;
+            transition: all .4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+     <div class="desc">
+
+     </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let box = document.getElementById('box');
+    let desc=document.getElementsByClassName('desc')[0]
+    let ary = ['你', '好', '啊', '我', '的', '朋', '有', '爱', '萨']
+    let n = 0
+    timer = setInterval(() => {
+        n++
+
+        desc.innerText = ary[n]
+        switch (n) {
+            case 0:
+             desc.style.transform='rotate（45deg）'
+                break;
+
+            case 1:
+            desc.style.transform='rotate（55deg）'
+                break;
+            case 2:
+            desc.style.transform='rotate（65deg）'
+                break;
+            case 3:
+            desc.style.transform='rotate（75deg）'
+                break;
+            case 4:
+            desc.style.transform='rotate（85deg）'
+                break;
+
+        }
+        if (n == ary.length - 1) {
+            clearInterval(timer)
+        }
+    }, 800)
+
+</script>

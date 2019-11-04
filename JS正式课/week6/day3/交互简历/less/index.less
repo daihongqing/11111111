@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+@img:'../images/';
+.w(){
+    width: 100%;;
+    height: 100%;
+}
+.hide{
+    display: none;
+}
+html,body{
+    .w();
+    overflow: hidden;
+    font-size: 16px;
+    >section{
+        .w();
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    section.loadingBox{
+        background: #333333;
+        transition:  opacity 1s 1s;
+        z-index: 30;
+        text-align: center;
+        color: #ffffff;
+        h1{
+            font-size: 0.9rem;
+            position: relative;
+            top: 25%;
+        }
+        h2{
+            font-size: 0.6rem;
+            position: relative;
+            top: 30%;
+        }
+        .progressBox{
+            width: 80vw;
+            height: 0.4rem;border-radius: 0.4rem;
+            overflow: hidden;
+            margin: auto;
+            background: #ffffff;
+            position: relative;
+            top: 45%;
+            .progress{
+                width: 0%;
+                transition: width 1s;
+                height: 0.4rem;
+                background: linear-gradient(45deg, #6faa6d 0%, #6faa6d 25%, #77c570 25%, #77c570 50%, #6faa6d 50%, #6faa6d 75%, #77c570 75%, #77c570 100%);
+                background-size: 0.4rem 0.4rem;
+            }
+        }
+    }
+    section.phoneBox{
+        background: url('@{img}/phone-bg.jpg');
+        background-size: cover;
+        z-index: 20;
+        transition: transform .8s;
+        header{
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            top: 0.5rem;
+            h1{
+                font-size: 0.9rem;
+            }
+            h2{
+                font-size: 0.3rem;
+            }
+        }
+        footer{
+            width: 90vw;
+            height: 63vw;
+            left: 5vw;
+            background: url('@{img}/phone-listen.png')no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: 0.5rem;
+            .circle{
+                width: 23vw;
+                height: 23vw;
+                border: 1px solid #77c570;
+                border-radius: 50%;
+                position: absolute;
+                left: 65.5vw;
+                top: 28.5vw;
+                animation: move 0.8s infinite linear;
+            }
+        }
+        .overBox{
+            width: 90vw;
+            background: url('@{img}/phone-key.png')no-repeat;
+            height: 115vw;
+            background-size: contain;
+            position: absolute;
+            left: 5vw;
+            bottom: 0.2rem;
+            transition: all 0.5s;
+                .overBtn{
+                    position: absolute;
+                    width: 78px;
+                    height: 53px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 12vw;
+                    background: #cccccc;
+                    opacity: 0;
+                }
+        }
+        .bot{
+            transform: translateY(110%);
+        }
+        @keyframes move {
+            0%{
+                transform: scale(1.4);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    }
+    section.chatBox{
+        .w();
+        background: darkorange;
+        z-index: 10;
+        .chatMsgBox{
+            transition: all .4s;
+            padding: 5vw ;
+            li{
+             transition: all 0.5s;
+                margin-bottom: 5vw;
+                overflow: hidden;
+                >div{
+                    float: left;
+                }
+                .imgBox{
+                    width: 13vw;
+                    height: 13vw;
+                    overflow: hidden;
+                    img{
+                        .w();
+                        border-radius: 50%;
+                    }
+                    
+                }
+                .msg{
+                    max-width: 60vw;
+                    padding:3.5vw;
+                    margin-left: 4vw;
+                    background: #fff;
+                    border: 1px solid #eee;
+                    box-sizing:border-box;
+                    border-radius: 5px;
+                    &::before{
+                     display: block;
+                     content: '';
+                     width: 3vw;
+                     height: 3vw;
+                     border: 1px solid #eee;
+                     background: #fff;
+                     border-color: transparent transparent #eee #eee;
+                     transform: rotate(45deg) translateX(-5vw) translateY(11px);
+                     position: absolute;
+                    }
+                }
+            }
+            .opa{
+                transform: translateY(0.5rem);
+                opacity:0 ;
+            }
+            .right{
+                overflow: hidden;
+                >div{
+                    float: right;
+                } 
+                .msg{
+                    background: #77c570;
+                    margin-left: 0;
+                    margin-right: 4vw;
+                    position: relative;
+                    border-color: #77c570;
+                    &::before{
+                        background: #77c570;
+                        border-bottom: none;
+                        border-left: none;
+                        transform: rotate(45deg) translateX(-5vw) translateY(11px);
+                        position: absolute;
+                        right: -7.4vw;
+                       }
+                }
+            }
+        }
+        .keyboard{
+            width: 7.5rem;
+            height: 6.05rem;
+            background: url('@{img}/message-keyboard.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: -0.5rem;
+            transition: transform .5s ;
+         .chatBtn{
+             position: absolute;
+             width: 1.47rem*(75/64);
+             height: 0.74rem*(75/64);
+             background: url('@{img}/message-chatBtn.png');
+             background-size: contain;
+             top: 4.5rem;
+             left: 5.7rem;
+
+         }
+         p{
+             position: absolute;
+             width: 4.8rem;
+             height: 0.5rem;
+             top: 0.4rem;
+             left: 1rem;
+         }
+        }
+        .bot{
+            transform: translateY(4.4rem);
+        }
+    }
+}

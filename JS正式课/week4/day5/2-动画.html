@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top: 0;
+            left: 0;
+            background: darkgoldenrod;
+            transition: all 1s;
+            animation: qqq 0.001s linear infinite;
+        }
+        @keyframes qqq {
+            0%{
+                transform: translate(0,0);
+            }
+            50%{
+                transform: translate(300px,300px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        /* 
+        盒子上下居中 display：flex  align-items：center
+        position：absolute  四个方向都是0  margin：auto；
+        top 50%；margin -top : 一半的高度  
+        top  50%   transform  translateY(-50%)*/
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">点点点</button>
+</body>
+
+</html>
+<script>
+
+    btn.onclick=function(){
+        // box.style.left=400+'px'
+        // box.style.top='300px'
+        box.style.transform='translate(300px,300px)'
+    }
+    //JS  动画  固定步长  固定时间
+
+    //  目标位置  想做移动500px；
+    // var timer=null;
+    // let l =  parseFloat(getComputedStyle(box).left) 
+    // timer=setInterval(()=>{
+    //     l++
+    //     if(l>=500){
+    //         l=500;
+    //         clearInterval(timer)
+    //     }
+    //    box.style.left =l+'px'
+    // },10)
+    /*    let l = parseFloat(getComputedStyle(box).left)
+       function fn() {
+           l++;
+           if (l >= 500) {
+               l = 500
+           } else {
+               //当前画面重回完成之后会触发回调函数
+               requestAnimationFrame(()=>{
+                   fn()
+               })
+               // setTimeout(() => {
+               //     fn()
+               // }, 10)
+               box.style.left=l+'px'
+           }
+           
+       } */
+    // fn()
+
+    //固定步长  根据时间算出步长
+   /*  let l = parseFloat(getComputedStyle(box).left)
+    let speed = (500 - l) / 1000;//目标位置-初始位置  除以时间  得出速度
+    
+    let timer = 0
+    function fn() {
+        timer += 10
+        if (timer >= 1000) {
+            timer = 1000
+        } else {
+            //当前画面重回完成之后会触发回调函数
+            // requestAnimationFrame(()=>{
+            //     fn()
+            // })
+            setTimeout(() => {
+                fn()
+            }, 10)
+            box.style.left = l +timer*speed+ 'px'//初始位置+移动过的距离
+        }
+    }
+    fn() */
+
+
+
+</script>

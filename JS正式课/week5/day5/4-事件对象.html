@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp">
+    <div id="box">
+
+    </div>
+</body>
+</html>
+<script>
+var box=document.getElementById('box'),
+    inp=document.getElementById('inp');
+    box.onclick=function (e){
+        e=e||window.event
+        var tar=e.target ||e.srcElement // 事件源
+        //pageX 鼠标点击的位置到body的偏移量
+        // client 鼠标点击的位置到可视窗口的偏移量
+    }
+inp.onkeydown = function (e){
+    //e.keyCode     键盘码
+}
+
+
+
+
+</script>

@@ -81,13 +81,12 @@
         }
 
         //封装mybind
-        Function.prototype.mybind = function (context, ...ary) {
+       Function.prototype.mybind = function (context, ...ary) {
             var _this = this
             return function (...ary) {
                 return _this.apply(context, arg.concat(ary))
             }
         }
-
         //封装instanceof
         // L  instanceof   R
         function instance_of(temp, classN) {
@@ -165,4 +164,12 @@
         }
 
         var reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+
+
+
+        function creat(){
+            let obj={};
+            obj.__proto__=pro;
+            return obj
+        }
 </script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            overflow: hidden;
+        }
+
+        .litbox {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            cursor: move;
+            float: left;
+            margin-right: 50px;
+        }
+
+        .litbox img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mask {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(225, 225, 225, 0.5);
+            display: none;
+        }
+
+        .bigbox {
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+            float:left;
+            position: relative;
+        }
+
+        .bigbox img {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="litbox">
+            <img src="./1.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="bigbox">
+            <img src="./2.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let box = document.getElementById('box'),
+        litbox = document.getElementsByClassName('litbox')[0],
+        mask = document.getElementsByClassName('mask')[0],
+        bigbox = document.getElementsByClassName('bigbox')[0],
+        bigImg = bigbox.getElementsByTagName('img')[0];
+
+    litbox.onmouseenter = function () {
+        mask.style.display = 'block'
+        bigbox.style.display = 'block'
+    }
+    litbox.onmouseleave = function () {
+        mask.style.display = 'none'
+        bigbox.style.display = 'none'
+    }
+    litbox.onmousemove = function (e) {
+        let o = offset(this)
+        let l = e.pageX - o.l - mask.clientWidth / 2
+        let t = e.pageY - o.t - mask.clientHeight / 2;
+        let maxl = this.clientWidth - mask.clientWidth,
+            maxt = this.clientHeight - mask.clientHeight;
+
+        l = l <= 0 ? 0 : (l >= maxl ? maxl : l) 
+        t = t <= 0 ? 0 : (t >= maxt ? maxt : t) 
+
+       mask.style.left=l + 'px'
+       mask.style.top=t + 'px'
+
+       let n=mask.offsetWidth/bigbox.offsetWidth;
+
+       bigImg.style.left=-l/n+'px'
+       bigImg.style.top=-t/n+'px'
+
+    }
+    function offset(ele) {
+        let l = ele.offsetLeft,
+            t = ele.offsetTop,
+            temp = ele.offsetParent
+        while (temp) {
+            l += temp.offsetLeft + temp.clientLeft,
+                t += temp.offsetTop + temp.clientTop,
+                temp = temp.offsetParent
+        }
+        return { l, t }
+    }
+
+
+
+
+</script>

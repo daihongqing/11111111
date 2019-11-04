@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .box{
+        margin: 70px 0 0 70px;
+    }
+    .box ul{
+        width: 700px;
+        height: 300px;
+        overflow: hidden;
+    }
+    .box li{
+        width: 100px;
+        margin-right: 133px;
+        margin-bottom: 96px;
+        height: 100px;
+        background: orangered;
+        float: left;
+    }
+    .box1{
+	
+	}
+    </style>
+</head>
+<body>
+    <div class="box">
+		<div class="box1">
+
+		</div>
+     <ul>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+     </ul>
+     
+    </div>
+</body>
+</html>
+<script>
+var oBox = document.getElementsByClassName('box')[0]
+	var oLi = document.getElementsByTagName('li');
+
+	oBox.addEventListener('mouseenter',function (e){
+		if (e.target.tagName.toLowerCase() == "li") {
+			move(e)                   // 这里将获取的方法重新封装一个move方法
+		 }
+	},true)
+	function move(e) {
+		var e = e || window.event
+		var target = e.target
+		//获取鼠标x,y坐标
+		var x = e.pageX
+		var y = e.pageY
+		//获取图片距离浏览器位置
+		var t = target.offsetTop
+		var b = t + target.offsetHeight
+		var l = target.offsetLeft
+		var r = l + target.offsetWidth
+		//获取鼠标与图片距离浏览器位置的差值（注意有负值，需要绝对值 Math.abs）
+		var chaYT = Math.abs(y - t)
+		var chaYB = Math.abs(y - b)
+		var chaXL = Math.abs(x - l)
+		var chaXR = Math.abs(x - r)
+		//取得最小值
+		var min = Math.min(chaYT, chaYB, chaXL, chaXR)
+		//判断方向
+		switch(min){
+			case chaYT:
+				console.log('上')            
+				break;
+			case chaYB:
+				console.log('下')
+				break;
+			case chaXL:
+				console.log('左')
+				break;
+			case chaXR:
+				console.log('右')
+		}
+	}
+
+
+
+
+</script>

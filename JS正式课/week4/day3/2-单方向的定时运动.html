@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            left: 0;
+            background: salmon;
+            position: relative;
+            /* animation: move 2s linear  infinite; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        撒哈拉
+    </div>
+</body>
+
+</html>
+<script>
+    //要移动的元素
+    //要移动的方向
+    //要移动的位置
+    //要移动的时间
+    function move(ele, attr, duration, target) {
+        //要移动的距离  目标位置 - 初始位置
+        let start = parseFloat(getComputedStyle(ele)[attr])
+        // let changL = target - start
+        // let speed = changL / duration
+        // let l = start;
+        let l=0
+        let time=0;
+        var timer = setInterval(() => {
+            /* l += 20 * speed;
+            if (l >= changL) {
+                l = changL
+                clearInterval(timer)
+            }
+            ele.style[attr] = start + l + 'px' */
+            time+=20;
+            let l=linear(start,target,duration,time)
+            if(l>=target){
+                l=target;
+                clearInterval(timer)
+            }
+            ele.style[attr]=l+'px'
+        }, 20)
+    }
+    function linear(begin, target, duration, time) {
+        //begin 时初始值 
+        //target是目标值
+        //duration运动总时间
+        //time当前运动过的时间
+        //有以上四个值 我们可以算出元素当前的位置
+        return (target-begin)/duration*time +begin
+    }
+    let box = document.getElementById('box')
+    move(box, 'left', 1000, 800)//一秒之内向右移动 500px
+    move(box, 'top', 1000, 400)
+
+
+
+</script>

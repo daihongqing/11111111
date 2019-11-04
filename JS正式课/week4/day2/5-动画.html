@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid salmon;
+            text-align: center;
+            line-height: 200px;
+            user-select: none;
+            position: relative;
+            left: 0;
+           /*  transition: left 1s cubic-bezier(0.42, 0, 0.16, 1.4) */
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn"> 点击</button>
+    <div id="box">
+        沉降缝绑定
+    </div>
+</body>
+
+</html>
+<script src="./jq.js"></script>
+<script>
+    // 监听窗口大小的改变  我们使用window.onresize  
+    //getComputedStyle(元素)
+    // IE低版本使用元素.currentStyle
+    var box = document.getElementById('box')
+    
+    let l = 0;
+    let w = document.documentElement.clientWidth || document.body.clientWidth//一屏幕的宽度
+    let boxW = box.offsetWidth;//盒子的宽度
+    let maxl = w - boxW//可移动的最大值
+    /* let timer= setInterval(()=>{
+        l++;
+        if(l>=maxl){
+            l=maxl
+            clearInterval(timer)
+        }
+       box.style.left=l+'px'
+    },10) */
+    function fn() {
+        l += 10;
+        if (l >= maxl) {
+            l = maxl
+        } else {
+            // setTimeout(() => {
+            //     fn()
+            // }, 1000)
+            requestAnimationFrame(fn)//比较好的定时器
+        }
+   box.style.left=l+'px'
+    }
+     fn()
+     window.si
+ /*  btn.onclick=function(){
+      box.style.left=maxl+'px'
+  } */
+
+</script>

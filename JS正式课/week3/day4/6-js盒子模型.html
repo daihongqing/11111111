@@ -12,51 +12,92 @@
         background: #ccc;
         padding: 10px;
         border: 20px dashed darkgoldenrod;
+         overflow: hidden;
         }
+       
     </style> 
 </head>
 <body>
     <div id="box">
-        js模型的三个系列    client  offset scroll
-        js模型的三个系列    client  offset scroll
+            二〇〇九年
 
-        js模型的三个系列    client  offset scroll
-        js模型的三个系列    client  offset scroll
-        js模型的三个系列    client  offset scroll
+            2月28日　十一届全国人大常委会第七次会议通过《中华人民共和国食品安全法》。
+            
+            3月17日　中共中央、国务院印发《关于深化医药卫生体制改革的意见》。指出，实行政事分开、管办分开、医药分开、营利性和非营利性分开，建设覆盖城乡居民的基本医疗卫生制度。
+            
+            6月16日　胡锦涛出席在俄罗斯叶卡捷琳堡举行的金砖国家（中国、俄罗斯、巴西、印度）领导人首次正式会晤并发表讲话。2010年12月，南非作为正式成员加入金砖国家合作机制，金砖国家正式扩为五国。
+            
+            6月30日　台湾当局开放大陆资本赴台投资。8月31日，两岸定期航班正式开通。至此，两岸实现全面、直接、双向“三通”。
+            
+            7月22日　国务院常务会议通过《文化产业振兴规划》，这是继钢铁、汽车、纺织等十大产业振兴规划后出台的又一个重要产业振兴规划，标志着文化产业已经上升为国家的战略性产业。
+            
+            9月1日　国务院印发《关于开展新型农村社会养老保险试点的指导意见》。2011年6月7日，国务院印发《关于开展城镇居民社会养老保险试点的指导意见》。到2012年7月1日，我国基本实现社会养老保险制度全覆盖。
+            
+            9月18日　中共十七届四中全会通过《关于加强和改进新形势下党的建设若干重大问题的决定》。
+            
+            10月1日　首都各界庆祝中华人民共和国成立60周年大会、阅兵仪式和群众游行举行。胡锦涛检阅受阅部队并发表讲话。
+            
+            12月31日　国务院印发《关于推进海南国际旅游岛建设发展的若干意见》。2016年8月8日，国务院批复《平潭国际旅游岛建设方案》。
+            
+            二〇一〇年
+            
+            1月1日　中国－东盟自由贸易区正式全面启动。2015年12月6日，国务院印发《关于加快实施自由贸易区战略的若干意见》。
+            
+         
+         
+            
+            
     </div>
 </body>
 </html>
 <script>
-  //JS 盒子模型；
-  //js模型的三个系列    client  offset scroll
+   var box = document.getElementById('box');
+    // JS 盒子模型；
+    // JS盒子模型的三个系列  client   offset   scroll
 
-  //client  系列  
-  var box=document.getElementById('box')
- 
+    // client 系列
+    console.log(box.clientWidth)// width + 左右padding   420
+    console.log(box.clientHeight)//    420
+    console.log(box.clientLeft) // 左boder   20
+    console.log(box.clientTop)  // 上border  20
 
- //offset系列
- console.log(box.offsetParent)//上级参照物（有参照物的上级参照物）
- //上级参照物最多到body；body的上级参照物时null
- function offset(){
-     var temp=ele.offsetParent;
-     var obj={
-         left:ele.offsetleft,
-         top:ele.offsetTop
-     }
-     while(temp){
-         obj.left+=temp.offsetleft+temp.clientLeft
-         obj.top+=temp.offsetTop+temp.clientTop
-         temp=temp.offsetParent;
-     }
-     return obj
- }
+    //offset 系列
+    console.log(box.offsetWidth) // clientWidth + 左右border   460
+    console.log(box.offsetHeight)  //460
+    console.log(box.offsetLeft)//当前盒子的外边框到上级参照物的内边框的距离
+    console.log(box.offsetTop)
+    console.log(box.offsetParent);// 上级参照物（有定位的哪个上级元素）
+    // 上级参照物 最多到body ;body的上级参照物 是 null;
 
- //scroll系列   内容不溢出，等同于 clientwidth
- //内容溢出  但是没有overflower属性  盒子的上padding+内容的高度；
- //内容溢出但是有overflower属性  盒子的上下padding+内容的高度；
- console.log(box.scrollLeft)//卷去内容的宽度
- console.log(box.scrollTop)//卷去内容的高度
- 
+    function offset(ele) {
+        // 获取该元素 到 body的上 和 左 的距离
+        var temp = ele.offsetParent;
+        var obj = {
+            left:ele.offsetLeft,
+            top:ele.offsetTop
+        }
+        while (temp) {
+            obj.left += temp.offsetLeft + temp.clientLeft;
+            obj.top += temp.offsetTop + temp.clientTop;
+            temp = temp.offsetParent;
+        }
+        return obj;
+    }
+
+    // scroll 系例 
+    // 内容不溢出  等同于 clientWidth
+    // 内容溢出时，但是没有overflow属性，盒子的上padding+内容的高度；
+    // 内容溢出  但是有overflow属性     盒子的上下padding+内容的高度
+    console.log('---------------------------s')
+    console.log(box.scrollWidth)  //440
+    console.log(box.scrollHeight) 
+    console.log(box.scrollTop) // 卷去内容的高度
+    console.log(box.scrollLeft) //  卷去内容的宽度
+
+
+    // 以上13个属性 只有 scrollTop scrollLeft 是可以设置的  ，其他的都是只读属性；
+    // scrollTop  scrollLeft 有边界值
+
 
 
 

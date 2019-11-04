@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#box{
+    /* width: 1200px; */
+    overflow: hidden;
+    margin: auto;
+}
+
+#box .left_box{
+    width: 86px;
+    height: 406px;
+    float: left;
+    position: fixed;
+   margin: 50px 20px 0 20px;
+   background: #ccc;
+}
+#box .left_box ul{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+#box .left_box li{
+    border-bottom: 1px solid rgb(53, 51, 51);
+   cursor: pointer;
+    width: 86px;
+    height: 80px;
+    color: black;
+    text-align: center;
+    line-height:80px ;
+    /* background: #ccc; */
+    /* padding: 0 5px 0 14px; */
+}
+
+#box .left_box li:hover{
+  background: rgba(red,.3);
+  color: red;
+}
+.lol,.juedi,.cf,.wangzhe,.sky{
+    width: 1315px;
+    height: 565px;
+    margin-left: 100px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.right_box{
+    width: 231px;
+    height: 195px;
+    float: left;
+    border-radius: 10%;
+    margin-left:30px ;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+}
+.right_box img{
+    width: 100%;
+    height: 115px;
+}
+.right_box p{
+    width: 205px;height:64px ;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    padding: 9px 10px 9px 10px;
+}

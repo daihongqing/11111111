@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    width: 1200px;
+   margin: auto;
+}
+.box{
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 1000px;
+    height: 156px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 3px 3px 3px #ccc
+}
+.top_box{
+    background: skyblue
+}
+.top_box,.second_box,.thired_box,.four_box,.fif_box{
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    
+}
+li{
+    float: left;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.second_box,.thired_box,.four_box{
+border-bottom: 1px solid skyblue
+}
+.top_box li{
+ border: 1px solid blueviolet;
+ height: 24px;
+ padding:2px 4px 2px 4px;
+ display: none
+}
+.top_box li:nth-child(1){
+    display: block
+}
+ul{
+    padding-left: 30px
+}
+.btn{
+    height: 26px;
+}
+span{
+    float: left;
+}

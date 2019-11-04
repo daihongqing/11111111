@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: cornflowerblue;
+            margin: 50px 300px;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .box_mask {
+            display: none;
+            width: 100%;
+            height: 100%;
+            transition: transform .5s;
+            background: rgba(0, 0, 0, .3);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box_mask">
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script src="./jq.js"></script>
+<script>
+    // let $box = $('.box');
+    // $box_mask = $box.find('.box_mask')
+    // $box.on('mouseenter', function (e) {
+    //     $box_mask.css({ display: 'block' })
+    //     move(e)
+    // })
+    // $box.on('mouseleave', function (e) {
+    //     move(e)
+    // })
+
+    function move(e) {
+        var e = e || window.event
+        var target =$box[0];
+        //获取鼠标x,y坐标
+        var x = e.pageX
+        var y = e.pageY
+        console.log(x,y)
+        //获取图片距离浏览器位置
+        var t = target.offsetTop
+        var b = t + target.offsetHeight
+        var l = target.offsetLeft
+        var r = l + target.offsetWidth
+        console.log(t,b,l,r)
+        //获取鼠标与图片距离浏览器位置的差值（注意有负值，需要绝对值 Math.abs）
+        var chaYT = Math.abs(y - t)
+        var chaYB = Math.abs(y - b)
+        var chaXL = Math.abs(x - l)
+        var chaXR = Math.abs(x - r)
+        //取得最小值
+        var min = Math.min(chaYT, chaYB, chaXL, chaXR)
+        let boxT = $box[0].clientHeight
+        let boxW = $box[0].clientWidth
+        switch (min) {
+            case chaYT: //上
+            console.log('上')
+                if (e.type == 'mouseenter') {
+                    $box_mask.css({ top: -boxT + 'px', left: '0' }).animate({ top: 0, left: 0 }, 200)
+                } if (e.type == 'mouseleave') {
+                    $box_mask.animate({ top: -boxT + 'px', left: 0 }, 200)
+                }
+                break;
+
+            case chaYB://下
+            console.log('下')
+                if (e.type == 'mouseenter') {
+                    $box_mask.css({ top: boxT + 'px', left: '0' }).animate({ top: 0, left: 0 }, 200)
+                } if (e.type == 'mouseleave') {
+                    $box_mask.animate({ top: boxT + 'px', left: 0 }, 200)
+                }
+                break;
+            case chaXL://左
+            console.log('左')
+                if (e.type == 'mouseenter') {
+                    $box_mask.css({ top: 0, left: -boxW + 'px' }).animate({ top: 0, left: 0 }, 200)
+                } if (e.type == 'mouseleave') {
+                    $box_mask.animate({ top: 0, left: -boxW + 'px' }, 200)
+                    console.log('左');
+                    
+                }
+                break;
+
+            case chaXR://右
+            console.log('右');
+                if (e.type == 'mouseenter') {
+                    $box_mask.css({ top: 0, left: boxW + 'px' }).animate({ top: 0, left: 0 }, 300)
+                } if (e.type == 'mouseleave') {
+                    $box_mask.animate({ top: 0, left: boxW + 'px' }, 300)
+                    console.log('右');
+                }
+                break;
+        }
+    }
+
+    class black{
+        constructor(idSelector){
+            $box = $('.box');
+            console.log($box);
+            
+        }
+    }
+   
+  
+
+</script>

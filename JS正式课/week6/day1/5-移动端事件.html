@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 80%;
+            height: 2600px;
+            background: orange;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+</body>
+
+</html>
+<!-- <script src="https://zeptojs.bootcss.com/zepto-docs.min.js"></script> -->
+<script>
+    var box = document.getElementById('box')
+    //click事件在移动端有300毫秒的延迟
+    // box.onclick = function (e) {
+    //     console.log(e)
+    // }
+    // box.ontouchstart = function (e) {
+    //     //手指触碰到屏幕
+    //     console.log(e.touches[0].pageY);
+
+    // }
+    // box.ontouchmove=function (e){
+    //    console.log('手指一动中');
+       
+    // }
+    // box.ontouchend=function (){
+    //     console.log('移动结束');
+        
+    // }
+    //zepto
+//     $('#box').on('longTap',function (e){
+//         console.log(e);
+        
+//     })
+//    /*  $('#box').tap(function (e){
+//         console.log(e);
+       
+//     }) */
+//长按触发事件
+    Element.prototype.longTab=function (cb){
+        //this--->box
+        let timer=null
+        this.ontouchstart=function (e){
+           timer= setTimeout(() => {
+                cb.call(this,e)
+            }, 300);
+        }
+        this.ontouchend = function (e){
+            clearTimeout(timer)
+        }
+    }
+    box.longTab(function(e){
+        console.log(e);
+        
+    })
+//上划事件
+    Element.prototype.swipeup = function (cb){
+        let sy = 0;
+      this.ontouchstart=function (e){
+        sy=e.touches[0].pageY;
+      }
+      this.ontouchend = function (e){
+          if(sy-e.changedTouches[0].pageY>50){
+              cb.call(this,e)
+          }
+      }
+    }
+    box.swipeup(function (e){
+        console.log(e,'上划');
+        
+    })
+    box.addEventListener('touchmove',function (e){
+        e.preventDefault()
+    },{passive:false})
+    //passive  true  : 先执行默认事件  后执行绑定事件
+    //   false ：先执行绑定的时间   后执行默认事件
+</script>

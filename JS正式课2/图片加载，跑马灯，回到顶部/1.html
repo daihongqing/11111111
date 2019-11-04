@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+function timeFormate(template,time){
+    time = time||new Date
+       let res=  time.match(/\d+/g);
+    return template.replace(/\{\{(.+)\}\}/,function(a,b,c){
+            return res[b]
+    })
+ }
+let time='2019/12/21 12:21:21'
+let template='今天是{{ }}年{{ }}月{{ }}日 {{ }}时{{ }}分{{ }}秒'
+timeFormate(template,time)
+
+
+
+var str='12saj212'
+var reg=/\d+/g
+console.log(reg.exec(str));
+
+var reg = /[1-9]\d{5}(\d{4})(\d{2})(\d{2})\d{2}\d(\d|x)/;
+var str='372924200001130635'
+console.log(reg.exec(str));
+
+var str = '今年是2017年'; //
+var ary = ['零', '壹', '贰', '叁', '肆', '伍', '陆','柒', '捌', '玖', '拾'];
+str.replace(/\d/g,function(n){
+  return ary[n]
+})
+
+
+
+//封装getcss
+  function rem(content,text) {//content是获取的元素，text是想要获取的属性名
+      if (getComputedStyle in window){//判断浏览器的版本是不是支持这个属性
+     let val=getComputedStyle(content,null).text
+      }else{
+          throw new Error('浏览器版本低')
+      }
+  }
+
+</script>

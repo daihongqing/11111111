@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+document.ready = function (cb){
+    function fn(e){
+        cb.this(this,e)
+        document.addEventListener('DOMContentLoaded',fn,false)
+    }
+    document.addEventListener('DOMContentLoaded',fn,false)
+}
+document.ready=function (){
+    console.log('加载完成');
+}
+
+Element.prototype.one = function(type,cb){
+        // this 是 btn
+        function fn(e){
+            cb.call(this,e);
+            this.removeEventListener('type',fn,false)
+        }
+        this.addEventListener('type',fn,false)
+    }
+    btn.one('click',function(e){
+        // this --> btn
+        console.log(e,this)
+    });
+
+
+</script>

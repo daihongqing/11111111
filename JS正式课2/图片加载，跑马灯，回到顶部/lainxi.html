@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   var str = new Date().toLocaleString();
+   console.log(str)//  2019/9/22 下午4:25:54
+    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/)(\d+)/g, function (a,b,c) {
+        console.log(a,b,c)
+       // return `今天是${arg[1]}年${arg[3]}月${arg[5]}日`
+    })
+   /*  console.log(str2) */
+    
+    Array.prototype.del=function (n){
+      if(n>this.lenght){
+          throw new Error('参数错误')
+      }
+       var ary=[]
+       for(var i=0;i<n;i++)   {
+
+       }  
+        
+    }
+    String.prototype.getparam=function (key){
+        
+      let ary2=this.split('#')[0].split('?')[1].split('&'),
+      hash=this.split('#')[1];
+      var obj={}
+        ary2.forEach(item => {
+            var a = item.split('=')
+            obj[a[0]] = a[1]
+        });
+        
+        return key? obj[key] :obj
+    }
+    var str='https://baidu.com?a=12&bb=13&_c=14V#hello'
+    console.log(str.getparam('a'))
+
+
+
+    // let t='2019/12/21 12:21:21'
+    //     function timeFormate(template,t){
+    //     template = template || '今天是{{0}}年{{1}}月{{2}}日 {{3}}时{{4}}分{{5}}秒';
+    //     t.replace(/(\d+)/g,function($1){
+    //         console.log($1)
+    //     })
+      
+    // }
+    
+    // timeFormate(t)
+      
+
+
+
+
+console.log('------------------------------')
+    function rem(time,template){
+        time=time||new Date()
+        console.log(time);
+        
+        var res=time.match(/\d+/g)
+        var n=0
+        return template.replace(/\{\{\}\}/g,function(content){
+            var timer=res[n++]||'00';
+            timer<2?timer+'0':null;
+            return timer
+        })
+    }
+
+   // var time='2019/12/21 12:21:21'
+    var template='今天是{{}}年{{}}月{{}}日{{}}时{{}}分{{}}秒'
+    rem(time,template)
+
+
+    var str = '姓名是：{{name}}，年龄是：{{age}}，性别是{{sex}}';
+    var data = {
+        name:"小明",
+        age:10,
+        sex:"男"
+    }
+    function formate(template,data){
+        str.replace(/\{\{(\w+)\}\}/,function(a,b){
+      return data[b]
+        })
+    }
+    formate(template,data)
+    </script>

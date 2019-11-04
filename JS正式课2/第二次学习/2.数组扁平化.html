@@ -12,9 +12,27 @@
 
 </html>
 <script>
+    while (arr.some) {
+        arr=[.concat(...)]
+    }
+    var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10];
+    function flat(arr){
+        let temp = [];
+        function fn(ary){
+            ary.forEach(item=>{
+                if(typeof item == 'object'){
+                    fn(item)
+                }else{
+                    temp.push(item)
+                }
+            })
+        }
+        fn(arr)
+        return temp;
+    }
     var ary = [1, [2, [3, [4, [5]]]]]
     //==>[1,2,3,4,5,6,7]
-    var resulet = []
+    var temp= []
     var fn = function (ary) {
         if (ary.length === 0) { return }
         for (let i = 0; i < ary.length; i++) {
@@ -22,12 +40,27 @@
             if (typeof item === 'object') {
                 fn(item)
             } else {
-                resulet.push(item)
+                temp.push(item)
             }
 
         }
-        return resulet
+        return temp
     }
     fn(ary)
-    console.log(resulet)
-5
+    console.log(temp)
+
+  //扁平化
+    var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10];
+    console.log(arr.flat(Infinity))
+    var str=JSON.stringify(arr);
+    str.replace(/\[|\]/g,'')
+
+
+    var a =[1]//若a是个引用数据类型，那么a==1 比较的时候会调用tostring的结果 用number处理 然后再去比较
+    a.toString=function(){
+        return a[0]++
+    }
+    if(a == 1 && a == 2 && a == 3){
+        console.log(1);
+    }
+

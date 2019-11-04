@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#box{
+    margin: auto;
+    overflow: visible;
+    position: relative;
+    width:700px;
+    height: 470px;
+}
+.img_box{
+    width: 700px;
+    height: 470px;
+    overflow: hidden;
+}
+.img_box ul{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.img_box ul li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.img_box ul li img{
+    width: 100%;
+    height: 100%;
+}
+.img_box ul li p{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: brown;
+    text-align: center;
+    color: #fff;
+}
+.tip_box{
+    position: absolute;
+    bottom: -30px;
+    right: 30px;
+   
+}
+.tip_box .tip{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(181, 196, 54)
+}
+.tip_box .tip.current{
+    background: red;
+}
+.btn_box{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+.btn_box div{
+    width: 40px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    color: white;
+    user-select: none;
+}
+.left_box{
+    float: left;
+}
+.right_box{
+    float: right;
+}

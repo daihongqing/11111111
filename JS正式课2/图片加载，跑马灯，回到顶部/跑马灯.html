@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        #box {
+            width: 600px;
+            height: 150px;
+            margin: auto;
+            border: 1px solid salmon;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 600px;
+            height: 150px;
+            overflow: hidden;
+            position: relative
+        }
+
+        li {
+            float: left;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li><img src="" alt="1"></li>
+            <li><img src="" alt="2"></li>
+            <li><img src="" alt="3"></li>
+            <li><img src="" alt="4"></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    let box = document.getElementById('box')
+    ul = box.getElementsByTagName('ul')[0];
+    ul.innerHTML += ul.innerHTML//复制自己
+    ul.style.width='1200px'//设置元素的宽度
+    setInterval(() => {
+        if(box.scrollLeft>=600){
+            box.scrollLeft=0
+        }
+        box.scrollLeft++    
+    }, 10);
+
+// 获取当前元素所有的样式，getConputedStyle(ele)获取当前元素所有的样式
+     
+</script>

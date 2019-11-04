@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none
+        }
+
+        .part-03-kard {
+            padding: 0 20px;
+            background: #fff;
+            background: #fefefe;
+            height: 380px;
+            width: 940px;
+            overflow: hidden;
+            position: relative;
+        }
+
+
+
+        .part-03-kard .btn-more {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            top: 23px;
+            right: 20px;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .part-03-kard .btn-more i {
+            position: absolute;
+            width: 4px;
+            height: 7px;
+            right: 0;
+            top: 50%;
+            margin-top: -3px;
+            background-image: url(https://xyq.res.netease.com/pc/gw/20170118103441/img/spriter/index_z_670b19d.png);
+            background-position: -430px -237px;
+            background-repeat: no-repeat;
+
+        }
+
+        .part-03-kard .box-title {
+            width: 900px;
+            font-size: 20px;
+            color: #3c3c3c;
+            font-weight: 400;
+            height: 60px;
+            line-height: 60px;
+            border-bottom: solid 1px #e8e8e8;
+            position: relative;
+        }
+
+        .news-box {
+            position: relative;
+            width: 900px;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .tab_box {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab_box a {
+            color: black
+        }
+
+        .tab_box a:hover {
+            color: red;
+        }
+
+        .tab_box .liear {
+            display: block;
+            position: absolute;
+            width: 78px;
+            height: 3px;
+            background: red;
+            left: 0;
+            top: 0;
+            transition: left .3s;
+            transition-delay: .1s
+        }
+
+        .tab {
+            flex: 1;
+            height: 42px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .tab.current {
+            /*同时又 tab 和 current者两个类名的元素才会有对应的样式 */
+            color: #fff;
+        }
+
+        .body_box {
+            width: 900px;
+            height: 236px;
+            overflow: hidden;
+        }
+
+        .body {
+            width: 100%;
+            height: 300px;
+            display: none;
+        }
+
+
+        .body.current {
+            display: block;
+            overflow: hidden;
+        }
+
+        .solide {
+            display: block;
+        }
+
+        .solide .solide_img {
+            display: block;
+            float: left;
+            position: relative;
+            width: 260px;
+            overflow: hidden;
+            height: 236px;
+            text-align: center;
+        }
+
+        .solide em {
+            position: absolute;
+            line-height: 24px;
+            left: 0;
+            right: 0;
+            height: 24px;
+            color: #fff;
+            font-size: 16px;
+            overflow: hidden;
+            display: block;
+            padding: 0 10px 2px;
+            bottom: 12px;
+        }
+
+        .solide em ib-txt {
+            display: inline-block;
+            vertical-align: middle;
+            font-style: normal;
+        }
+
+        .solide .solide_img em ib-txt i-video {
+            width: 44px;
+            height: 44px;
+            background-repeat: no-repeat;
+        }
+
+        .solide-bigmask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .8);
+            display: none;
+        }
+
+        .solide-list {
+            position: relative;
+            overflow: hidden;
+            height: 236px;
+        }
+
+        .solide-list li {
+            margin-left: 10px;
+            margin-bottom: 10px;
+            float: left;
+            width: 150px;
+            height: 113px;
+        }
+
+        .solide-list a {
+            overflow: hidden;
+            position: relative;
+            height: 113px;
+            text-align: center;
+        }
+
+        .ele-img {
+            display: block;
+            width: 150px;
+            height: 113px;
+        }
+
+        .solide-list a em {
+            padding: 0;
+            width: 100%;
+            height: 22px;
+            line-height: 22px;
+            bottom: 12px;
+            overflow: hidden;
+        }
+
+        .ele-img em {
+            position: absolute;
+            line-height: 20px;
+            padding: 0 10px;
+            color: #fff;
+            font-size: 14px;
+            bottom: 12px;
+            left: 0;
+            height: 20px;
+        }
+
+        .solide-list a .ib-txt {
+            line-height: 20px;
+            padding: 0 20px;
+            margin-top: -29px;
+            position: relative;
+        }
+
+        /* 第二次 */
+    </style>
+</head>
+
+<body>
+    <div class="part-03-kard">
+        <h4 class="box-title">梦幻热点
+
+        </h4>
+        <div class="news-box" id='news-box'>
+            <ul class='tab_box'>
+                <li class="tab current"><a href="">武神坛爆料</a> </li>
+                <li class="tab"><a href="">锦衣祥瑞</a></li>
+                <li class="tab"><a href="">成长记录</a></li>
+                <li class="tab"><a href="">牛人牛图</a></li>
+                <li class="tab"><a href="">冲新区</a></li>
+                <li class="tab"><a href="">互通版</a></li>
+                <li class="tab"><a href="">春心萌动 </a></li>
+                <li class="tab"><a href="">同人手绘</a></li>
+                <i class="liear"></i>
+            </ul>
+            <ul class="body_box">
+                <li class="body current">
+                    <div class="solide">
+                        <a href="http://tuku.xyq.163.com/s/pic.html?album_id=5d7e1a23f874e8521decf791&image_id=5d7e205c8617ef589ac68f51"
+                            class="solide_img">
+                            <img src="https://nie.res.netease.com/r/pic/20190916/2d3e790d-f85a-4cbe-8671-e22e11b53d07.png"
+                                alt="" width="260" height="236">
+                            <em><i class="ib-txt">
+                                    <i class="i-video"></i>
+                                    <br>
+                                    158届武神坛 各大服战队硬件风采展示</i><i class="ib-img"></i></em>
+                            <div class="solide_bigmask">
+
+                            </div>
+                        </a>
+                        <ul class="solide-list">
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="" class="ele-img"><img
+                                        src="https://nie.res.netease.com/r/pic/20191022/1ab73660-70c1-4124-9f88-c92f07bc0771.png"
+                                        alt="">
+                                    <em><i class="ib-txt"><i class="i-video"></i><br>文哥第一狮驼岭多件17段</i><i
+                                            class="ib-img"></i></em>
+                                </a>
+                                <div class="solide_mask">
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="body"> 2</li>
+                <li class="body"> 3</li>
+                <li class="body">4 </li>
+                <li class="body">5 </li>
+                <li class="body">6</li>
+                <li class="body">7</li>
+                <li class="body">8</li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        <a href="" class="btn-more">
+            更多
+            <i></i>
+        </a>
+    </div>
+
+
+</body>
+
+</html>
+<script src="../梦幻西游实战/js/jq.js"></script>
+<script>
+
+    function Tab(idSelector) {
+        this.box = document.querySelector(idSelector); // 获取到最外层盒子
+        this.tabs = this.box.getElementsByClassName('tab');
+        this.bodys = this.box.getElementsByClassName('body');
+        this.a = this.box.querySelectorAll('a');
+        this.liear = this.box.querySelector('.liear')
+        this.mapBind();
+    }
+    Tab.prototype.mapBind = function () {
+        for (let i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].onmouseenter = () => {
+
+                this.clearClass();
+                this.tabs[i].className = 'tab current';
+                this.bodys[i].className = 'body current';
+                switch (i) {
+                    case 0:
+                        this.liear.style.left = 0 + 'px'
+                        break;
+                    case 1:
+                        this.liear.style.left = 0 + this.tabs[1].clientWidth + 'px'
+                        break;
+                    case 2:
+                        this.liear.style.left = 0 + this.tabs[2].clientWidth * 2 + 'px'
+                        break;
+                    case 3:
+                        this.liear.style.left = 0 + this.tabs[3].clientWidth * 3 + 'px'
+                        break;
+                    case 4:
+                        this.liear.style.left = 0 + this.tabs[4].clientWidth * 4 + 'px'
+                        break;
+                    case 5:
+                        this.liear.style.left = 0 + this.tabs[5].clientWidth * 5 + 'px'
+                    case 6:
+                        this.liear.style.left = 0 + this.tabs[5].clientWidth * 5 + 'px'
+                    case 7:
+                        this.liear.style.left = 0 + this.tabs[5].clientWidth * 5 + 'px'
+                }
+            }
+        }
+    }
+    Tab.prototype.clearClass = function () {
+        for (var i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].className = 'tab';
+            this.bodys[i].className = 'body';
+        }
+    }
+
+    var tab = new Tab('#news-box');
+
+    function black(){
+    let $wstImg = $('.wst-img');
+    $mask = $wstImg.find('.mask')
+    $wstImg.on('mouseenter', function (e) {
+        $mask.css({ display: 'block' })
+        move(e)
+    })
+    $wstImg.on('mouseleave', function (e) {
+        move(e)
+    })
+
+    function move(e) {
+        var e = e || window.event
+        var target =$wstImg[0];
+        //获取鼠标x,y坐标
+        var x = e.pageX
+        var y = e.pageY
+        console.log(x,y)
+        //获取图片距离浏览器位置
+        var t = $wstImg.offset().top
+        var b = t + target.offsetHeight
+        var l = $wstImg.offset().left
+        var r = l + target.offsetWidth
+        console.log(t,b,l,r)
+        //获取鼠标与图片距离浏览器位置的差值（注意有负值，需要绝对值 Math.abs）
+        var chaYT = Math.abs(y - t)
+        var chaYB = Math.abs(y - b)
+        var chaXL = Math.abs(x - l)
+        var chaXR = Math.abs(x - r)
+        //取得最小值
+        var min = Math.min(chaYT, chaYB, chaXL, chaXR)
+        let boxT = $wstImg[0].clientHeight
+        let boxW = $wstImg[0].clientWidth
+        switch (min) {
+            case chaYT: //上
+            console.log('上')
+                if (e.type == 'mouseenter') {
+                    $mask.css({ top: -boxT + 'px', left: '0' }).animate({ top: 0, left: 0 }, 300)
+                } if (e.type == 'mouseleave') {
+                    $mask.animate({ top: -boxT + 'px', left: 0 }, 200)
+                }
+                break;
+
+            case chaYB://下
+            console.log('下')
+                if (e.type == 'mouseenter') {
+                    $mask.css({ top: boxT + 'px', left: '0' }).animate({ top: 0, left: 0 }, 300)
+                } if (e.type == 'mouseleave') {
+                    $mask.animate({ top: boxT + 'px', left: 0 }, 300)
+                }
+                break;
+            case chaXL://左
+            console.log('左')
+                if (e.type == 'mouseenter') {
+                    $mask.css({ top: 0, left: -boxW + 'px' }).animate({ top: 0, left: 0 }, 300)
+                } if (e.type == 'mouseleave') {
+                    $mask.animate({ top: 0, left: -boxW + 'px' }, 300)
+                    console.log('左');
+                    
+                }
+                break;
+
+            case chaXR://右
+            console.log('右');
+                if (e.type == 'mouseenter') {
+                    $mask.css({ top: 0, left: boxW + 'px' }).animate({ top: 0, left: 0 }, 300)
+                } if (e.type == 'mouseleave') {
+                    $mask.animate({ top: 0, left: boxW + 'px' }, 300)
+                    console.log('右');
+                }
+                break;
+        }
+    }
+}
+black()
+    
+</script>

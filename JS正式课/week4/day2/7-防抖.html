@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 2000px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box"></div>
+    <input type="text" id="inp">
+</body>
+
+</html>
+<script>
+    //在连续触发某个函数的时候我们只在最后的时候让对应的函数执行；
+    /*     var timer=null;
+    window.onscroll=function(){
+        clearTimeout(timer)
+        timer=setTimeout(()=>{
+           console.log(666)
+        },1000)
+    } */
+    function debounce(fn,wait) {
+        wait = wait || 100
+        var timer = null;
+        return function () {
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                fn.call(this, ...arguments)//保证this执行 和参数的传递
+            }, wait)
+        }
+    }
+    let fn = (function () { console.log(this) })
+    let f = debounce(fn)
+    window.onscroll = f
+
+  
+  
+</script>

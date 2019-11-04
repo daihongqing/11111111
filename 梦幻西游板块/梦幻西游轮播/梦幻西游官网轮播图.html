@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+   .banner{
+       position: relative;
+       width: 462px;
+       height: 460px;
+   }
+        .box4 {
+            margin: auto;
+            overflow: visible;
+            position: relative;
+            width: 100%;
+            height:100%;
+        }
+
+        .img_box {
+            width: 462px;
+            height: 460px;
+            overflow: hidden;
+        }
+
+        .img_box ul {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .img_box ul li {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img_box ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+       .box4 .desc {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 44px;
+            background-color: rgba(225, 225, 225, .5);
+            z-index: 2;
+        }
+
+        .desc ul {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+       
+        .desc ul li {
+            width: 24.75%;
+            height: 100%;
+            float: left;
+            text-align: center;
+            line-height: 44px;
+            border-right: 1px black solid;
+
+        }
+        .desc2 li{
+         width: 230px !important;
+        }
+        .desc ul .bg {
+            background: rgba(255, 0, 0, .5);
+        }
+
+        .title {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 10;
+            background: #ccc;
+            width: 121px;
+            height: 50px;
+            box-sizing: border-box;
+        }
+
+        .title span {
+            text-align: center;
+            line-height: 50px;
+            width: 60px;
+            height: 100%;
+            float: left;
+            cursor: pointer;
+        }
+
+        .title span:nth-child(1) {
+            border-right: 1px solid black;
+
+        }
+
+        .title .blue {
+            background: blue;
+        }
+       .right-box{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+
+    
+        <div class="title">
+                <span class="blue">官方</span>
+                <span>合作</span>
+        </div>
+       <div class="box4">
+        <div class="img_box">
+            <ul>
+                <li>
+                    <img src="https://fz.fp.ps.netease.com/file/5dad27e18b7427b98541e326S79SdH5L02" alt="10.25新服">
+
+                </li>
+                <li>
+                    <img src="https://fz.fp.ps.netease.com/file/5da7d9427f9d2ad01d914623stLMa4KR02" alt="">
+
+                </li>
+                <li>
+                    <img src="https://fz.fp.ps.netease.com/file/5d9b04627f9d2a5aeb80d2afiYFv1W8T02" alt="">
+
+                </li>
+                <li>
+                    <img src="https://fz.fp.ps.netease.com/file/5d7620da5e60272ba22a096cIR7ctjWQ02" alt="">
+
+                </li>
+            </ul>
+        </div>
+        <div class="desc">
+                <ul>
+                    <li>10.25新服</li>
+                    <li>群雄逐鹿</li>
+                    <li>驯龙猎手</li>
+                    <li>白城兽王赛</li>
+                </ul>
+            </div>
+       </div>
+      
+        <div class="box4 right-box" >
+            <div class="img_box img_box2">
+                <ul>
+                  
+                    <li>
+                        <img src="https://fz.fp.ps.netease.com/file/5db65d69143cfa1265336071XsJdbbr502" alt="">
+    
+                    </li>
+                    <li>
+                        <img src="https://fz.fp.ps.netease.com/file/5d4bceac6f0494782d9f638b9gSKc3mf02" alt="">
+    
+                    </li>
+              
+                </ul>
+            </div>
+            <div class="desc desc2">
+                <ul>
+                    <li>第五人格</li>
+                    <li>超级会员</li>
+                    
+                </ul>
+            </div>
+            </div>
+        </div>
+</body>
+
+</html>
+<script src="./jq.js"></script>
+<script>
+    let $box = $('.box4')
+        $imgbox = $('.img_box'),
+        $imgli = $('.box4 .img_box li')
+    $imgli2=$('.box4 .img_box2 li')
+        $desc = $('.desc'),
+        $descli = $('.desc li')
+        $title=$('.title')
+        $span=$title.find('span')
+        $desc2 = $('.desc2 li')
+    let timer = null, n = 0,m=0
+
+    function move() {
+        n++
+        if (n > $imgli.length) {
+            n = 0
+        }
+        $imgli.eq(n).css({ opacity: 0 }).show().animate({ opacity: 1 }, 300).siblings().animate({ opacity: 0 }, 300, function () {
+            $imgli.eq(n).siblings().hide();
+        });
+        bg()
+    }
+    function move2() {
+        m++
+        if (m > $imgli2.length) {
+            m = 0
+        }
+        $imgli2.eq(m).css({ opacity: 0 }).show().animate({ opacity: 1 }, 300).siblings().animate({ opacity: 0 }, 300, function () {
+            $imgli2.eq(m).siblings().hide();
+        });
+        bg2()
+    }
+    function bg2() {
+        $descli.eq(m).addClass('bg').siblings().removeClass('bg')
+    }
+    function automove() {
+        timer = setInterval(() => {
+            move()
+        }, 2000);
+    }
+    automove()
+
+    function bg() {
+        $descli.eq(n).addClass('bg').siblings().removeClass('bg')
+    }
+
+    $descli.on('mouseenter', function (e) {
+        var tar = e.target || e.srcElement;
+        var $tar = $(tar)
+        clearInterval(timer)
+        bg()
+        if (tar.nodeName.toLowerCase() == 'li') {
+            n = $tar.index()
+            n--
+            move()
+        }
+    })
+    $desc2.on('mouseenter', function (e) {
+        var tar = e.target || e.srcElement;
+        var $tar = $(tar)
+        $desc2.eq(m).addClass('bg').siblings().removeClass('bg')
+        if (tar.nodeName.toLowerCase() == 'li') {
+            m = $tar.index()
+            m--
+            move2()
+        }
+    })
+    $descli.on('mouseleave', function (e) {
+        automove()
+        // bg()
+    })
+    $span.on('click',function (){
+        $(this).addClass('blue').siblings().removeClass('blue')
+        var index=$(this).index();
+        if (index==0) {
+            $box.eq(1).addClass('right-box').siblings().removeClass('right-box')
+        }else{
+            $box.eq(0).addClass('right-box').siblings().removeClass('right-box')
+        }
+    })
+
+
+
+
+
+
+
+
+</script>

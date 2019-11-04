@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* #box {
+            margin: 50px auto;
+        } */
+
+        .small_box {
+
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+
+        .small_box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .center {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(225, 0, 0, .3);
+            width: 200px;
+            height: 200px;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="small_box">
+            <img src="./1.jpg" alt="">
+            <div class="center"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let small_box = document.querySelector('.small_box')
+    let centerbox = small_box.querySelector('.center')
+    small_box.onmouseenter = function () {
+        // let mark = document.createElement('div')
+        // mark.className = 'center'
+        // small_box.appendChild(mark)
+    }
+    small_box.onmouseleave = function () {
+        // this.removeChild(mark)
+    }
+    small_box.onmousemove = function (e) {
+        let markL = e.pageX - small_box.offsetLeft - small_box.clientWidth / 2
+        markH = e.pageY - small_box.offsetTop - small_box.clientHeight / 2
+        centerbox.style.left = markL + 'px'
+        centerbox.style.top = markH + 'px'
+    }
+
+
+
+
+
+
+</script>

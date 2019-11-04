@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="qqq">
+        珠峰珠峰
+    </div>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById('box')
+    HTMLElement.prototype.hasClass = function (cln) {
+        let str = this.className;
+        str = str.replace(/^ +| +$/g, '')//去除首尾空格
+        let ary = str.split(/ +/)
+        cln = cln.replace(/^ +| +$/g, '')
+        return ary.indexOf(cln) == -1 ? false : true
+        let arr = cln.split(/ +/);
+        //可以使用ary个arr的交集数组与arr进行长度比较
+        let temp = []
+
+    }
+
+    HTMLElement.prototype.hasClass = function (cln) {
+        if (!cln.replace(/^ +| +$/g, '').length) {
+            return false
+        }
+        let arr = cln.replace(/^ +| +$/g, '').split(/ +/);
+        // let ary = this.className.replace(/^ +| +$/g,'').split(/ +/)
+        let str = this.className;
+        let flag = true;
+        for (let i = 0; i < arr.length; i++) {
+            let reg = new RegExp(`\\b${arr[i]}\\b`)
+            if (!reg.test(str)) {
+                flag = false
+                break;
+            }
+        }
+        return flag
+    }
+
+
+
+    box.hasClass('a')
+    box.hasClass('aaa')
+
+    HTMLElement.prototype.addClass = function (cln) {
+        if (this.hasClass(cln)) return
+        let arr = cln.replace(/^ +| +$/, ''.split(/ +/));
+        arr.forEach(item => {
+            this.hasClass(item) ? null : str += '' + item
+        })
+        str=str.replace(/^ +| +$/g,'').replace(/ +/g,' ')
+        this.className=str
+    }
+    HTMLElement.prototype.removeClass=function (cln){
+        if (!this.hasClass(cln)) return;
+        let arr = cln.replace(/^ +| +$/.split(/ +/))
+        let str=this.className;
+        arr.forEach(item=>{
+            let reg = new RegExp(`\\b`+item+`\\b`,'g');
+           str= str.replace(reg,'')
+        })
+        str=str.replace(/^ +| +$/g,'').replace(/ +/g,' ')
+        this.className=str
+    }
+   
+    HTMLElement.prototype.toggleClass=function(cln){
+      if (condition) {
+          
+      }
+    }
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   /*  RegExp.prototype.execall=function (str){
+        let _this=this;
+        if(!_this.global){
+            _this=eval(_this+'g')
+        }
+        let ary=[];
+        let res=_this.exec(str)
+        while (res) {
+            ary.push(res);
+            res=_this.exec(str)
+        }
+        return ary
+    }
+
+    var str="sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2216a91b2f43c43-00b58455a87b27-3c644d0e-921600-16a91b2f43d2e%22%2C%22%24device_id%22%3A%2216a91b2f43c43-00b58455a87b27-3c644d0e-921600-16a91b2f43d2e%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; SUV=1905080941067530; smidV2=2019050809410405042f2e419b3817ca725be23bd4533a00189265daef61150; IPLOC=CN1101; Hm_lvt_51bfa68f6bea432417d90d76280e520f=1567495209,1567734865,1568944687,1569297722; u_main=1044afcba5c47c90b47f9c3f96fd05d2; u_www_souyidai_com=b7c425bb61fce275185c06e83e67f393"
+ 
+(function(){
+   function rem(key){
+    var obj={}
+    var reg=/([^; =]+)=([^; =]+)/
+    str.replace(reg,function(a,b,c){
+        obj[b]=c
+    })
+    console.log(str)
+    return key? obj[key] : obj
+   } 
+})()
+\u4e00-\u9fa5 */
+
+//英文字母汉字组成的字符串，用正则给英文单词前后加空格 再去除首尾空格
+    var str = 'no手机no萨 时间啊can, 行高no课件'
+    //var reg=/(\w+\u4e00-\u9fa5)\1 [\u4e00-\u9fa5]{3}\, ([\u4e00-\u9fa5]{2}\w+)\1/
+    var reg=/\b+/g
+   var ary = str.match(reg)
+   console.log(ary);
+   
+   ary.forEach(item => {
+       var ary1=' '+item
+       console.log([...ary1].join(' '));
+      
+   });
+   
+    
+  /* str.replace(reg,function (a){
+     console.log( [...a]);
+     
+  }) */
+
+  
+
+
+// var reg = /([^ \[\]]+)=([^ \[\]]+)/
+</script>

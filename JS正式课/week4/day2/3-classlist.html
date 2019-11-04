@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="qqq www">开始就看见</div>
+</body>
+</html>
+<script>
+ var box=document.getElementById('box')
+console.log(box.classList)
+box.classList.add('qqq')//添加类名，功能相当于我们的addclass
+box.classList.remove('ww','zzz')//删除类名 功能相当于我们的remove
+box.classList.contains('ww')//判断类名是否存在 不支持多个一块检测
+box.classList.toggle('www')//功能相当于我们的toggleClass
+
+</script>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none
+        }
+
+        .news-box {
+            position: relative;
+            width: 478px;
+            height: 460px;
+            margin: 30px auto;
+
+        }
+
+        .tab_box {
+            display: flex;
+
+        }
+
+        .tab_box a {
+            color: black
+        }
+
+        .tab_box a:hover {
+            color: red;
+        }
+
+        .tab_box .liear {
+            display: block;
+            position: absolute;
+            width: 79px;
+            height: 3px;
+            background: red;
+            left: 0;
+            top: 0;
+            transition: left .3s;
+            transition-delay: .1s
+        }
+
+        .tab_box .more {
+            flex: 1;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            transition: all .4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab_box .more .border {
+            position: absolute;
+            left: 65px;
+            top: 23px;
+            display: inline-block;
+            border-top: 1px solid;
+            border-right: 1px solid;
+            border-color: black;
+            width: 6px;
+            height: 6px;
+            margin-left: 5px;
+            transform: rotate(45deg);
+            transition: left .4s;
+        }
+        .tab_box .more:hover {
+            transform: translateX(6px);
+        }
+        .tab_box .more:hover .border{
+            left: 72px;
+        }
+        .tab {
+            flex: 1;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        .tab.current {
+            /*同时又 tab 和 current者两个类名的元素才会有对应的样式 */
+            color: #fff;
+        }
+
+        .body_box {
+            width: 100%;
+            height: 398px;
+            border: 1px dashed salmon;
+            border-top: none;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .body {
+            width: 100%;
+            height: 300px;
+            display: none;
+        }
+        .body.current {
+            display: block;
+        }
+
+        .body .img_box {
+            display: inline-block;
+            width: 418px;
+            height: 114px;
+            padding: 27px 0 23px;
+            margin: 0 27px;
+            border-bottom: dotted 1px #dadada;
+        }
+
+        .body:nth-child(1) {
+            height: 100%;
+        }
+
+        .body .img_box img {
+            float: left;
+            margin-right: 25px;
+        }
+
+        .body .img_box p {
+            float: left;
+            width: 243px;
+            height: 108px;
+        }
+
+        .body .img_box p em {
+            display: block;
+            color: #f24854;
+            font-size: 16px;
+            line-height: 18px;
+            height: 18px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            font-style: normal;
+        }
+
+        .body .img_box p span {
+            display: block;
+            line-height: 25px;
+            font-size: 14px;
+            color: #3c3c3c;
+            height: 75px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            word-break: break-all;
+            white-space: normal;
+        }
+
+        .body .txt-list {
+            padding: 15px 20px 0 20px;
+            width: 435px;
+            height: 234px;
+        }
+
+        .body .txt-list .top-news {
+            height: 38px;
+
+            background: #f5f7f9;
+            font-weight: 700;
+            line-height: 38px;
+
+        }
+
+        .body .txt-list a {
+            font-size: 14px;
+            padding-right: 50px;
+            height: 38px;
+            line-height: 38px;
+
+        }
+
+        .body .txt-list a {
+            font-size: 14px;
+            color: #3c3c3c;
+            display: block;
+            line-height: 34px;
+            height: 34px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .recom {
+            width: 42px;
+            height: 38px;
+            text-align: center;
+            line-height: 38px;
+            color: #fff;
+            background: #f24854;
+            display: block;
+            float: left;
+            position: relative;
+            font-size: 14px;
+            margin-right: 12px
+        }
+
+        .txt-list li {
+            position: relative;
+        }
+
+        .recom i {
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            position: absolute;
+            right: -9px;
+            top: 15px;
+            border-color: transparent transparent transparent #f24854;
+        }
+
+        .body .txt-list .time {
+            color: #b8b8b9;
+            font-size: 14px;
+            line-height: 34px;
+            height: 34px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 5px;
+        }
+
+        .txt-list .red a {
+            color: red;
+
+        }
+
+        .txt-list li:hover a {
+            color: red;
+        }
+
+        .pic-news {
+            display: block;
+            padding: 27px 0 23px;
+            margin: 0 20px;
+            border-bottom: dotted 1px #dadada;
+        }
+
+        .pic-news p {
+            height: 108px;
+            overflow: hidden;
+        }
+
+        .pic-news p em {
+            display: block;
+            color: #f24854;
+            font-size: 16px;
+            line-height: 18px;
+            height: 18px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            font-style: normal;
+        }
+
+        .pic-news p span {
+            display: block;
+            line-height: 25px;
+            font-size: 14px;
+            color: #3c3c3c;
+            height: 75px;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            word-break: break-all;
+        }
+      /* 第二次 */
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="news-box" id='news-box'>
+        <ul class='tab_box'>
+            <li class="tab current"><a href="">综合</a> </li>
+            <li class="tab"><a href="">维护</a></li>
+            <li class="tab"><a href="">专题</a></li>
+            <li class="tab"><a href="">论坛</a></li>
+            <li class="tab"><a href="">媒体</a></li>
+            <div class="more"><a href="">更多<span class="border"></span></a></div>
+            <i class="liear"></i>
+        </ul>
+        <ul class="body_box">
+            <li class="body current">
+                <a href="" class="img_box">
+                    <img src="https://nie.res.netease.com/r/pic/20191021/30f35840-dbe0-43a1-964f-6fc6eb3ba6ba.jpg"
+                        alt="">
+                    <p>
+                        <em>159联武神坛：珍宝阁勇夺七连冠</em>
+                        <span>《梦幻西游》电脑版武神坛之战，堪称梦幻赛事最高荣誉的PK盛会。这里汇聚了各个服务器的知名服战玩家和他们专研出来的经典战术。</span>
+                    </p>
+                </a>
+                <ul class="txt-list">
+                    <li class="top-news">
+                        <a href="">
+                            <span class="recom">
+                                推荐
+                                <i></i>
+                            </span>
+                            打游戏的快乐水，严选承包了！
+                            <span class="time">08/21</span>
+                        </a>
+                    </li>
+                    <li><a href="">
+                            《梦幻西游》电脑版2019年11月开服公告
+                            <span class="time">10/30</span>
+                        </a></li>
+                    <li><a href="//xyq.163.com/news/20190930/4905_835712.html" target="_blank">
+                            《梦幻西游》电脑版 2019年10月服务器名称清理公告
+                            <span class="time">10/01</span>
+                        </a></li>
+                    <li class="red"><a href="//xyq.163.com/news/20191017/4905_841222.html" target="_blank">
+                            首届明星主播金腰带争夺赛！梦幻西游新服“蓬莱仙境”新手比武大赛一触即发
+                            <span class="time">10/17</span>
+                        </a></li>
+                    <li class="red"><a href="//xyq.163.com/news/20191029/4905_843946.html" target="_blank">
+                            撸猫饮咖享赛事！携手七城猫咖，为“百城兽王赛”助力
+                            <span class="time">10/29</span>
+                        </a></li>
+                    <li><a href="//xyq.163.com/news/20191030/4905_844414.html" target="_blank">
+                            轻松游戏，畅快聊天！全新梦幻篇表情包微信上线
+                            <span class="time">10/30</span>
+                        </a></li>
+                </ul>
+
+            </li>
+            <li class="body">
+                <a href="//xyq.163.com/wh/20191027/4907_843568.html" class="pic-news">
+                    <p>
+                        <em>2019年10月29日定期维护公告</em>
+                        <span>
+                            亲爱的玩家朋友：为保证服务器的运行稳定和服务质量，《梦幻西游》所有服务器将于2019年10月29日上午8:00停机，进行每周例行的维护工作。预计维护时间为上午8:00至9:30，请各位玩家相互转告，并提前留意游戏时间，以免造成不必要的损失。
+                        </span>
+                    </p>
+                </a>
+                <ul class="txt-list">
+                    <li>
+                        <a href="//xyq.163.com/wh/20191019/4907_841849.html" target="_blank">
+
+                            2019年10月22日定期维护公告
+                            <span class="time">10/19</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//xyq.163.com/wh/20191013/4907_840260.html" target="_blank">
+
+                            2019年10月15日定期维护公告
+                            <span class="time">10/13</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//xyq.163.com/wh/20190929/4907_835266.html" target="_blank">
+
+                            2019年10月8日定期维护公告
+                            <span class="time">09/29</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//xyq.163.com/wh/20190929/4907_835179.html" target="_blank">
+
+                            2019年10月1日定期维护公告
+                            <span class="time">09/29</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//xyq.163.com/wh/20190920/4907_833678.html" target="_blank">
+
+                            2019年9月24日定期维护公告
+                            <span class="time">09/20</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//xyq.163.com/wh/20190912/4907_832390.html" target="_blank">
+
+                            2019年9月17日定期维护公告
+                            <span class="time">09/12</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="body">
+                <a href="" class="img_box">
+                    <img src="https://nie.res.netease.com/r/pic/20191028/98b49b9f-7593-4ed5-af7d-40cf832f6149.jpg"
+                        alt="">
+                    <p>
+                        <em>《梦幻西游》电脑版单身节活动专题
+                        </em>
+                        <span>《梦幻西游》电脑版2019单身节活动专题，一种相思，两处闲愁。</span>
+                    </p>
+                </a>
+                <ul class="txt-list">
+                    <li>
+                        <a href="http://xyq.163.com/2019/jinyi/wsng.html" target="_blank">
+
+                            《梦幻西游》电脑版新锦衣怒火头冠诡笑假面专题
+                            <span class="time">10/28</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://xyq.163.com/2019/xmhz/" target="_blank">
+
+                            群雄逐鹿第六赛季冠军诞生
+                            <span class="time">10/08</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://xyq.163.com/2019/jinyi/yllsys.html" target="_blank">
+
+                            《梦幻西游》电脑版新锦衣驭龙猎手专题
+                            <span class="time">10/07</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://xyq.163.com/chongyang/" target="_blank">
+
+                            《梦幻西游》电脑版2019重阳节活动专题
+                            <span class="time">09/30</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://xyq.163.com/guoqing/" target="_blank">
+
+                            《梦幻西游》电脑版2019十一节活动专题
+                            <span class="time">09/23</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="http://xyq.163.com/2019/jlh/xiamen/index.html" target="_blank">
+
+                            《梦幻西游》电脑版2019群雄逐鹿&amp;玩家交流盛典厦门站专题
+                            <span class="time">09/20</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="body">
+                <a href="" class="img_box">
+                    <p>
+                        <em>《梦幻西游》电脑版单身节活动专题
+                        </em>
+                        <span>《梦幻西游》电脑版2019单身节活动专题，一种相思，两处闲愁。</span>
+                    </p>
+                </a>
+                <ul class="txt-list">
+                    <li>
+                        <a href="https://xyq.netease.com/thread-6653793-1-1.html?refer_site=gw" target="_blank">
+
+                            全新“万圣节”主题锦衣祥瑞上架啦！
+                            <span class="time">10/30</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="https://xyq.netease.com/thread-6649686-1-1.html?refer_site=gw" target="_blank">
+
+                            2019年十月门派调整测试详解
+                            <span class="time">10/28</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="https://xyq.netease.com/thread-6651340-1-1.html?refer_site=gw" target="_blank">
+
+                            雪无炼妖预言现场翻车，阿海改书须弥召唤兽理由惊人
+                            <span class="time">10/28</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="https://xyq.netease.com/thread-6650855-1-1.html?refer_site=gw" target="_blank">
+
+                            这次门派调整你怎么看？
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="https://xyq.netease.com/thread-6649658-1-1.html?refer_site=gw" target="_blank">
+
+                            《武神坛巅峰时刻》159联淘汰赛
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://xyq.netease.com/thread-6630096-1-1.html?refer_site=gw" target="_blank">
+
+                            《武神坛巅峰时刻》159联小组赛：心源加持下的狮驼岭，这谁顶得住啊！
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="body">
+                <a href="" class="img_box">
+                    <p>
+                        <em>玩家投稿感人故事，高兽诀能不能让你想起我？
+
+                        </em>
+                        <span>玩家私信投稿，因为开学，以前的朋友得了高级魔兽要诀后让自己保管却十年没有重新上号，再上号时却已经犹如路人，不再记得从前的欢乐时光了</span>
+                    </p>
+                </a>
+                <ul class="txt-list">
+                    <li>
+                        <a href="//xyq.163.com/media/20191025/4909_843290.html" target="_blank">
+
+                            新区乌鸡国副本攻略 三囚神妖怪12回合杀法
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="//xyq.163.com/media/20191025/4909_843287.html" target="_blank">
+
+                            新区39比武大会决赛 双骷髅大唐逆天翻盘
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="//xyq.163.com/media/20191025/4909_843286.html" target="_blank">
+
+                            凌波城门派调整后测试 贯通BUFF不叠加
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="//xyq.163.com/media/20191025/4909_843285.html" target="_blank">
+
+                            梦幻西游珍宝阁七连冠回顾 开启新的传奇时代！
+                            <span class="time">10/25</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="//xyq.163.com/media/20191022/4909_842344.html" target="_blank">
+
+                            梦幻美少女都网恋奔现了，而你还在单身？
+                            <span class="time">10/22</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="//xyq.163.com/media/20191016/4909_840976.html" target="_blank">
+
+                            醉奶哥更新两只神马力劈 涛哥机关兽极限改书
+                            <span class="time">10/16</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    function Tab(idSelector) {
+        this.box = document.querySelector(idSelector); // 获取到最外层盒子
+        this.tabs = this.box.getElementsByClassName('tab');
+        this.bodys = this.box.getElementsByClassName('body');
+        this.a = this.box.querySelectorAll('a');
+        this.liear = this.box.querySelector('.liear')
+        this.mapBind();
+    }
+    Tab.prototype.mapBind = function () {
+        for (let i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].onmouseenter = () => {
+
+                this.clearClass();
+                this.tabs[i].className = 'tab current';
+                this.bodys[i].className = 'body current';
+                switch (i) {
+                    case 0:
+                        this.liear.style.left = 0 + 'px'
+                        break;
+                    case 1:
+                        this.liear.style.left = 0 + this.tabs[1].clientWidth + 'px'
+                        break;
+                    case 2:
+                        this.liear.style.left = 0 + this.tabs[2].clientWidth * 2 + 'px'
+                        break;
+                    case 3:
+                        this.liear.style.left = 0 + this.tabs[3].clientWidth * 3 + 'px'
+                        break;
+                    case 4:
+                        this.liear.style.left = 0 + this.tabs[4].clientWidth * 4 + 'px'
+                        break;
+                }
+            }
+        }
+    }
+    Tab.prototype.clearClass = function () {
+        for (var i = 0; i < this.tabs.length; i++) {
+            this.tabs[i].className = 'tab';
+            this.bodys[i].className = 'body';
+        }
+    }
+
+    var tab = new Tab('#news-box');
+</script>

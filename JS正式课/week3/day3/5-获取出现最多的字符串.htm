@@ -26,7 +26,7 @@
     }} */
     
     //正则  
-    var reg= /(\w)(\w)\1/   //    \几就代表几个小分组的内容
+  var reg= /(\w)(\w)\1/   //    \几就代表几个小分组的内容
   reg.test('abb')//false
   reg.test('aaa')//true
   reg.test('aba')//true
@@ -43,6 +43,8 @@
  var ary=str.match(reg)
  ary.sort((a,b)=>b.length-a.length)
  console.log(ary[0],ary[0].length)
+
+ 
 
 
 </script>

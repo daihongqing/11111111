@@ -1,0 +1,89 @@
+/* 
+less   1、嵌套写法
+       2、可以写变量
+       3、混合
+       4、函数
+       5、循环
+*/
+.mysyle(@a,@b){
+   width: @a;
+   height: @b;
+}
+
+@w:200px;  //声明一个变量 @w对应的值是200px
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+@b:box;
+@img:'./img';
+@keyframes move {
+    0% {
+        transform: rotateX(0) rotateY(0);
+    }
+   
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+span:extend(.w){
+    //只混合.w自己的样式  不会混合后代的样式
+}
+#box {
+    background: url(@{img});
+    width: @w;
+    height: @w;
+    margin: 150px auto;
+    position: relative;
+    background: sandybrown;
+    perspective: 2000px;
+    ul {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transform: rotateX(45deg) rotateY(30deg);
+        animation: move 2s infinite linear;
+        transform-origin: -100px 100px -100px;
+        /*x   y    z   旋转基准点*/
+        li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: @w;
+            background: rgba(102, 212, 216);
+            border: 1px dashed salmon;
+            box-sizing: border-box;
+            &:nth-child(2){
+                background: rgb(139, 148, 233);
+                transform: rotateX(-90deg);
+                transform-origin: bottom
+            }
+            &:nth-child(3){
+                background: rgb(170, 96, 219);
+                transform: rotateY(90deg);
+                transform-origin: right
+            }
+            &:nth-child(4){
+                background: rgb(205, 236, 89);
+                transform: rotateY(-90deg);
+                transform-origin: left
+            }
+            &:nth-child(5){
+                background: rgb(159, 219, 153);
+                transform: rotateX(90deg);
+                transform-origin: top
+            }
+            &:nth-child(6){
+                background: rgb(233, 171, 91);
+                transform: translateZ(@w);
+            }
+           
+
+        }
+    }
+}
